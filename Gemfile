@@ -6,7 +6,8 @@ gem 'carrierwave'
 gem 'devise'
 gem 'mail_view', '~> 1.0.3'
 gem 'pg', require: 'pg'
-
+gem 'foreman'
+gem 'unicorn'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.5'
