@@ -1,0 +1,45 @@
+section, .section
+  +clearfix
+  padding: 15px 15px 0px
+  background: #e6ecf0
+  position: relative
+  +box-shadow(0px 0px 10px rgba(0, 0, 0, 0.5))
+  &.nopadding
+    padding: 0px
+  &.rounded
+    +border-radius(5px)
+  &.noborder
+    border: 0px none
+    +box-shadow(0px 0px 0px transparent)
+  header
+    padding: 10px
+    background: $off_white
+    p, h1, h2, h3, h4, h5, h6
+      margin: 0px
+  footer
+    background: rgba($white, .75)
+    width: 100%
+    padding: 10px
+    z-index: 100
+    position: absolute
+    bottom: 0px
+    left: 0px
+    p, h1 ,h2, h3, h4, h5 h6
+      margin: 0px
+  aside
+    padding: 10px
+    position: absolute
+    right: 0px
+    top: 20px
+    background: rgba($white, 0.9)
+    width: 300px
+    max-height: 280px
+    overflow: scroll
+    p, h1, h2, h3, h4, h5, h6
+      margin: 0px
+    p
+      font-size: 0.9em
+
+.full-bleed
+  margin-left: -20px
+  margin-right: -20px
