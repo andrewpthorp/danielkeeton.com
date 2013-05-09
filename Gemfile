@@ -13,9 +13,12 @@ group :assets do
   gem 'sass-rails', '~> 3.2.5'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  gem 'jquery-rails'
   gem 'zurb-foundation'
   gem 'haml'
   gem 'sass'
+  gem 'compass'
+  gem 'compass-rails'
 end
 
 group :development do
