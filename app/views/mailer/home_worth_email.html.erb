@@ -4,7 +4,41 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <p>You have a new inquiry about what a home is worth:</p>
+    <h1>You have a new inquiry about what a home is worth:</h1>
+
+    <p>
+      Name: <%= @data[:name] %>
+    </p>
+
+    <p>
+      Email: <%= @data[:email] %>
+    </p>
+
+    <p>
+      Phone: <%= @data[:phone] %>
+    </p>
+
+    <p>
+      Address: <%= @data[:address] %>
+    </p>
+
+    <p>
+      Square Feet: <%= @data[:square_feet] %>
+    </p>
+
+    <p>
+      Number of Bedrooms: <%= @data[:bedrooms] %>
+    </p>
+
+    <p>
+      Number of Bathrooms: <%= @data[:bathrooms] %>
+    </p>
+
+    <p>
+      Updates: <%= @data[:updates] %>
+    </p>
+
+    <h2>P.S. I think you smell funny.</h2>
   </body>
 </html>
 

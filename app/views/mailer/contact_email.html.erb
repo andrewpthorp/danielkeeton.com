@@ -4,7 +4,25 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <p>Someone wants to contact you from your website:</p>
+    <h1>Someone wants to contact you from your website:</h1>
+
+    <p>
+      Name: <%= @data[:name] %>
+    </p>
+
+    <p>
+      Email: <%= @data[:email] %>
+    </p>
+
+    <p>
+      Phone: <%= @data[:phone] %>
+    </p>
+
+    <p>
+      Comments: <%= @data[:comments] %>
+    </p>
+
+    <h2>P.S. I think you look silly.</h2>
   </body>
 </html>
 
