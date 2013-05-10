@@ -7,7 +7,7 @@ $sticky_header_height: 50px
   position: fixed
   height: $sticky_header_height
   width: 100%
-  background: #efefef
+  background: $blue
   img
     height: $sticky_header_height - 16
     margin-top: 8px
@@ -16,11 +16,13 @@ $sticky_header_height: 50px
     font-size: 2.0em
     font-weight: normal
     margin-right: 15px
-    color: darken($blue, 5%)
+    color: $white
     margin-top: 3px
     span
       font-weight: bold
       display: inline-block
+      color: $light_blue
+      margin-left: -5px
   ul#global-nav
     margin: 0px
     list-style-type: none
@@ -30,20 +32,23 @@ $sticky_header_height: 50px
         display: block
         height: $sticky_header_height
         line-height: $sticky_header_height
-        background: darken($white, 2%)
-        color: $blue
+        background: $blue
+        color: $white
         padding: 2px 15px
-        border-right: 1px solid $blue
+        border-right: 1px solid $light_blue
         &:hover, &.active
-          background: $blue
-          color: $white
+          background: $light_blue
+          text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5)
       &:first-child a
-        border-left: 1px solid $blue
+        border-left: 1px solid $light_blue
 
 #global-content
-  padding-top: $sticky_header_height + 50
+  background: $off_white url('white_wall_hash.png') 0px 0px repeat
+  padding-top: $sticky_header_height + 30
+  padding-bottom: 30px
 
 #global-footer
+  +box-shadow(inset 0px 3px 6px rgba(0, 0, 0, 0.5))
   width: 100%
   background: $blue
   padding: 20px 0px 0px

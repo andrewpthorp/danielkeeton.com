@@ -25,10 +25,10 @@ $em-base: 16px !default;
 
 // $default-float: left;
 
-$body-bg: lighten($blue, 5%);
-// $body-bg: lighten($light_blue, 40%)
-// $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+//$body-bg: lighten($light_blue, 35%);
+$body-bg: $blue;
+$body-font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+$body-font-color: $black;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
