@@ -1,0 +1,9 @@
+- if flash[:error]
+  .row.margin-bottom-15
+    .large-12.columns
+      %p.flash.error= flash[:error]
+
+- if flash[:success]
+  .row.margin-bottom-15
+    .large-12.columns
+      %p.flash.success= flash[:success]

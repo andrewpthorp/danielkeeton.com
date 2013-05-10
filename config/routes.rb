@@ -7,6 +7,8 @@ DanielkeetonCom::Application.routes.draw do
   resources :listings, only: [:index]
   resources :testimonials, only: [:index]
 
+  match 'homeworth' => 'home#homeworth'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

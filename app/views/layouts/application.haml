@@ -24,6 +24,7 @@
   = render 'shared/global_header'
 
   #global-content
+    = render 'shared/flashes'
     = yield
 
   = render 'shared/global_footer'
@@ -31,6 +32,8 @@
   = javascript_include_tag "application"
 
   = yield(:javascripts) if content_for?(:javascripts)
+
+  = render 'shared/home_worth_modal'
 
 :plain
   </html>
