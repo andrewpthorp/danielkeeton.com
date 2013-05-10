@@ -8,6 +8,8 @@ gem 'mail_view', '~> 1.0.3'
 gem 'pg', require: 'pg'
 gem 'foreman'
 gem 'unicorn'
+gem 'activeadmin'
+gem 'meta_search'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.5'
@@ -38,4 +40,5 @@ end
 
 group :test do
   gem 'database_cleaner', '>= 0.6.7'
+  gem 'shoulda-matchers'
 end
