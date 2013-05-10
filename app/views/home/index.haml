@@ -8,8 +8,9 @@
           = image_tag @featured_listing.image.featured, alt: "Featured House"
           %aside
             %h5
-              .color-black.inline= @featured_listing.title
-              .color-gray.inline= @featured_listing.status
+              .color-black
+                = @featured_listing.title
+                .color-gray.inline= pretty_status(@featured_listing)
             %h5.color-dark-green.inline= number_to_currency(@featured_listing.price)
             %p= @featured_listing.description
         %footer
