@@ -5,20 +5,13 @@
         %header
           %h3 Featured Listing
         %article
-          = image_tag "featured_house.png"
-          - if false
-            %aside
-              %h5
-                .color-black.inline Beautiful Lynchburg Home
-                .color-gray.inline (Under Contract)
-              %h5
-                .color-dark-green.inline $259,000
-              %p
-                Don't miss this opportunity! Very popular open floorplan in a highly
-                desirable New Towne subdivision. This home has a lot to offer
-                including 4 bedrooms, 3.5 baths plus a finished bonus room in the
-                basement. Tastefully and freshly painted, this home is move in ready
-                and practically maintenance free.
+          = image_tag @featured_listing.image.featured, alt: "Featured House"
+          %aside
+            %h5
+              .color-black.inline= @featured_listing.title
+              .color-gray.inline= @featured_listing.status
+            %h5.color-dark-green.inline= number_to_currency(@featured_listing.price)
+            %p= @featured_listing.description
         %footer
           %p.margin-bottom-0.padding-right-10.text-right= link_to "View More Listings", "#", class: "strong color-white"
 
@@ -29,12 +22,8 @@
         %h3 Testimonials
       .padding-left-15.padding-right-15
         %p
-          %blockquote.margin-bottom-15 "Daniel was the best realtor we've had. We had constant traffic coming through looking at our house. He kept us informed throughout the whole process. I highly recommend Daniel."
-          %span.strong – L. Birchfield
-        %hr
-        %p
-          %blockquote.margin-bottom-15 "Hardworking and has your best interest at heart. Highly recommend using his services."
-          %span.strong – A. McKinley
+          %blockquote.margin-bottom-15= @testimonial.body
+          %span.strong= "– #{@testimonial.name}"
         %hr
         %p.text-right.margin-bottom-15= link_to "View More Testimonials", "#", class: "strong"
   .large-8.columns

@@ -10,6 +10,8 @@ gem 'foreman'
 gem 'unicorn'
 gem 'activeadmin'
 gem 'meta_search'
+gem 'mini_magick'
+gem 'fog', '~> 1.3.1'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.5'

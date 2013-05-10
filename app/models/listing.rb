@@ -10,6 +10,8 @@ class Listing < ActiveRecord::Base
 
   scope :featured, where(featured: true)
 
+  mount_uploader :image, ListingUploader
+
 private
 
   def ensure_single_featured
