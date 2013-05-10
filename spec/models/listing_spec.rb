@@ -4,6 +4,7 @@ describe Listing do
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:description) }
   it { should validate_presence_of(:status) }
+  it { should ensure_inclusion_of(:status).in_array(Listing::VALID_STATES) }
   it { should validate_presence_of(:price) }
 
   describe '#callbacks' do

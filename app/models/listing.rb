@@ -1,9 +1,10 @@
 class Listing < ActiveRecord::Base
   attr_accessible :title, :description, :status, :price, :featured
+  VALID_STATES = %w(for_sale for_rent under_contract sold cancelled)
 
   validates :title, presence: true
   validates :description, presence: true
-  validates :status, presence: true
+  validates :status, presence: true, inclusion: { in: Listing::VALID_STATES }
   validates :price, presence: true
 
   before_save :ensure_single_featured

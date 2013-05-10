@@ -13,7 +13,6 @@ if Rails.env.production?
 elsif Rails.env.development?
   CarrierWave.configure do |config|
     config.storage = :file
-    config.store_dir = "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 elsif Rails.env.test?
   CarrierWave.configure do |config|
