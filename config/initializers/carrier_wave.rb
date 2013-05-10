@@ -3,10 +3,7 @@ if Rails.env.production?
     config.fog_credentials = {
       :provider               => 'AWS',
       :aws_access_key_id      => ENV["AWS_ACCESS_KEY"],
-      :aws_secret_access_key  => ENV["AWS_SECRET_KEY"],
-      :region                 => 'us-east-1',
-      :host                   => 's3.example.com',
-      :endpoint               => 'https://s3.example.com:8080'
+      :aws_secret_access_key  => ENV["AWS_SECRET_KEY"]
     }
     config.fog_directory  = 'danielkeeton-production'
     config.fog_public     = false
@@ -15,6 +12,7 @@ if Rails.env.production?
 elsif Rails.env.development?
   CarrierWave.configure do |config|
     config.storage = :file
+    config.store_dir = "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 elsif Rails.env.test?
   CarrierWave.configure do |config|
