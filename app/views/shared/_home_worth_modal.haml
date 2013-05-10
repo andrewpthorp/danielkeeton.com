@@ -7,41 +7,41 @@
       .large-12.columns
         %p.mute Fill out this short online form to see how the recent real estate market has affected property values.
 
-    %form.custom{action: "/homeworth", method: "POST"}
-      .row
-        .large-4.columns
-          = label_tag :name, "Name"
-          = text_field_tag :name
-        .large-4.columns
-          = label_tag :email, "Email"
-          = text_field_tag :email
-        .large-4.columns
-          = label_tag :phone, "Phone"
-          = text_field_tag :phone
+        %form.custom{action: "/homeworth", method: "POST"}
+          .row
+            .large-4.columns
+              = label_tag :name, "Name"
+              = text_field_tag :name
+            .large-4.columns
+              = label_tag :email, "Email"
+              = text_field_tag :email
+            .large-4.columns
+              = label_tag :phone, "Phone"
+              = text_field_tag :phone
 
-      .row
-        .large-12.columns
-          = label_tag :address, "Home Address"
-          = text_field_tag :address
+          .row
+            .large-12.columns
+              = label_tag :address, "Home Address"
+              = text_field_tag :address
 
-      .row
-        .large-4.columns
-          = label_tag :square_feet, "Square Footage"
-          = text_field_tag :square_feet
-        .large-4.columns
-          = label_tag :bathrooms, "Number of Bathrooms"
-          = text_field_tag :bathrooms
-        .large-4.columns
-          = label_tag :bedrooms, "Number of Bedrooms"
-          = text_field_tag :bedrooms
+          .row
+            .large-4.columns
+              = label_tag :square_feet, "Square Footage"
+              = text_field_tag :square_feet
+            .large-4.columns
+              = label_tag :bathrooms, "Number of Bathrooms"
+              = text_field_tag :bathrooms
+            .large-4.columns
+              = label_tag :bedrooms, "Number of Bedrooms"
+              = text_field_tag :bedrooms
 
-      .row
-        .large-12.columns
-          = label_tag :updates, "Updates"
-          = text_area_tag :updates
+          .row
+            .large-12.columns
+              = label_tag :updates, "Updates"
+              = text_area_tag :updates
 
-      %hr
+          %hr
 
-      .row
-        .large-12.columns
-          = submit_tag "Get a Quote!", class: "custom-button red"
+          .row
+            .large-12.columns.clearfix
+              = submit_tag "Get a Quote!", class: "custom-button red right"
