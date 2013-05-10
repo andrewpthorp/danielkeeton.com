@@ -20,5 +20,6 @@ ActiveAdmin.register Listing do
       f.input :featured
       f.input :image
     end
+    f.actions
   end
 end
