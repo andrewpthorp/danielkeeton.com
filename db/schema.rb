@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20130510124850) do
     t.text     "description"
     t.string   "status"
     t.integer  "price"
+    t.boolean  "featured"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

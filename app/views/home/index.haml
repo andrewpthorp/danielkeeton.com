@@ -1,25 +1,26 @@
-.row.margin-bottom-30
-  .large-12.columns.centered
-    %section.no-padding.rounded
-      %header
-        %h3 Featured Listing
-      %article
-        = image_tag "featured_house.png"
-        - if false
-          %aside
-            %h5
-              .color-black.inline Beautiful Lynchburg Home
-              .color-gray.inline (Under Contract)
-            %h5
-              .color-dark-green.inline $259,000
-            %p
-              Don't miss this opportunity! Very popular open floorplan in a highly
-              desirable New Towne subdivision. This home has a lot to offer
-              including 4 bedrooms, 3.5 baths plus a finished bonus room in the
-              basement. Tastefully and freshly painted, this home is move in ready
-              and practically maintenance free.
-      %footer
-        %p.margin-bottom-0.padding-right-10.text-right= link_to "View More Listings", "#", class: "strong color-white"
+- unless @featured_listing.nil?
+  .row.margin-bottom-30
+    .large-12.columns.centered
+      %section.no-padding.rounded
+        %header
+          %h3 Featured Listing
+        %article
+          = image_tag "featured_house.png"
+          - if false
+            %aside
+              %h5
+                .color-black.inline Beautiful Lynchburg Home
+                .color-gray.inline (Under Contract)
+              %h5
+                .color-dark-green.inline $259,000
+              %p
+                Don't miss this opportunity! Very popular open floorplan in a highly
+                desirable New Towne subdivision. This home has a lot to offer
+                including 4 bedrooms, 3.5 baths plus a finished bonus room in the
+                basement. Tastefully and freshly painted, this home is move in ready
+                and practically maintenance free.
+        %footer
+          %p.margin-bottom-0.padding-right-10.text-right= link_to "View More Listings", "#", class: "strong color-white"
 
 .row.margin-bottom-30
   .large-4.columns

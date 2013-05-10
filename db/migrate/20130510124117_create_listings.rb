@@ -5,6 +5,7 @@ class CreateListings < ActiveRecord::Migration
       t.text :description
       t.string :status
       t.integer :price
+      t.boolean :featured
       t.timestamps
     end
   end
