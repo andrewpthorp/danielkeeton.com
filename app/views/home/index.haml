@@ -11,7 +11,7 @@
               .color-black
                 = @featured_listing.title
                 .color-gray.inline= pretty_status(@featured_listing)
-            %h5.color-dark-green.inline= number_to_currency(@featured_listing.price)
+            %h5.color-dark-green.inline= number_to_currency(@featured_listing.price, precision: 0)
             %p= @featured_listing.description
         %footer
           %p.margin-bottom-0.padding-right-10.text-right= link_to "View More Listings", listings_path, class: "strong color-white"

@@ -19,6 +19,6 @@
 
   .large-8.columns
     %h4.margin-bottom-5= listing.title
-    %p.color-dark-green.margin-bottom-5= number_to_currency(listing.price)
+    %p.color-dark-green.margin-bottom-5= number_to_currency(listing.price, precision: 0)
     %p= listing.description
 %hr

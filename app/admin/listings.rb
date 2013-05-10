@@ -1,17 +1,20 @@
 ActiveAdmin.register Listing do
   index do
     column :id
-    column :title
-    column "Price" do |listing|
-      number_to_currency(listing.price)
+    column "Title", sortable: :title do |listing|
+      truncate(listing.title, length: 15)
+    end
+    column "Price", sortable: :price do |listing|
+      number_to_currency(listing.price, precision: 0)
     end
     column "Thumbnail" do |listing|
       image_tag listing.image.thumb
     end
     column :link
-    column "Status" do |listing|
+    column "Status", sortable: :status do |listing|
       pretty_status(listing)
     end
+    column :featured, sortable: true
     actions
   end
 
