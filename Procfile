@@ -1,1 +1,1 @@
-web: bundle exec unicorn -E development -c ./config/unicorn.rb -l 3000
+web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb
