@@ -12,6 +12,8 @@ gem 'activeadmin'
 gem 'meta_search'
 gem 'mini_magick'
 gem 'fog', '~> 1.3.1'
+gem 'faker'
+gem 'factory_girl_rails'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.5'
@@ -35,8 +37,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'factory_girl_rails'
-  gem 'faker'
   gem 'rspec-rails'
 end
 
