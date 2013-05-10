@@ -19,12 +19,12 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'sass'
 gem 'compass'
+gem 'compass-rails'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.5'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-  gem 'compass-rails'
 end
 
 group :development do
