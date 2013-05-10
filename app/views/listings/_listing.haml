@@ -1,0 +1,24 @@
+.row
+  .large-4.columns
+    .margin-bottom-10
+      = image_tag listing.image.featured
+
+    .address.text-right
+      %h5.margin-bottom-5 Address
+      = pretty_address(listing)
+
+    %hr.margin-top-10.margin-bottom-10
+    .actions.clearfix.margin-bottom-15
+      - if listing.link.nil?
+        = link_to "Request Information", "mailto:danielspencerkeeton@gmail.com?subject=Inquiry about #{listing.title}", class: "custom-button red width-100"
+      - else
+        .width-48.left
+          = link_to "Request Info", "mailto:danielspencerketton@gmail.com?subject=Inquiry about #{listing.title}", class: "custom-button red width-100"
+        .width-48.right
+          = link_to "View Listing", listing.link, class: "custom-button blue width-100", target: "_blank"
+
+  .large-8.columns
+    %h4.margin-bottom-5= listing.title
+    %p.color-dark-green.margin-bottom-5= number_to_currency(listing.price)
+    %p= listing.description
+%hr

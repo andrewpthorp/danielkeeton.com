@@ -5,9 +5,9 @@
         Daniel
         %span Keeton
       %ul#global-nav.left
-        %li= link_to 'Home', '#'
-        %li= link_to 'Listings', '#'
-        %li= link_to 'Testimonials', '#'
-        %li= link_to 'Contact', '#'
+        %li= link_to 'Home', root_path, class: @section == 'home' ? 'active' : ''
+        %li= link_to 'Listings', listings_path, class: @section == 'listings' ? 'active' : ''
+        %li= link_to 'Testimonials', testimonials_path, class: @section == 'testimonials' ? 'active' : ''
+        %li= link_to 'Contact', '#', class: @section == 'contact' ? 'active' : ''
     .large-3.columns
       = image_tag 'neumann_and_dunn_logo_white.png', class: 'right margin-right-20'

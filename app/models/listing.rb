@@ -1,5 +1,5 @@
 class Listing < ActiveRecord::Base
-  attr_accessible :title, :description, :status, :price, :featured
+  attr_accessible :title, :description, :status, :price, :featured, :link
   VALID_STATES = %w(for_sale for_rent under_contract sold cancelled)
 
   validates :title, presence: true
@@ -10,6 +10,10 @@ class Listing < ActiveRecord::Base
   before_save :ensure_single_featured
 
   scope :featured, where(featured: true)
+  scope :for_sale, where(status: 'for_sale')
+  scope :for_rent, where(status: 'for_rent')
+  scope :under_contract, where(status: 'under_contract')
+  scope :sold, where(status: 'sold')
 
   mount_uploader :image, ListingUploader
 

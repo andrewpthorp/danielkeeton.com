@@ -19,7 +19,25 @@ Testimonial.create(body: "I want to say how much I enjoyed having Daniel Keeton 
 puts "Destroying Listings"
 Listing.destroy_all
 
-puts "Loading Listings (3)"
+puts "Loading Listings (20)"
 FactoryGirl.create(:featured_listing, image: File.open(File.join(Rails.root, "/db/data/sample_house_one.jpg")))
 FactoryGirl.create(:listing, image: File.open(File.join(Rails.root, "/db/data/sample_house_two.jpg")))
-FactoryGirl.create(:listing, image: File.open(File.join(Rails.root, "/db/data/sample_house_three.jpg")))
+FactoryGirl.create(:listing, status: 'for_rent', image: File.open(File.join(Rails.root, "/db/data/sample_house_three.jpg")))
+FactoryGirl.create(:listing, status: 'sold', image: File.open(File.join(Rails.root, "/db/data/sample_house_one.jpg")))
+FactoryGirl.create(:listing, status: 'sold', image: File.open(File.join(Rails.root, "/db/data/sample_house_two.jpg")))
+FactoryGirl.create(:listing, status: 'under_contract', image: File.open(File.join(Rails.root, "/db/data/sample_house_three.jpg")))
+FactoryGirl.create(:listing, status: 'for_sale', image: File.open(File.join(Rails.root, "/db/data/sample_house_two.jpg")))
+FactoryGirl.create(:listing, status: 'for_sale', image: File.open(File.join(Rails.root, "/db/data/sample_house_three.jpg")))
+FactoryGirl.create(:listing, status: 'for_rent', image: File.open(File.join(Rails.root, "/db/data/sample_house_one.jpg")))
+FactoryGirl.create(:listing, status: 'for_rent', image: File.open(File.join(Rails.root, "/db/data/sample_house_two.jpg")))
+FactoryGirl.create(:listing, status: 'sold', image: File.open(File.join(Rails.root, "/db/data/sample_house_three.jpg")))
+FactoryGirl.create(:listing, status: 'sold', image: File.open(File.join(Rails.root, "/db/data/sample_house_two.jpg")))
+FactoryGirl.create(:listing, status: 'for_sale', image: File.open(File.join(Rails.root, "/db/data/sample_house_three.jpg")))
+FactoryGirl.create(:listing, status: 'for_sale', image: File.open(File.join(Rails.root, "/db/data/sample_house_one.jpg")))
+FactoryGirl.create(:listing, status: 'for_sale', image: File.open(File.join(Rails.root, "/db/data/sample_house_two.jpg")))
+FactoryGirl.create(:listing, status: 'for_sale', image: File.open(File.join(Rails.root, "/db/data/sample_house_three.jpg")))
+FactoryGirl.create(:listing, status: 'for_sale', image: File.open(File.join(Rails.root, "/db/data/sample_house_two.jpg")))
+FactoryGirl.create(:listing, status: 'for_rent', image: File.open(File.join(Rails.root, "/db/data/sample_house_three.jpg")))
+FactoryGirl.create(:listing, status: 'for_rent', image: File.open(File.join(Rails.root, "/db/data/sample_house_one.jpg")))
+FactoryGirl.create(:listing, status: 'for_sale', image: File.open(File.join(Rails.root, "/db/data/sample_house_two.jpg")))
+FactoryGirl.create(:listing, status: 'under_contract', image: File.open(File.join(Rails.root, "/db/data/sample_house_three.jpg")))

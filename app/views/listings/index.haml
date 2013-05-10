@@ -1,0 +1,46 @@
+.row.margin-bottom-30
+  .large-12.columns
+    %section.no-padding
+      %header
+        %h4 Local Listings
+      = render 'local_listings'
+
+- if @for_sale.any?
+  .row.margin-bottom-30
+    .large-12.columns
+      %section.no-padding
+        %header
+          %h4 For Sale
+        .padding-left-15.padding-right-15.padding-top-15.padding-bottom-15
+          - @for_sale.each do |listing|
+            = render 'listing', listing: listing
+
+- if @for_rent.any?
+  .row.margin-bottom-30
+    .large-12.columns
+      %section.no-padding
+        %header
+          %h4 For Rent
+        .padding-left-15.padding-right-15.padding-top-15.padding-bottom-15
+          - @for_rent.each do |listing|
+            = render 'listing', listing: listing
+
+- if @under_contract.any?
+  .row.margin-bottom-30
+    .large-12.columns
+      %section.no-padding
+        %header
+          %h4 Under Contract
+        .padding-left-15.padding-right-15.padding-top-15.padding-bottom-15
+          - @under_contract.each do |listing|
+            = render 'listing', listing: listing
+
+- if @sold.any?
+  .row.margin-bottom-30
+    .large-12.columns
+      %section.no-padding
+        %header
+          %h4 Sold
+        .padding-left-15.padding-right-15.padding-top-15.padding-bottom-15
+          - @sold.each do |listing|
+            = render 'listing', listing: listing
