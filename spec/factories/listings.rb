@@ -19,6 +19,8 @@ FactoryGirl.define do
     # Home Info
     bedrooms 1 + Random.rand(4)
     bathrooms 1 + Random.rand(3) + 0.5
+    square_footage 1750
+    lot_size 3450
 
     factory :featured_listing do
       featured true

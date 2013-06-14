@@ -15,12 +15,18 @@ module ListingsHelper
     end
   end
 
-  def pretty_address(listing)
+  def google_maps_address(listing)
+    "http://maps.google.com/?q=#{listing.address_line_1}, #{listing.city}, #{listing.state}, #{listing.zip}"
+  end
+
+  def pretty_address(listing, opts={})
+    p_class = opts[:p_class] || "margin-bottom-5"
+
     content_tag(:div, class: "address") do
       root = []
-      root << content_tag(:p, listing.address_line_1, class: "margin-bottom-5")
-      root << content_tag(:p, listing.address_line_2, class: "margin-bottom-5") unless listing.address_line_2.nil?
-      root << content_tag(:p, class: "margin-bottom-5") do
+      root << content_tag(:p, listing.address_line_1, class: p_class)
+      root << content_tag(:p, listing.address_line_2, class: p_class) unless listing.address_line_2.nil?
+      root << content_tag(:p, class: p_class) do
         elems = []
         elems << content_tag(:span, listing.city)
         elems << content_tag(:span, " #{listing.state}, ")

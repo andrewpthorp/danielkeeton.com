@@ -3,9 +3,23 @@
     .margin-bottom-10
       = image_tag listing.image.featured
 
-    .address.text-right
-      %h5.margin-bottom-5 Address
-      = pretty_address(listing)
+    .row
+      .large-6.columns.information.margin-bottom-10
+        %h2.small.margin-bottom-0 Information
+        - unless listing.bedrooms.nil?
+          %p.margin-bottom-0.small= "#{pluralize(listing.bedrooms, 'Bedroom')}"
+        - unless listing.bathrooms.nil?
+          %p.margin-bottom-0.small= "#{pluralize(listing.bathrooms, 'Bathroom')}"
+        - unless listing.square_footage.nil?
+          %p.margin-bottom-0.small= "#{number_with_delimiter(listing.square_footage)} Sq. Ft."
+        - unless listing.lot_size.nil?
+          %p.margin-bottom-0.small= "Lot Size: #{number_with_delimiter(listing.lot_size)} Sq. Ft."
+
+
+      .large-6.columns.address.margin-bottom-10
+        %h2.small.margin-bottom-0 Address
+        = pretty_address(listing, p_class: "small margin-bottom-0")
+        = link_to "Google Maps", google_maps_address(listing), class: "margin-top-5 small custom-button google-blue", target: "_blank"
 
     %hr.margin-top-10.margin-bottom-10
     .actions.clearfix.margin-bottom-15
