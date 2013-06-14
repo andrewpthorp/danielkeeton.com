@@ -23,7 +23,7 @@ ActiveAdmin.register Listing do
       f.input :title
       f.input :description
       f.input :price
-      f.input :link
+      f.input :link, label: "Link to MLS"
       f.input :status, as: :select, collection: Listing::VALID_STATES, include_blank: false
       f.input :featured
       f.input :image
@@ -36,6 +36,15 @@ ActiveAdmin.register Listing do
       f.input :state
       f.input :zip
     end
+
+    f.inputs "Home Information" do
+      f.input :bedrooms, as: :select, collection: (1..10).to_a
+      f.input :bathrooms, as: :select, collection: [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5]
+      f.input :year_built, as: :select, collection: (1900..2013).to_a
+      f.input :square_footage
+      f.input :lot_size
+    end
+
     f.actions
   end
 end

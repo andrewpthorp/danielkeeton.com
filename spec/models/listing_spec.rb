@@ -1,11 +1,37 @@
 require 'spec_helper'
 
 describe Listing do
-  it { should validate_presence_of(:title) }
-  it { should validate_presence_of(:description) }
-  it { should validate_presence_of(:status) }
-  it { should ensure_inclusion_of(:status).in_array(Listing::VALID_STATES) }
-  it { should validate_presence_of(:price) }
+
+  describe "#validations" do
+    it { should validate_presence_of(:title) }
+    it { should validate_presence_of(:description) }
+    it { should validate_presence_of(:status) }
+    it { should ensure_inclusion_of(:status).in_array(Listing::VALID_STATES) }
+    it { should validate_presence_of(:price) }
+
+    it { should validate_presence_of(:bathrooms) }
+    it { should validate_numericality_of(:bathrooms) }
+    it { should_not allow_value(0).for(:bathrooms) }
+
+    it { should validate_presence_of(:bedrooms) }
+    it { should validate_numericality_of(:bedrooms).only_integer }
+    it { should_not allow_value(0).for(:bedrooms) }
+
+    it { should validate_numericality_of(:year_built) }
+    it { should allow_value(1900).for(:year_built) }
+    it { should allow_value(nil).for(:year_built) }
+    it { should_not allow_value(1899).for(:year_built) }
+
+    it { should validate_numericality_of(:square_footage) }
+    it { should allow_value(nil).for(:square_footage) }
+    it { should allow_value(1000).for(:square_footage) }
+    it { should_not allow_value(999).for(:square_footage) }
+
+    it { should validate_numericality_of(:lot_size) }
+    it { should allow_value(nil).for(:lot_size) }
+    it { should allow_value(1000).for(:lot_size) }
+    it { should_not allow_value(999).for(:lot_size) }
+  end
 
   describe '#callbacks' do
     describe '#ensure_single_featured' do
@@ -36,8 +62,7 @@ describe Listing do
 
   describe '#scopes' do
     before do
-      @featured = FactoryGirl.create(:featured_listing)
-      @for_sale = FactoryGirl.create(:listing, status: 'for_sale')
+      @featured = FactoryGirl.create(:featured_listing, status: 'for_sale')
       @for_rent = FactoryGirl.create(:listing, status: 'for_rent')
       @under_contract = FactoryGirl.create(:listing, status: 'under_contract')
       @sold = FactoryGirl.create(:listing, status: 'sold')
@@ -51,7 +76,7 @@ describe Listing do
 
     describe '#for_sale' do
       it 'should only return Listings with a status of for_sale' do
-        Listing.for_sale.should eq([@for_sale])
+        Listing.for_sale.should eq([@featured])
       end
     end
 

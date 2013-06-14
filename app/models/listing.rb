@@ -6,6 +6,11 @@ class Listing < ActiveRecord::Base
   validates :description, presence: true
   validates :status, presence: true, inclusion: { in: Listing::VALID_STATES }
   validates :price, presence: true
+  validates :bathrooms, presence: true, numericality: { greater_than_or_equal_to: 0.5 }
+  validates :bedrooms, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :year_built, numericality: { greater_than_or_equal_to: 1900 }, allow_nil: true
+  validates :square_footage, numericality: { greater_than_or_equal_to: 1000 }, allow_nil: true
+  validates :lot_size, numericality: { greater_than_or_equal_to: 1000 }, allow_nil: true
 
   before_save :ensure_single_featured
 
