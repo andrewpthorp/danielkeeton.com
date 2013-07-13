@@ -8,7 +8,8 @@ ActiveAdmin.register Listing do
       number_to_currency(listing.price, precision: 0)
     end
     column "Thumbnail" do |listing|
-      image_tag listing.image.thumb
+      unless listing.image.nil?
+        image_tag listing.image.thumb
     end
     column :link
     column "Status", sortable: :status do |listing|

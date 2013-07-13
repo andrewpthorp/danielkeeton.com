@@ -1,7 +1,8 @@
 .row
   .large-4.columns
     .margin-bottom-10
-      = image_tag listing.image.featured
+      - unless listing.image.nil?
+        = image_tag listing.image.featured
 
     .row
       .large-6.columns.information.margin-bottom-10

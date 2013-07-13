@@ -5,7 +5,8 @@
         %header
           %h3 Featured Listing
         %article
-          = image_tag @featured_listing.image.featured, alt: "Featured House"
+          - unless @featured_listing.image.nil?
+            = image_tag @featured_listing.image.featured, alt: "Featured House"
           %aside
             %h5
               .color-black
