@@ -1,7 +1,7 @@
 .row
   .large-4.columns
     .margin-bottom-10
-      - unless listing.image.nil?
+      - unless listing.image.blank?
         = image_tag listing.image.featured
 
     .row

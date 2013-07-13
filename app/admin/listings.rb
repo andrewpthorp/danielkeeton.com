@@ -8,7 +8,7 @@ ActiveAdmin.register Listing do
       number_to_currency(listing.price, precision: 0)
     end
     column "Thumbnail" do |listing|
-      unless listing.image.nil?
+      unless listing.image.blank?
         image_tag listing.image.thumb
       end
     end
