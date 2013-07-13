@@ -1,7 +1,8 @@
 class Listing < ActiveRecord::Base
   attr_accessible :title, :description, :status, :price, :featured, :link,
                   :address_line_1, :address_line_2, :city, :state, :zip,
-                  :bedrooms, :bathrooms, :year_built, :square_footage, :lot_size
+                  :bedrooms, :bathrooms, :year_built, :square_footage,
+                  :lot_size, :image
 
   VALID_STATES = %w(for_sale for_rent under_contract sold cancelled)
 
