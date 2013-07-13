@@ -10,6 +10,7 @@ ActiveAdmin.register Listing do
     column "Thumbnail" do |listing|
       unless listing.image.nil?
         image_tag listing.image.thumb
+      end
     end
     column :link
     column "Status", sortable: :status do |listing|
