@@ -1,30 +1,3 @@
-#global-content
-  #IDX-quickSearchForm
-    width: 100%
-    height: 175px
-    form
-      width: 525px
-      position: relative
-      margin: 25px auto
-    div
-      &#QS-labelMaxPrice,
-      &#QS-labelMinPrice,
-      &#QS-labelMinSqft,
-      &#QS-labelMinRooms,
-      &#QS-labelMinBaths,
-      &#QS-labelCityList
-        width: 105px
-    input, select
-      left: 400px
-      &#QS-minPriceField,
-      &#QS-maxPriceField,
-      &#QS-minBathsField
-        left: 125px
-      &#QS-buttonSearch
-        left: 215px
-        top: 115px
-        +sassy-button("flat", 0px, emCalc(14px), $blue, $blue)
-        width: 100px
-        height: 35px
-    select
-      top: 67px
+#idx-search
+  padding: 25px
+  +box-sizing(border-box)
