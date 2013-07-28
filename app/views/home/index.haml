@@ -4,18 +4,8 @@
       %section.no-padding.rounded
         %header
           %h3 Featured Listing
-        %article
-          - unless @featured_listing.image.blank?
-            = image_tag @featured_listing.image.featured, alt: "Featured House"
-          %aside
-            %h5
-              .color-black
-                = @featured_listing.title
-                .color-gray.inline= pretty_status(@featured_listing)
-            %h5.color-dark-green.inline= number_to_currency(@featured_listing.price, precision: 0)
-            %p= @featured_listing.description
-        %footer
-          %p.margin-bottom-0.padding-right-10.text-right= link_to "View More Listings", listings_path, class: "strong color-white"
+        %article.padding-left-15.padding-right-15.padding-top-15.padding-bottom-15
+          = render partial: 'listings/listing', locals: { listing: @featured_listing }
 
 .row.margin-bottom-30
   .large-4.columns
