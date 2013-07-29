@@ -59,6 +59,24 @@ $sticky_header_height: 50px
       &:first-child a
         border-left: 1px solid $light_blue
 
+#mobile-nav
+  list-style-type: none
+  margin-left: 0px
+  margin-top: -10px
+  li
+    margin-bottom: 0px
+    a
+      text-align: center
+      display: block
+      background: $blue
+      color: $white
+      margin-bottom: 1px
+      width: 100%
+      padding: 10px
+      &:hover, &.active
+        background: $light_blue
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5)
+
 #global-content
   background: $off_white url('white_wall_hash.png') 0px 0px repeat
   padding-top: $sticky_header_height + 30

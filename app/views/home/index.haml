@@ -7,18 +7,8 @@
         %article.padding-left-15.padding-right-15.padding-top-15.padding-bottom-15
           = render partial: 'listings/listing', locals: { listing: @featured_listing }
 
-.row.margin-bottom-30
-  .large-4.columns
-    %section.no-padding
-      %header
-        %h3 Testimonials
-      .padding-left-15.padding-right-15
-        %p
-          %blockquote.margin-bottom-15= @testimonial.body
-          %span.strong= "– #{@testimonial.name}"
-        %hr
-        %p.text-right.margin-bottom-15= link_to "View More Testimonials", testimonials_path, class: "strong"
-  .large-8.columns
+.row
+  .large-8.columns.push-4.margin-bottom-30
     %section
       = image_tag "keeton_family.png", alt: "The Keetons"
       %hr
@@ -38,3 +28,13 @@
       %p
         %span.strong Daniel Keeton,
         %span.italic.padding-left-5 Realtor
+  .large-4.columns.pull-8.margin-bottom-30
+    %section.no-padding
+      %header
+        %h3 Testimonials
+      .padding-left-15.padding-right-15
+        %p
+          %blockquote.margin-bottom-15= @testimonial.body
+          %span.strong= "– #{@testimonial.name}"
+        %hr
+        %p.text-right.margin-bottom-15= link_to "View More Testimonials", testimonials_path, class: "strong"

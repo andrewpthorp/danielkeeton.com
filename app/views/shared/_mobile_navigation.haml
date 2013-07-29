@@ -1,0 +1,6 @@
+.row.show-for-medium-down.hide-for-large-up
+  .large-12.columns
+    %ul#mobile-nav
+      %li= link_to 'Home', root_path, class: @section == 'home' ? 'active' : ''
+      %li= link_to 'Listings', listings_path, class: @section == 'listings' ? 'active' : ''
+      %li= link_to 'Testimonials', testimonials_path, class: @section == 'testimonials' ? 'active' : ''
