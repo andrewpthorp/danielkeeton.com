@@ -45,7 +45,7 @@ class ListingUploader < CarrierWave::Uploader::Base
   end
 
   version :featured do
-    process :resize_to_fill => [970, 385]
+    process :resize_to_fill => [970, 647]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
