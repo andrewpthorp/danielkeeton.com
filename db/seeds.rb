@@ -41,3 +41,13 @@ FactoryGirl.create(:listing, status: 'for_rent', image: File.open(File.join(Rail
 FactoryGirl.create(:listing, status: 'for_rent', image: File.open(File.join(Rails.root, "/db/data/sample_house.jpg")))
 FactoryGirl.create(:listing, status: 'for_sale', image: File.open(File.join(Rails.root, "/db/data/sample_house.jpg")))
 FactoryGirl.create(:listing, status: 'under_contract', image: File.open(File.join(Rails.root, "/db/data/sample_house.jpg")))
+
+puts "Destroying Posts"
+Post.destroy_all
+
+puts "Loading Posts (5)"
+FactoryGirl.create(:post)
+FactoryGirl.create(:post)
+FactoryGirl.create(:published_post)
+FactoryGirl.create(:published_post)
+FactoryGirl.create(:published_post)

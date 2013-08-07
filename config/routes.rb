@@ -6,6 +6,7 @@ DanielkeetonCom::Application.routes.draw do
 
   resources :listings, only: [:index]
   resources :testimonials, only: [:index]
+  resources :posts, only: [:index, :show]
 
   match 'homeworth' => 'home#homeworth'
   match 'contact' => 'home#contact'

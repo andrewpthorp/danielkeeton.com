@@ -4,6 +4,7 @@ class HomeController < ApplicationController
     @section = 'home'
     @featured_listing = Listing.featured.first
     @testimonial = Testimonial.first(order: "RANDOM()")
+    @post = Post.published.order("created_at DESC").first
   end
 
   def homeworth

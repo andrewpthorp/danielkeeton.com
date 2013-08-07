@@ -9,7 +9,7 @@
 
 .row
   .large-8.columns.push-4.margin-bottom-30
-    %section
+    %section.margin-bottom-30
       = image_tag "keeton_family.png", alt: "The Keetons"
       %hr
       %p.margin-bottom-10
@@ -28,6 +28,15 @@
       %p
         %span.strong Daniel Keeton,
         %span.italic.padding-left-5 Realtor
+
+    %section.no-padding
+      %header
+        %h3 Latest Blog Post
+      .padding-top-15.padding-left-15.padding-right-15
+        %h4= @post.title
+        = markdown(@post.body)
+        %hr
+        %p.text-right.margin-bottom-15= link_to "View Blog", posts_path, class: "strong"
   .large-4.columns.pull-8.margin-bottom-30
     %section.no-padding
       %header

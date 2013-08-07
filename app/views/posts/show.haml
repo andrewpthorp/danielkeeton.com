@@ -1,0 +1,9 @@
+.row.margin-bottom-30
+  .large-12.columns
+    %section.no-padding
+      %header
+        %h4= @post.title
+      .padding-left-15.padding-right-15.padding-top-15.padding-bottom-15
+        = markdown(@post.body)
+        %hr
+        = link_to raw('&larr; Back to Blog'), posts_path

@@ -1,0 +1,17 @@
+.row.margin-bottom-30
+  .large-12.columns
+    %section.no-padding
+      %header
+        %h4 My Blog
+      .padding-left-15.padding-right-15.padding-top-15
+        - if @posts.any?
+          %ul#post-list
+            - @posts.each do |post|
+              %li.row
+                .large-9.columns
+                  = link_to post.title.truncate(75), post
+                .large-3.columns.text-right
+                  %span.mute.italic= post.created_at.to_formatted_s(:calendar_date)
+              %hr
+        - else
+          %h3.text-center No Blog Entries Yet!
