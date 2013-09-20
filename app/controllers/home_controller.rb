@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
   def index
     @featured_listing = Listing.featured.first
-    @testimonial = Testimonial.first(order: "RANDOM()")
+    @testimonial = Testimonial.order('RANDOM()').first
     @post = Post.published.order("created_at DESC").first
   end
 

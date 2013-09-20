@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.published
+    @testimonials = Testimonial.all
   end
 
   def show

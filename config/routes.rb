@@ -5,7 +5,6 @@ DanielkeetonCom::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   resources :listings, only: [:index]
-  resources :testimonials, only: [:index]
   resources :posts, only: [:index, :show]
 
   match 'homeworth' => 'home#homeworth'

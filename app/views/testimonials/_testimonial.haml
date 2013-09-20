@@ -1,6 +1,5 @@
-.row
-  .large-12.columns
-    .padding-left-15.padding-right-15
-      %blockquote.margin-bottom-10= testimonial.body
-      %span.block.width-100.text-right.strong= "– #{testimonial.name}"
+%li
+  %blockquote.margin-bottom-10
+    %span.strong= raw "#{testimonial.name} &mdash;"
+    = raw "&quot;#{testimonial.body}&quot;"
 %hr
