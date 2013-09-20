@@ -1,12 +1,3 @@
-- unless @featured_listing.nil?
-  .row.margin-bottom-30
-    .large-12.columns.centered
-      %section
-        %header
-          %h3 Featured Listing
-        %article
-          = render partial: 'listings/listing', locals: { listing: @featured_listing }
-
 .row
   .large-7.columns.margin-bottom-30
     .feature-image
