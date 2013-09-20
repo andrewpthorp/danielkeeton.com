@@ -1,6 +1,10 @@
+# Public: The Testimonial model handles feedback from customers on the website.
 class Testimonial < ActiveRecord::Base
+
+  # Internal: Allow mass-assignment
   attr_accessible :body, :name
 
-  validates :body, presence: true
-  validates :name, presence: true
+  # Internal: Validate presence of specific attributes.
+  validates :body, :name, presence: true
+
 end
