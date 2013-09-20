@@ -1,0 +1,10 @@
+- header ||= 'For Sale'
+
+- if collection.any?
+  .row.margin-bottom-30
+    .large-12.columns
+      %section
+        %header
+          %h4= header
+        - collection.each do |listing|
+          = render 'listing', listing: listing

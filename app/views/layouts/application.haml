@@ -7,47 +7,36 @@
 /[if (gt IE 9)|!(IE)] <!--> <html lang=\"en\">
 
 %head
-  %meta{ :charset => "utf-8" }
+  %meta{ charset: 'utf-8' }
+  %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
+  %title= content_for?(:title) ? "Daniel Keeton – #{yield(:title)}" : 'Daniel Keeton – Realtor'
 
-  -# Uncomment to make IE8 render like IE7
-  -# meta http-equiv="X-UA-Compatible" content="IE=7"
-  %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
-  %title= content_for?(:title) ? "Daniel Keeton – #{yield(:title)}" : "Daniel Keeton – Realtor"
-  %link{href: 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700|Lobster+Two:400,700', rel: 'stylesheet', type: 'text/css'}
-
-  = stylesheet_link_tag "application"
-  = javascript_include_tag "vendor/custom.modernizr"
+  = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700|Lobster+Two:400,700'
+  = stylesheet_link_tag 'application'
+  = javascript_include_tag 'vendor/custom.modernizr'
+  = javascript_include_tag 'application'
   = csrf_meta_tag
 
 %body
 
   = render 'shared/global_header'
 
-  #global-content
+  #main-content
     = render 'shared/mobile_navigation'
     = render 'shared/flashes'
     = yield
 
   = render 'shared/global_footer'
 
-  = javascript_include_tag "application"
-
-  = yield(:javascripts) if content_for?(:javascripts)
-
   = render 'shared/home_worth_modal'
   = render 'shared/contact_modal'
 
   - if Rails.env.production?
-    :plain
-      <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    :javascript
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        ga('create', 'UA-42685141-1', 'danielkeeton.com');
-        ga('send', 'pageview');
-
-      </script>
-:plain
-  </html>
+      ga('create', 'UA-42685141-1', 'danielkeeton.com');
+      ga('send', 'pageview');

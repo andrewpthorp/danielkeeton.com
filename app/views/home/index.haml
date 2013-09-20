@@ -1,27 +1,27 @@
 - unless @featured_listing.nil?
   .row.margin-bottom-30
     .large-12.columns.centered
-      %section.no-padding.rounded
+      %section
         %header
           %h3 Featured Listing
-        %article.padding-left-15.padding-right-15.padding-top-15.padding-bottom-15
+        %article
           = render partial: 'listings/listing', locals: { listing: @featured_listing }
 
 .row
   .large-8.columns.push-4.margin-bottom-30
-    %section.margin-bottom-30
+    %section
       = image_tag "keeton_family.png", alt: "The Keetons"
-      %hr
-      %p.margin-bottom-10
+      %hr.full-bleed
+      %p
         As a native to the Richmond Area, I have grown up loving this part of
         the state. With our close proximity to the coast and the beautiful
         Blue Ridge mountains, central Virginia has so much to offer.
-      %p.margin-bottom-10
+      %p
         I have extensive knowledge of the area and I am passionate about
         real estate. However, my ultimate goal is to surpass my clients
         expectations of personal service as a Realtor and work as hard as I can
         to make the best deal possible.
-      %p.margin-bottom-10
+      %p
         If you're looking to buy or sell real estate in our area, I'd love to
         have the opportunity to work with you. Feel free to call,
         = link_to 'email', 'mailto:danielspencerkeeton@gmail.com', class: 'underline'
@@ -33,22 +33,21 @@
         %span.italic.padding-left-5 Realtor
 
     - unless @post.nil?
-      %section.no-padding
+      %section
         %header
           %h3 Latest Blog Post
-        .padding-top-15.padding-left-15.padding-right-15
-          %h4= @post.title
-          = markdown(@post.body)
-          %hr
-          %p.text-right.margin-bottom-15= link_to "View Blog", posts_path, class: "strong"
+        %h4= @post.title
+        = markdown(@post.body)
+        %hr
+        %p.text-right.margin-bottom-15= link_to "View Blog", posts_path, class: "strong"
 
   .large-4.columns.pull-8.margin-bottom-30
-    %section.no-padding
+    %section
       %header
         %h3 Testimonials
-      .padding-left-15.padding-right-15
-        %p
-          %blockquote.margin-bottom-15= @testimonial.body
-          %span.strong= "– #{@testimonial.name}"
-        %hr
-        %p.text-right.margin-bottom-15= link_to "View More Testimonials", testimonials_path, class: "strong"
+
+      %p
+        %blockquote.margin-bottom-15= @testimonial.body
+        %span.strong= "– #{@testimonial.name}"
+      %hr
+      %p.text-right.margin-bottom-15= link_to "View More Testimonials", testimonials_path, class: "strong"
