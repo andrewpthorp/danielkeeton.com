@@ -8,7 +8,15 @@
           = render partial: 'listings/listing', locals: { listing: @featured_listing }
 
 .row
-  .large-8.columns.push-4.margin-bottom-30
+  .large-7.columns.margin-bottom-30
+    .feature-image
+      = link_to image_tag('richmond/uva-rotunda.jpg'), 'http://www.visitcharlottesville.org/',
+                target: '_blank'
+      .content
+        %h3
+          Charlottesville, VA
+          %small Beautiful city, only 45 minutes from Richmond!
+
     %section
       .header-image
         = image_tag 'keeton_family.jpg', alt: 'The Keetons'
@@ -33,12 +41,21 @@
           %span.strong Daniel Keeton,
           %span.italic.padding-left-5 Realtor
 
+  .large-5.columns.margin-bottom-30
     - unless @post.nil?
       = render 'posts/post', post: @post
 
-  .large-4.columns.pull-8.margin-bottom-30
+    .feature-image
+      = link_to image_tag('richmond/neptune.jpg'), 'http://www.visitvirginiabeach.com/',
+                target: '_blank'
+      .content.bottom
+        %h3
+          Virginia Beach
+          %small Beautiful beach, short drive from Richmond!
+
     %section
       %header
         %h3 Testimonials
       %ul.testimonials
         = render 'testimonials/testimonial', testimonial: @testimonial
+
