@@ -928,7 +928,7 @@ $primary-color: $blue;
 
 // Reveal overlay.
 
-$reveal-overlay-bg: rgba($blue, .75);
+$reveal-overlay-bg: rgba(0, 0, 0, .75);
 // $reveal-overlay-bg-old: #000;
 
 // Modal itself.
@@ -1139,16 +1139,23 @@ $reveal-border-style: none;
 //
 
 // $has-tip-border-bottom: dotted 1px #ccc;
+$has-tip-border-bottom: 0px none;
 // $has-tip-font-weight: bold;
+$has-tip-font-weight: normal;
 // $has-tip-font-color: #333;
+$has-tip-font-color: $color_dark_gray;
 // $has-tip-border-bottom-hover: dotted 1px darken($primary-color, 20%);
+$has-tip-border-bottom-hover: 0px none;
 // $has-tip-font-color-hover: $primary-color;
+$has-tip-font-color-hover: $color_dark_gray;
 // $has-tip-cursor-type: help;
 
 // $tooltip-padding: emCalc(8px);
 // $tooltip-bg: #000;
+$tooltip-bg: $color_dark_gray;
 // $tooltip-font-size: emCalc(15px);
 // $tooltip-font-weight: bold;
+$tooltip-font-weight: normal;
 // $tooltip-font-color: #fff;
 // $tooltip-line-height: 1.3;
 // $tooltip-close-font-size: emCalc(10px);

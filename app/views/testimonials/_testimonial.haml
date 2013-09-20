@@ -1,5 +1,7 @@
 %li
   %blockquote.margin-bottom-10
     %span.strong= raw "#{testimonial.name} &mdash;"
-    = raw "&quot;#{testimonial.body}&quot;"
+    = raw "&quot;#{truncate(testimonial.body, length: 100)}&quot;"
+    - if testimonial.body.length > 100
+      %span.has-tip.tip-top{data: { tooltip: true }, title: testimonial.body} More
 %hr
