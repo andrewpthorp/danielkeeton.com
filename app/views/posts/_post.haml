@@ -1,0 +1,6 @@
+%section
+  %header
+    %h4= @post.title
+  = markdown(@post.body)
+  %footer
+    %p= link_to 'View all blog entries', posts_path

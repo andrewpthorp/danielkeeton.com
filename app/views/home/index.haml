@@ -10,8 +10,8 @@
 .row
   .large-8.columns.push-4.margin-bottom-30
     %section
-      = image_tag "keeton_family.png", alt: "The Keetons"
-      %hr.full-bleed
+      .header-image
+        = image_tag 'keeton_family.jpg', alt: 'The Keetons'
       %p
         As a native to the Richmond Area, I have grown up loving this part of
         the state. With our close proximity to the coast and the beautiful
@@ -28,18 +28,13 @@
         or send me a
         = link_to 'Facebook', 'https://www.facebook.com/pages/Daniel-Keeton-Real-Estate/157662247658325', class: 'underline', target: '_blank'
         message.
-      %p
-        %span.strong Daniel Keeton,
-        %span.italic.padding-left-5 Realtor
+      %footer
+        %p
+          %span.strong Daniel Keeton,
+          %span.italic.padding-left-5 Realtor
 
     - unless @post.nil?
-      %section
-        %header
-          %h3 Latest Blog Post
-        %h4= @post.title
-        = markdown(@post.body)
-        %hr
-        %p.text-right.margin-bottom-15= link_to "View Blog", posts_path, class: "strong"
+      = render 'posts/post', post: @post
 
   .large-4.columns.pull-8.margin-bottom-30
     %section
