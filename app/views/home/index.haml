@@ -45,9 +45,5 @@
     %section
       %header
         %h3 Testimonials
-
-      %p
-        %blockquote.margin-bottom-15= @testimonial.body
-        %span.strong= "– #{@testimonial.name}"
-      %hr
-      %p.text-right.margin-bottom-15= link_to "View More Testimonials", testimonials_path, class: "strong"
+      %ul.testimonials
+        = render 'testimonials/testimonial', testimonial: @testimonial
