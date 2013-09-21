@@ -33,7 +33,7 @@ class Listing < ActiveRecord::Base
                           allow_nil: true
 
   # Internal: Validate numericality of :square_footage, allow it to be nil.
-  validates :square_footage, numericality: { greater_than_or_equal_to: 1000 },
+  validates :square_footage, numericality: { greater_than_or_equal_to: 500 },
                               allow_nil: true
 
   # Internal: Validate numericality of :lot_size, allow it to be nil.

@@ -40,8 +40,8 @@ describe Listing do
     it { should_not allow_value(1899).for(:year_built) }
     it { should validate_numericality_of(:square_footage) }
     it { should allow_value(nil).for(:square_footage) }
-    it { should allow_value(1000).for(:square_footage) }
-    it { should_not allow_value(999).for(:square_footage) }
+    it { should allow_value(500).for(:square_footage) }
+    it { should_not allow_value(499).for(:square_footage) }
     it { should validate_numericality_of(:lot_size) }
     it { should allow_value(nil).for(:lot_size) }
     it { should allow_value(1000).for(:lot_size) }
