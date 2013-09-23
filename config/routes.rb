@@ -4,7 +4,13 @@ DanielkeetonCom::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  resources :listings, only: [:index]
+  resources :listings, only: [:show] do
+    collection do
+      get '/', to: 'listings#index', defaults: { status: 'for_sale' }
+      get 'status/:status', to: 'listings#index', as: :status
+    end
+  end
+
   resources :posts, only: [:index, :show]
 
   match 'homeworth' => 'home#homeworth'

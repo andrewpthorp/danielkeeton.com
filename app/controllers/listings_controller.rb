@@ -1,11 +1,26 @@
 class ListingsController < ApplicationController
 
   def index
-    @featured = Listing.featured.first
-    @for_sale = Listing.for_sale
-    @for_rent = Listing.for_rent
-    @under_contract = Listing.under_contract
-    @sold = Listing.sold
+    @status = params[:status]
+
+    unless Listing::VALID_STATES.include? @status
+      render_404 and return
+    end
+
+    case @status
+    when 'for_sale'
+      @listings = Listing.for_sale
+    when 'for_rent'
+      @listings = Listing.for_rent
+    when 'under_contract'
+      @listings = Listing.under_contract
+    when 'sold'
+      @listings = Listing.sold
+    end
+  end
+
+  def show
+    @listing = Listing.find(params[:id])
   end
 
 end

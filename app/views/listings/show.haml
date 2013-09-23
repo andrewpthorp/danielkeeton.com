@@ -1,0 +1,23 @@
+.row
+  .large-6.columns
+    = image_tag @listing.image.featured
+  .large-6.columns
+    %h4= @listing.title
+    = markdown(@listing.description)
+
+    %section
+      %dl.information
+        .row
+          - unless @listing.bedrooms.blank?
+            %dt.large-4.columns Beds
+            %dd.large-2.columns= @listing.bedrooms
+          - unless @listing.bathrooms.blank?
+            %dt.large-4.columns Baths
+            %dd.large-2.columns= @listing.bathrooms
+        .row
+          - unless @listing.square_footage.blank?
+            %dt.large-2.columns Home
+            %dd.large-4.columns= "#{number_with_delimiter(@listing.square_footage)} Sq. Ft."
+          - unless @listing.lot_size.blank?
+            %dt.large-2.columns Lot
+            %dd.large-4.columns= "#{number_with_delimiter(@listing.lot_size)} Sq. Ft."

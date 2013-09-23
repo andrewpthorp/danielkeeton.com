@@ -10,4 +10,11 @@ class ApplicationController < ActionController::Base
   def set_current_section
     @section = params[:controller]
   end
+
+  # Internal: Render an HTTP 404.
+  #
+  # Returns nothing.
+  def render_404
+    render file: 'public/404', layout: false, formats: [:html], status: 404
+  end
 end

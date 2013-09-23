@@ -1,6 +1,18 @@
 #map
   height: 300px
 
+#local-listings
+  margin-bottom: 30px
+
+.blankslate
+  background: $color_white
+  padding: 15px
+  p
+    color: lighten($body-font-color, 35%)
+    font-style: italic
+    margin-bottom: 0px
+    text-align: center
+
 .box
   +box-sizing(border-box)
   background: $off_white
@@ -9,6 +21,49 @@
 blockquote
   border-left: 0px
   padding: 0px
+
+dl.information
+  display: block
+  font-size: emCalc(13px)
+  margin-bottom: 0px
+  dt, dd
+    margin-bottom: 5px
+  dd
+    text-align: right
+
+section dl.information
+  margin-bottom: 10px
+
+.widget
+  +box-shadow(0px 0px 0px 3px rgba(0, 0, 0, 0.1))
+  border-radius: 5px
+  padding: 0px
+  header
+    img
+      border-radius: 5px 5px 0px 0px
+      display: block
+  article
+    background: $color_white
+    padding: 10px
+    p.title
+      margin-bottom: 0px
+      overflow: hidden
+      text-overflow: ellipsis
+      white-space: nowrap
+      width: 100%
+    hr
+      margin: 15px -10px
+  footer
+    a
+      background: $color_gray
+      border-radius: 0px 0px 5px 5px
+      color: $color_dark_gray
+      display: block
+      padding: 10px
+      text-align: center
+      &:hover
+        background: $color_blue
+        color: $color_white
 
 section, .section
   +box-shadow(0px 0px 0px 3px rgba(0, 0, 0, 0.1))
