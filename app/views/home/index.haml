@@ -28,7 +28,7 @@
 
   .large-5.columns.margin-bottom-30
     - unless @post.nil?
-      = render 'posts/post', post: @post
+      = render 'posts/post', post: @post, preview: true
 
     .feature-image
       = link_to image_tag('richmond/uva-rotunda.jpg'), 'http://www.visitcharlottesville.org/',

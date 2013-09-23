@@ -1,6 +1,15 @@
+- preview = false if preview.blank?
+
 %section#post
   %header
     %h4= @post.title
-  = markdown(@post.body)
-  %footer
-    %p= link_to 'View all blog entries', posts_path
+
+  - if preview
+    = markdown(truncate(@post.body, length: 250))
+    %footer
+      %p= link_to 'View entire article', @post
+
+  - else
+    = markdown(@post.body)
+    %footer
+      %p= link_to 'View all blog entries', posts_path
