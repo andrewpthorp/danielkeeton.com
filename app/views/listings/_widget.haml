@@ -1,10 +1,12 @@
-.widget.listing
+.widget
   %header
     = image_tag listing.image.featured
 
   %article
     %h6.price= number_to_currency(listing.price, precision: 0)
     %p.title= listing.title
+    %hr.full-bleed
+    = pretty_address(listing)
     %hr.full-bleed
     %dl.information
       .row
