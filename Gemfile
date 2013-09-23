@@ -21,7 +21,6 @@ gem 'haml'
 gem 'sass'
 gem 'compass'
 gem 'compass-rails'
-gem 'sassy-buttons'
 gem 'redcarpet'
 
 group :assets do

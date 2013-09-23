@@ -1,11 +1,53 @@
-.row
-  .large-6.columns
-    = image_tag @listing.image.featured
-  .large-6.columns
-    %h4= @listing.title
-    = markdown(@listing.description)
+.row.listing
+
+  .large-5.columns
+
+    .images
+      = image_tag @listing.image.featured
+
+      - if false
+        %ul.thumbnails
+          %li= image_tag @listing.image.thumb
+          %li= image_tag @listing.image.thumb
+          %li= image_tag @listing.image.thumb
+          %li= image_tag @listing.image.thumb
+          %li= image_tag @listing.image.thumb
+          %li= image_tag @listing.image.thumb
+          %li= image_tag @listing.image.thumb
+          %li= image_tag @listing.image.thumb
+          %li= image_tag @listing.image.thumb
+
+    %hr
+
+    - if false
+      #map
+        .padding-top-75
+          %p.text-center.padding-top-50
+            Map Goes Here
+
+      %hr
+
+    .row.actions
+      .large-6.columns
+        = link_to 'Request Info', "mailto:danielspencerkeeton@gmail.com?subject=Inquiry about #{@listing.title}", class: 'button success medium'
+      .large-6.columns
+        = link_to 'View Listing', @listing.link, class: 'button medium'
+
+
+  .large-7.columns
 
     %section
+      .row
+        .large-8.columns
+          = pretty_address(@listing)
+        .large-4.columns
+          %h3.price= number_to_currency(@listing.price, precision: 0)
+
+      %hr
+      %h4= @listing.title
+      = markdown(@listing.description)
+      %hr
+
       %dl.information
         .row
           - unless @listing.bedrooms.blank?

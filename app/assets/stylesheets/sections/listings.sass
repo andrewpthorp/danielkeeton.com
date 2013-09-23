@@ -1,0 +1,40 @@
+.listing
+  .images
+    img
+      +box-shadow(0px 0px 0px 3px $white)
+    ul
+      +clearfix
+      margin: 10px 0px 0px
+      li
+        float: left
+        margin: 0px 13px 13px 0px
+        img
+          display: inline-block
+        &:hover
+          img
+            +box-shadow(0px 0px 0px 3px $black)
+            cursor: pointer
+        &:last-child
+          margin-right: 0px
+
+  .actions
+    a
+      display: block
+      width: 100%
+  section
+    h3.price
+      background: $color_light_gray
+      color: $color_green
+      font-weight: bold
+      padding: 5px 0px
+      text-align: center
+    .address
+      p
+        color: $black
+    dl
+      background: $color_light_gray
+      padding: 15px 20px 10px
+      dt, dd
+        margin-bottom: 5px
+      dd
+        text-align: right
