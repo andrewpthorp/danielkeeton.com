@@ -2,7 +2,7 @@ initializeMap = (latitude, longitude, link, address) ->
   latlng = new google.maps.LatLng(latitude, longitude)
 
   mapOptions =
-    zoom: 8,
+    zoom: 15,
     center: latlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
 
