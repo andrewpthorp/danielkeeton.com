@@ -12,12 +12,28 @@ ul, ol
 .tooltip
   max-width: 300px
 
-.orbit-container
+.slideshow-wrapper
   +box-shadow(0px 0px 0px 3px $color_white)
+  +box-sizing(border-box)
+  background: darken($color_gray, 5%)
   margin-bottom: $column-gutter
+  min-height: 397px
 
-.orbit-bullets
-  display: none
+.orbit-container
+  .orbit-next, .orbit-prev
+    top: 45%
+  .orbit-next
+    span
+      border-left-color: $color_blue !important
+    &:hover
+      span
+        border-left-color: $color_light_blue !important
+  .orbit-prev
+    span
+      border-right-color: $color_blue !important
+    &:hover
+      span
+        border-right-color: $color_light_blue !important
 
 dl.sub-nav
   background: darken($color_gray, 1%)
