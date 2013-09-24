@@ -2,12 +2,7 @@
 
 .row
   .large-12.columns
-    %dl.sub-nav
-      %dt View listings that are:
-      %dd{class: @status == 'for_sale' ? 'active' : ''}= link_to 'For Sale', listings_path
-      %dd{class: @status == 'for_rent' ? 'active' : ''}= link_to 'For Rent', status_listings_path('for_rent')
-      %dd{class: @status == 'under_contract' ? 'active' : ''}= link_to 'Under Contract', status_listings_path('under_contract')
-      %dd{class: @status == 'sold' ? 'active' : ''}= link_to 'Sold', status_listings_path('sold')
+    = listing_status_nav(@status)
 
 .row
   .large-12.columns

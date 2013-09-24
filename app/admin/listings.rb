@@ -14,7 +14,7 @@ ActiveAdmin.register Listing do
     end
     column :link
     column "Status", sortable: :status do |listing|
-      pretty_status(listing)
+      listing.status.titleize
     end
     column :featured, sortable: true
     actions

@@ -1,0 +1,72 @@
+require 'spec_helper'
+
+describe ListingsHelper do
+
+  describe '#google_maps_address' do
+    it 'should return the correct url' do
+      opts = { address_line_1: '1', city: '2', state: '3', zip: '4' }
+      listing = FactoryGirl.create(:listing, opts)
+      expect(helper.google_maps_address(listing)).to eq(
+        'http://maps.google.com/?q=1, 2, 3, 4'
+      )
+    end
+  end
+
+  describe '#pretty_address' do
+    it 'should be tested' do
+      pending 'need to refactor'
+    end
+  end
+
+  describe '#listing_status_nav' do
+    it 'should return a definition list' do
+      expect(helper.listing_status_nav('')).to have_selector('dl.sub-nav')
+    end
+
+    it 'should have a title' do
+      expect(helper.listing_status_nav('')).to have_selector('dt', text: /View/)
+    end
+
+    it 'should have 4 links' do
+      expect(helper.listing_status_nav('')).to have_selector('a', count: 4)
+    end
+
+    context 'when passing the current status in' do
+      context 'and the current status is blank' do
+        it 'should set the active link to for_sale' do
+          results = helper.listing_status_nav('')
+          expect(results).to have_selector('dd.active', text: 'For Sale')
+        end
+      end
+
+      context 'and the current status is for_sale' do
+        it 'should set the active link to for_sale' do
+          results = helper.listing_status_nav('for_sale')
+          expect(results).to have_selector('dd.active', text: 'For Sale')
+        end
+      end
+
+      context 'and the current status is for_rent' do
+        it 'should set the active link to for_rent' do
+          results = helper.listing_status_nav('for_rent')
+          expect(results).to have_selector('dd.active', text: 'For Rent')
+        end
+      end
+
+      context 'and the current status is under_contract' do
+        it 'should set the active link to under_contract' do
+          results = helper.listing_status_nav('under_contract')
+          expect(results).to have_selector('dd.active', text: 'Under Contract')
+        end
+      end
+
+      context 'and the current status is sold' do
+        it 'should set the active link to sold' do
+          results = helper.listing_status_nav('sold')
+          expect(results).to have_selector('dd.active', text: 'Sold')
+        end
+      end
+    end
+  end
+
+end

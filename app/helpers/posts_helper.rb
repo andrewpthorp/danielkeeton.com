@@ -1,5 +1,16 @@
+# Public: All helpers that are to be used for Posts are in here. Even though
+# all helpers are application-wide, it makes sense to put them here for clarity.
 module PostsHelper
+
+  # Public: Render given String to markdown formatted HTML.
+  #
+  # text - The String to render as markdown.
+  #
+  # Returns an ActiveSupport::SafeBuffer.
   def markdown(text)
-    Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true).render(text).html_safe
+    opts = { autolink: true, space_after_headers: true }
+    Redcarpet::Markdown.new(Redcarpet::Render::HTML, opts)
+      .render(text).html_safe
   end
+
 end
