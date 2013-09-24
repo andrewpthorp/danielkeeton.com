@@ -8,33 +8,33 @@
 
       %hr.full-bleed
 
-      %form.custom{action: '/homeworth', method: 'POST'}
+      %form.custom{action: '/homeworth', method: 'POST', data: { abide: true }}
         .row
           .large-4.columns
             = label_tag :name, 'Name'
-            = text_field_tag :name
+            = text_field_tag :name, '', required: true
           .large-4.columns
             = label_tag :email, 'Email'
-            = text_field_tag :email
+            = text_field_tag :email, '', required: true
           .large-4.columns
             = label_tag :phone, 'Phone'
-            = text_field_tag :phone
+            = text_field_tag :phone, '', required: true
 
         .row
           .large-12.columns
             = label_tag :address, 'Home Address'
-            = text_field_tag :address
+            = text_field_tag :address, '', required: true
 
         .row
           .large-4.columns
             = label_tag :square_feet, 'Square Footage'
-            = text_field_tag :square_feet
+            = text_field_tag :square_feet, '', required: true
           .large-4.columns
             = label_tag :bathrooms, '# Bathrooms'
-            = text_field_tag :bathrooms
+            = text_field_tag :bathrooms, '', required: true
           .large-4.columns
             = label_tag :bedrooms, '# Bedrooms'
-            = text_field_tag :bedrooms
+            = text_field_tag :bedrooms, '', required: true
 
         .row
           .large-12.columns

@@ -12,22 +12,23 @@
 
       %hr.full-bleed
 
-      %form.custom{action: '/contact', method: 'POST'}
+      %form.custom{action: '/contact', method: 'POST', data: { abide: true }}
         .row
           .large-4.columns
             = label_tag :name, 'Name'
-            = text_field_tag :name
+            = text_field_tag :name, '', required: true
           .large-4.columns
             = label_tag :email, 'Email'
-            = text_field_tag :email
+            = text_field_tag :email, '', required: true
           .large-4.columns
             = label_tag :phone, 'Phone'
-            = text_field_tag :phone
+            = text_field_tag :phone, '', required: true
 
         .row
           .large-12.columns
             = label_tag :comments, 'Comments'
-            = text_area_tag :comments, '', class: 'margin-bottom-0'
+            = text_area_tag :comments, '', required: true, class: 'margin-bottom-0'
+            %small.error
 
         %footer
           .row
