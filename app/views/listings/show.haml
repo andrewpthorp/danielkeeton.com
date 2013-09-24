@@ -19,17 +19,10 @@
 
     %hr
 
-    = link_to google_maps_address(@listing), target: '_blank' do
-      #map
+    #map
 
     %hr
 
-
-    .row.actions
-      .large-6.columns
-        = link_to 'Request Info', "mailto:danielspencerkeeton@gmail.com?subject=Inquiry about #{@listing.title}", class: 'button success medium'
-      .large-6.columns
-        = link_to 'View Listing', @listing.link, class: 'button medium'
 
 
   .large-7.columns
@@ -62,6 +55,15 @@
             %dt.large-2.columns Lot
             %dd.large-4.columns= "#{number_with_delimiter(@listing.lot_size)} Sq. Ft."
 
+      .row.actions
+        .large-6.columns
+          = link_to 'Request Information', "mailto:danielspencerkeeton@gmail.com?subject=Inquiry about #{@listing.title}", class: 'button success medium'
+        .large-6.columns
+          = link_to 'View Listing Website', @listing.link, class: 'button medium'
+
+
+
 :coffeescript
   $ ->
-    initializeMap("#{@listing.latitude}", "#{@listing.longitude}")
+    address = "<p>#{@listing.address_line_1}<br />#{@listing.city} #{@listing.state}, #{@listing.zip}</p>"
+    initializeMap("#{@listing.latitude}", "#{@listing.longitude}", "#{google_maps_address(@listing)}", address)
