@@ -16,15 +16,16 @@
         to make the best deal possible.
       %p
         If you're looking to buy or sell real estate in our area, I'd love to
-        have the opportunity to work with you. Feel free to call,
-        = link_to 'email', 'mailto:danielspencerkeeton@gmail.com', class: 'underline'
+        have the opportunity to work with you. Feel free to call
+        %strong 804-921-7406,
+        send me an
+        = "#{link_to('email', 'mailto:danielspencerkeeton@gmail.com', class: 'underline')},".html_safe
         or send me a
-        = link_to 'Facebook', 'https://www.facebook.com/pages/Daniel-Keeton-Real-Estate/157662247658325', class: 'underline', target: '_blank'
-        message.
+        = link_to 'Facebook message.', 'https://www.facebook.com/pages/Daniel-Keeton-Real-Estate/157662247658325', class: 'underline', target: '_blank'
       %footer
         %p
           %span.strong Daniel Keeton,
-          %span.italic.padding-left-5 Realtor
+          %span.italic Realtor
 
   .large-5.columns.margin-bottom-30
     - unless @post.nil?
