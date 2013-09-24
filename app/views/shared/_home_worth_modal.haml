@@ -4,43 +4,44 @@
       %header
         %h4 What's my home worth?
 
-      %p.mute Fill out this short online form to see how the recent real estate market has affected property values.
+      %p.margin-bottom-0.mute Fill out this short online form to see how the recent real estate market has affected property values.
 
-      %form.custom{action: "/homeworth", method: "POST"}
+      %hr.full-bleed
+
+      %form.custom{action: '/homeworth', method: 'POST'}
         .row
           .large-4.columns
-            = label_tag :name, "Name"
+            = label_tag :name, 'Name'
             = text_field_tag :name
           .large-4.columns
-            = label_tag :email, "Email"
+            = label_tag :email, 'Email'
             = text_field_tag :email
           .large-4.columns
-            = label_tag :phone, "Phone"
+            = label_tag :phone, 'Phone'
             = text_field_tag :phone
 
         .row
           .large-12.columns
-            = label_tag :address, "Home Address"
+            = label_tag :address, 'Home Address'
             = text_field_tag :address
 
         .row
           .large-4.columns
-            = label_tag :square_feet, "Square Footage"
+            = label_tag :square_feet, 'Square Footage'
             = text_field_tag :square_feet
           .large-4.columns
-            = label_tag :bathrooms, "# Bathrooms"
+            = label_tag :bathrooms, '# Bathrooms'
             = text_field_tag :bathrooms
           .large-4.columns
-            = label_tag :bedrooms, "# Bedrooms"
+            = label_tag :bedrooms, '# Bedrooms'
             = text_field_tag :bedrooms
 
         .row
           .large-12.columns
-            = label_tag :updates, "Updates"
-            = text_area_tag :updates
+            = label_tag :updates, 'Updates'
+            = text_area_tag :updates, '', class: 'margin-bottom-0'
 
-        %hr
-
-        .row
-          .large-12.columns.clearfix
-            = submit_tag "Get a Quote!", class: "custom-button red right"
+        %footer
+          .row
+            .large-12.columns.clearfix
+              = submit_tag 'Get a Quote!', class: 'button success right margin-bottom-0'

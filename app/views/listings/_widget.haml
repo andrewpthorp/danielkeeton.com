@@ -5,9 +5,9 @@
   %article
     %h6.price= number_to_currency(listing.price, precision: 0)
     %p.title= listing.title
-    %hr.full-bleed
+    %hr
     = pretty_address(listing)
-    %hr.full-bleed
+    %hr
     %dl.information
       .row
         - unless listing.bedrooms.blank?
