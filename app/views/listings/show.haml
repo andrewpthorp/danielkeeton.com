@@ -19,13 +19,11 @@
 
     %hr
 
-    - if false
+    = link_to google_maps_address(@listing), target: '_blank' do
       #map
-        .padding-top-75
-          %p.text-center.padding-top-50
-            Map Goes Here
 
-      %hr
+    %hr
+
 
     .row.actions
       .large-6.columns
@@ -63,3 +61,7 @@
           - unless @listing.lot_size.blank?
             %dt.large-2.columns Lot
             %dd.large-4.columns= "#{number_with_delimiter(@listing.lot_size)} Sq. Ft."
+
+:coffeescript
+  $ ->
+    initializeMap("#{@listing.latitude}", "#{@listing.longitude}")

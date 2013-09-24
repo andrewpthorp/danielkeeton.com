@@ -73,6 +73,14 @@ describe Listing do
         @second.should be_featured
       end
     end
+
+    describe '.geocode' do
+      it 'should run the method after validation' do
+        @listing = FactoryGirl.build(:listing)
+        @listing.should_receive(:geocode)
+        @listing.run_callbacks(:validation)
+      end
+    end
   end
 
   describe '.scopes' do
@@ -91,6 +99,22 @@ describe Listing do
         it "should only return listings with a status of #{status}" do
           expect(hash).to eq('status' => status)
         end
+      end
+    end
+  end
+
+  describe '#methods' do
+    describe '#ensure_single_featuerd' do
+      it 'should return a formatted string' do
+        opts = {
+          address_line_1: '1 Broad Street',
+          city: 'Philadelphia',
+          state: 'PA',
+          zip: '19019'
+        }
+        address = "#{opts[:address_line_1]}, #{opts[:city]}, #{opts[:state]}, #{opts[:zip]}"
+        @listing = FactoryGirl.create(:listing, opts)
+        expect(@listing.full_address).to eq(address)
       end
     end
   end

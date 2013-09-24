@@ -14,6 +14,9 @@ class Listing < ActiveRecord::Base
   # Internal: Use CarrierWave to handle Images for the Listings.
   mount_uploader :image, ListingUploader
 
+  # Internal: Use Geocoder to store latitude and longitude.
+  geocoded_by :full_address
+
   # Internal: Validate presence of specific attributes.
   validates :title, :description, :price, presence: true
 
@@ -42,6 +45,9 @@ class Listing < ActiveRecord::Base
 
   # Internal: Ensure that only one Listing is featured.
   before_save :ensure_single_featured
+
+  # Internal: After validating the Listing, geocode for latitude and longitude.
+  after_validation :geocode
 
   # Public: Get all Listings where featured is set to true.
   #
@@ -72,6 +78,13 @@ class Listing < ActiveRecord::Base
   #
   # Returns an ActiveRecord::Relation.
   scope :cancelled, where(status: 'cancelled')
+
+  # Public: Get a formatted version of my address.
+  #
+  # Returns a String.
+  def full_address
+    "#{address_line_1}, #{city}, #{state}, #{zip}"
+  end
 
 private
 
