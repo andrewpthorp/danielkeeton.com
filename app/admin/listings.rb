@@ -41,7 +41,7 @@ ActiveAdmin.register Listing do
 
     f.inputs "Home Information" do
       f.input :bedrooms, as: :select, collection: (1..10).to_a
-      f.input :bathrooms, as: :select, collection: [0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]
+      f.input :bathrooms, as: :select, collection: (0.5..5).step(0.5).to_a
       f.input :year_built, as: :select, collection: (1900..2013).to_a
       f.input :square_footage
       f.input :lot_size
