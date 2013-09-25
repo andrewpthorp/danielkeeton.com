@@ -69,4 +69,32 @@ describe ListingsHelper do
     end
   end
 
+  describe '#listing_gallery_thumbs' do
+    let(:listing) { FactoryGirl.create(:listing_with_multiple_images) }
+    let(:results) { helper.listing_gallery_thumbs(listing) }
+
+    it 'should return an unordered list' do
+      expect(results).to have_selector('ul.thumbnails')
+    end
+
+    it 'should return a list item for each image' do
+      expect(results).to have_selector('li a.fancybox',
+                                       count: listing.images.size - 1)
+    end
+
+    context 'when the listing only has one image' do
+      it 'should return nil' do
+        listing.stub_chain(:images, :size).and_return(1)
+        expect(results).to be_nil
+      end
+    end
+
+    context 'when the listing has no images' do
+      it 'should return nil' do
+        listing.stub_chain(:images, :size).and_return(0)
+        expect(results).to be_nil
+      end
+    end
+  end
+
 end

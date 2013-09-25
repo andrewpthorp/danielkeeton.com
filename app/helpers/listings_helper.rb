@@ -61,4 +61,29 @@ module ListingsHelper
     end
   end
 
+
+  # Public: Get the gallery of thumbnails for all Images of a Listing. Each link
+  # has a class of 'fancybox' and a rel of 'gallery' so we can use fancybox to
+  # create a gallery for the Images.
+  #
+  # listing - The Listing to get an unordered list of image thumbnails.
+  #
+  # Returns an ActiveSupport::SafeBuffer.
+  def listing_gallery_thumbs(listing)
+    return nil if listing.images.size <= 1
+    items = []
+
+    listing.images.each do |image|
+      next if image.primary?
+      items << link_to(image_tag(image.file.thumb), image.file.url,
+                        class: 'fancybox', rel: 'gallery')
+    end
+
+    content_tag :ul, class: 'thumbnails' do
+      items.map do |item|
+        concat(content_tag(:li, item))
+      end
+    end
+  end
+
 end

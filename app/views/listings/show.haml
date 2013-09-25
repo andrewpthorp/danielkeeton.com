@@ -3,18 +3,14 @@
   .large-5.columns
 
     .images
-      = link_to image_tag(@listing.primary_image.file.featured),
-                @listing.primary_image.file.featured.url,
-                class: 'fancybox', rel: 'gallery'
+      .featured
+        = link_to image_tag(@listing.primary_image.file.featured),
+                            @listing.primary_image.file.featured.url,
+                            class: 'featured fancybox', rel: 'gallery'
 
-      %ul.thumbnails
-        - @listing.images.each do |image|
-          %li
-            = link_to image_tag(image.file.thumb), image.file.featured.url,
-                      class: 'fancybox', rel: 'gallery'
+      = listing_gallery_thumbs(@listing)
 
     %hr
-
     #map
 
   .large-7.columns
