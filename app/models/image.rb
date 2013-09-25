@@ -41,7 +41,8 @@ protected
   #
   # Returns nothing.
   def unset_other_primary_images
-    Image.for_listing(self.listing_id).primary.update_all(primary: false)
+    Image.for_listing(self.listing_id).primary.reject { |image| image == self }
+      .each { |i| i.update_column(:primary, false) }
   end
 
   # Internal: When :primary is set to false, but there are no Images for the
