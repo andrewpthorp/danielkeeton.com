@@ -11,6 +11,12 @@ class Listing < ActiveRecord::Base
                   :bedrooms, :bathrooms, :year_built, :square_footage,
                   :lot_size, :images_attributes, :images
 
+  # Internal: Extend the FriendlyId module to allow us to use friendly_id.
+  extend FriendlyId
+
+  # Internal: Slug the :title of Listings using FriendlyId.
+  friendly_id :title, use: :slugged
+
   # Internal: Each Listing has many Images.
   has_many :images, dependent: :destroy
 
@@ -57,32 +63,32 @@ class Listing < ActiveRecord::Base
 
   # Public: Get all Listings where featured is set to true.
   #
-  # Returns an ActiveRecord::Relation.
+  # Returns a Listing::FriendlyIdActiveRecordRelation.
   scope :featured, where(featured: true)
 
   # Public: Get all Listings where status is set to 'for_sale.'
   #
-  # Returns an ActiveRecord::Relation.
+  # Returns a Listing::FriendlyIdActiveRecordRelation.
   scope :for_sale, where(status: 'for_sale')
 
   # Public: Get all Listings where status is set to 'for_rent.'
   #
-  # Returns an ActiveRecord::Relation.
+  # Returns a Listing::FriendlyIdActiveRecordRelation.
   scope :for_rent, where(status: 'for_rent')
 
   # Public: Get all Listings where status is set to 'under_contract.'
   #
-  # Returns an ActiveRecord::Relation.
+  # Returns a Listing::FriendlyIdActiveRecordRelation.
   scope :under_contract, where(status: 'under_contract')
 
   # Public: Get all Listings where status is set to 'sold.'
   #
-  # Returns an ActiveRecord::Relation.
+  # Returns a Listing::FriendlyIdActiveRecordRelation.
   scope :sold, where(status: 'sold')
 
   # Public: Get all Listings where status is set to 'cancelled.'
   #
-  # Returns an ActiveRecord::Relation.
+  # Returns a Listing::FriendlyIdActiveRecordRelation.
   scope :cancelled, where(status: 'cancelled')
 
   # Public: Get a formatted version of my address.

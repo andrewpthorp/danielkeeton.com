@@ -21,6 +21,7 @@ describe Listing do
     it { should allow_mass_assignment_of(:lot_size) }
     it { should allow_mass_assignment_of(:images_attributes) }
     it { should allow_mass_assignment_of(:images) }
+    it { should_not allow_mass_assignment_of(:slug) }
   end
 
   describe '.associations' do
@@ -122,6 +123,13 @@ describe Listing do
           expect(hash).to eq('status' => status)
         end
       end
+    end
+  end
+
+  describe '.friendly_id' do
+    it 'should set a slug' do
+      post = FactoryGirl.create(:listing)
+      post.slug.should_not be_nil
     end
   end
 

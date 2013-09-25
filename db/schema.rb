@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130924220219) do
+ActiveRecord::Schema.define(:version => 20130925165157) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(:version => 20130924220219) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
+  create_table "friendly_id_slugs", :force => true do |t|
+    t.string   "slug",                         :null => false
+    t.integer  "sluggable_id",                 :null => false
+    t.string   "sluggable_type", :limit => 40
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
+  add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
+
   create_table "images", :force => true do |t|
     t.string   "file"
     t.boolean  "primary",    :default => false
@@ -77,7 +88,10 @@ ActiveRecord::Schema.define(:version => 20130924220219) do
     t.integer  "year_built"
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "slug"
   end
+
+  add_index "listings", ["slug"], :name => "index_listings_on_slug", :unique => true
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -85,7 +99,10 @@ ActiveRecord::Schema.define(:version => 20130924220219) do
     t.boolean  "published"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "slug"
   end
+
+  add_index "posts", ["slug"], :name => "index_posts_on_slug", :unique => true
 
   create_table "testimonials", :force => true do |t|
     t.text     "body"
