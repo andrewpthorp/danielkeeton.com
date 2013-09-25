@@ -173,6 +173,7 @@ GEM
     mini_magick (3.5.0)
       subexec (~> 0.2.1)
     multi_json (1.7.3)
+    nested_form (0.3.2)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.6.7)
@@ -299,6 +300,7 @@ DEPENDENCIES
   mail_view (~> 1.0.3)
   meta_search
   mini_magick
+  nested_form
   pg
   quiet_assets
   rails

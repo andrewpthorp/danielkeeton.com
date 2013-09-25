@@ -23,6 +23,7 @@ gem 'compass'
 gem 'compass-rails'
 gem 'redcarpet'
 gem 'geocoder'
+gem 'nested_form'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.5'

@@ -19,7 +19,13 @@ describe Listing do
     it { should allow_mass_assignment_of(:year_built) }
     it { should allow_mass_assignment_of(:square_footage) }
     it { should allow_mass_assignment_of(:lot_size) }
-    it { should allow_mass_assignment_of(:image) }
+    it { should allow_mass_assignment_of(:images_attributes) }
+    it { should allow_mass_assignment_of(:images) }
+  end
+
+  describe '.associations' do
+    it { should have_many(:images).dependent(:destroy) }
+    it { should accept_nested_attributes_for(:images).allow_destroy(true) }
   end
 
   describe '.validations' do
@@ -46,6 +52,22 @@ describe Listing do
     it { should allow_value(nil).for(:lot_size) }
     it { should allow_value(1000).for(:lot_size) }
     it { should_not allow_value(999).for(:lot_size) }
+
+    describe '.images' do
+      let (:image) { Image.new }
+      let (:listing) { Listing.new(images: []) }
+
+      it 'should have validation errors if images is empty' do
+        listing.valid?
+        listing.errors[:images].should_not be_empty
+      end
+
+      it 'should not have validation errors if images is not empty' do
+        listing.images << image
+        listing.valid?
+        listing.errors[:images].should be_empty
+      end
+    end
   end
 
   describe '.callbacks' do
@@ -115,6 +137,13 @@ describe Listing do
         address = "#{opts[:address_line_1]}, #{opts[:city]}, #{opts[:state]}, #{opts[:zip]}"
         @listing = FactoryGirl.create(:listing, opts)
         expect(@listing.full_address).to eq(address)
+      end
+    end
+
+    describe '#primary_image' do
+      it 'should return the correct image' do
+        listing = FactoryGirl.create(:listing_with_multiple_images)
+        expect(listing.primary_image).to be_primary
       end
     end
   end

@@ -1,6 +1,7 @@
 #= require jquery
 #= require jquery_ujs
 #= require foundation
+#= require jquery.fancybox.pack
 #= require_tree .
 
 $ ->
@@ -11,3 +12,5 @@ $ ->
   })
 
   $(document).foundation()
+
+  $('.fancybox').fancybox()

@@ -9,10 +9,16 @@ class Listing < ActiveRecord::Base
   attr_accessible :title, :description, :status, :price, :featured, :link,
                   :address_line_1, :address_line_2, :city, :state, :zip,
                   :bedrooms, :bathrooms, :year_built, :square_footage,
-                  :lot_size, :image
+                  :lot_size, :images_attributes, :images
 
-  # Internal: Use CarrierWave to handle Images for the Listings.
-  mount_uploader :image, ListingUploader
+  # Internal: Each Listing has many Images.
+  has_many :images, dependent: :destroy
+
+  # Internal: Allow us to create Images from the Listing forms.
+  accepts_nested_attributes_for :images, allow_destroy: true
+
+  # Internal: Validate that at least one Image is stored with a Listing.
+  validates :images, length: { minimum: 1 }
 
   # Internal: Use Geocoder to store latitude and longitude.
   geocoded_by :full_address
@@ -84,6 +90,13 @@ class Listing < ActiveRecord::Base
   # Returns a String.
   def full_address
     "#{address_line_1}, #{city}, #{state}, #{zip}"
+  end
+
+  # Public: Get the Image for the Listing with :primary set to true.
+  #
+  # Returns an Image.
+  def primary_image
+    self.images.primary.first
   end
 
 private
