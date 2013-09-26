@@ -1,0 +1,17 @@
+= form_for [:admin, testimonial], html: { class: 'custom testimonial-form' } do |f|
+  .row
+    .large-12.columns
+      = f.label :name
+      = f.text_field :name
+
+  .row
+    .large-12.columns
+      = f.label :body
+      = f.text_area :body
+
+  %footer
+    .row
+      .large-6.columns
+        = link_to 'Cancel', admin_testimonials_path, class: 'button secondary'
+      .large-6.columns.text-right
+        = f.submit 'Save', class: 'button success'

@@ -44,7 +44,7 @@ class Listing < ActiveRecord::Base
                         numericality: { only_integer: true, greater_than: 0 }
 
   # Internal: Validate numericality of :year_built, allow it to be nil.
-  validates :year_built, numericality: { greater_than_or_equal_to: 1900 },
+  validates :year_built, numericality: { greater_than_or_equal_to: 1800 },
                           allow_nil: true
 
   # Internal: Validate numericality of :square_footage, allow it to be nil.

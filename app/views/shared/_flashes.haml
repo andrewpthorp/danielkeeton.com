@@ -1,9 +1,4 @@
-- if flash[:error]
-  .row.margin-bottom-15
+- flash.each do |key, val|
+  .row
     .large-12.columns
-      %p.padding-left-20.flash.error= flash[:error]
-
-- if flash[:success]
-  .row.margin-bottom-15
-    .large-12.columns
-      %p.padding-left-20.flash.success= flash[:success]
+      %p.flash{class: key}= val

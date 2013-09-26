@@ -1,12 +1,12 @@
 .flash
-  +border-radius(5px)
-  padding: 10px
+  +box-shadow(0px 0px 0px 3px rgba(0, 0, 0, 0.1))
+  border-radius: 3px
+  padding: 5px 10px
+  color: $white
   &.error
-    background: $red
-    color: $white
-  &.success
-    background: $color_green
-    color: $white
+    background: $alert-color
+  &.success, &.notice
+    background: $success-color
 
 #global-header, #admin-header
   +clearfix

@@ -45,7 +45,7 @@ $body-font-color: $black;
 $primary-color: $blue;
 // $primary-color: #2ba6cb;
 // $secondary-color: #e9e9e9;
-$secondary-color: $color_dark_gray;
+$secondary-color: darken($color_gray, 10%);
 // $alert-color: #c60f13;
 // $success-color: #5da423;
 

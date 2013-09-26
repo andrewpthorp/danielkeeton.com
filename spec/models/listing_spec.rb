@@ -42,9 +42,9 @@ describe Listing do
     it { should validate_numericality_of(:bedrooms).only_integer }
     it { should_not allow_value(0).for(:bedrooms) }
     it { should validate_numericality_of(:year_built) }
-    it { should allow_value(1900).for(:year_built) }
+    it { should allow_value(1800).for(:year_built) }
     it { should allow_value(nil).for(:year_built) }
-    it { should_not allow_value(1899).for(:year_built) }
+    it { should_not allow_value(1799).for(:year_built) }
     it { should validate_numericality_of(:square_footage) }
     it { should allow_value(nil).for(:square_footage) }
     it { should allow_value(500).for(:square_footage) }

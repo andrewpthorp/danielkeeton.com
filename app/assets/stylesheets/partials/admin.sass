@@ -5,6 +5,23 @@ body.admin
     color: $color_blue
     font-family: 'Lobster Two', sans-serif
     text-shadow: 1px 1px 0px $color_white
+    span
+      font-family: $body-font-family
+      position: relative
+      text-shadow: none
+      top: -3px
+      a
+        +transition(none)
+        +box-shadow(0px 0px 0px 2px rgba(0, 0, 0, 0.1))
+        background: $color_white
+        border-radius: 5px
+        color: $color_dark_gray
+        color: rgba(0, 0, 0, 0.3)
+        font-size: 0.6em !important
+        margin: 0px 0px 0px 5px
+        &:hover
+          +box-shadow(0px 0px 0px 2px $color_dark_gray)
+          background: $color_dark_gray
 
   ul.admin-list
     > li
@@ -17,3 +34,27 @@ body.admin
     text-align: right
     > li
       display: inline-block
+
+  form
+    margin-bottom: 0px
+    textarea
+      height: 250px
+    .images
+      background: $color_light_gray
+      margin-bottom: 10px
+      padding: 15px
+      .image-fields
+        .fields
+          padding: 10px 3px
+          border-bottom: 1px solid $color_gray
+          input, label
+            margin-bottom: 0px
+          label, a
+            position: relative
+            top: 2px
+      a.add_nested_fields
+        display: block
+        text-align: right
+        margin: 18px 3px 0px 0px
+    input.button, a.button
+      margin-bottom: 0px

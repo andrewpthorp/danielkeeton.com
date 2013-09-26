@@ -1,13 +1,14 @@
-.row
-  .large-9.large-centered.columns
-    %h3 All Listings
-    %section
-      %ul.admin-list
-        - @listings.each do |listing|
-          %li.row
-            .large-9.columns
-              = truncate(listing.title, length: 65)
-            .large-3.columns
-              %ul.actions
-                %li= link_to 'Edit', edit_admin_listing_path(listing)
-                %li= link_to 'Delete', admin_listing_path(listing), method: :delete, confirm: 'Are you sure?'
+%h3
+  All Listings
+  %span
+    = link_to 'New', new_admin_listing_path, class: 'button tiny'
+%section
+  %ul.admin-list
+    - @listings.each do |listing|
+      %li.row
+        .large-9.columns
+          = truncate(listing.title, length: 65)
+        .large-3.columns
+          %ul.actions
+            %li= link_to 'Edit', edit_admin_listing_path(listing)
+            %li= link_to 'Delete', admin_listing_path(listing), method: :delete, confirm: 'Are you sure?'

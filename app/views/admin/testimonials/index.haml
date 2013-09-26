@@ -1,15 +1,16 @@
-.row
-  .large-9.large-centered.columns
-    %h3 All Testimonials
-    %section
-      %ul.admin-list
-        - @testimonials.each do |testimonial|
-          %li.row
-            .large-9.columns
-              %strong= testimonial.name
-              &mdash;
-              = truncate(testimonial.body, length: 50)
-            .large-3.columns
-              %ul.actions
-                %li= link_to 'Edit', edit_admin_testimonial_path(testimonial)
-                %li= link_to 'Delete', admin_testimonial_path(testimonial), method: :delete, confirm: 'Are you sure?'
+%h3
+  All Testimonials
+  %span
+    = link_to 'New', new_admin_testimonial_path, class: 'button tiny'
+%section
+  %ul.admin-list
+    - @testimonials.each do |testimonial|
+      %li.row
+        .large-9.columns
+          %strong= testimonial.name
+          &mdash;
+          = truncate(testimonial.body, length: 50)
+        .large-3.columns
+          %ul.actions
+            %li= link_to 'Edit', edit_admin_testimonial_path(testimonial)
+            %li= link_to 'Delete', admin_testimonial_path(testimonial), method: :delete, confirm: 'Are you sure?'

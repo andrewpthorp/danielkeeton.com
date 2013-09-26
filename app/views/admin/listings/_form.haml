@@ -1,0 +1,84 @@
+= nested_form_for [:admin, listing], html: { class: 'custom listing-form' } do |f|
+  .row
+    .large-12.columns
+      = f.label :title
+      = f.text_field :title
+
+  .row
+    .large-12.columns
+      = f.label :description
+      = f.text_area :description
+
+  .row
+    .large-6.columns
+      = f.label :price
+      = f.text_field :price
+    .large-6.columns
+      = f.label :status
+      = f.select :status, Listing::VALID_STATES.each.map { |val| [val.titleize, val] }
+
+  %hr.full-bleed
+
+  .row
+    .large-2.columns
+      = f.label :bedrooms
+      = f.select :bedrooms, (0..10)
+    .large-2.columns
+      = f.label :bathrooms
+      = f.select :bathrooms, (0..5).step(0.5)
+    .large-2.columns
+      = f.label :year_built, 'Year Built'
+      = f.select :year_built, (1800..2013)
+    .large-3.columns
+      = f.label :square_footage, 'Square Feet'
+      = f.text_field :square_footage
+    .large-3.columns
+      = f.label :lot_size, 'Lot Size (ft)'
+      = f.text_field :lot_size
+
+  %hr.full-bleed
+
+  .row
+    .large-6.columns
+      = f.label :address_line_1
+      = f.text_field :address_line_1
+    .large-6.columns
+      = f.label :address_line_2
+      = f.text_field :address_line_2
+  .row
+    .large-4.columns
+      = f.label :city
+      = f.text_field :city
+    .large-4.columns
+      = f.label :state
+      = f.text_field :state
+    .large-4.columns
+      = f.label :zip
+      = f.text_field :zip
+
+  %hr.full-bleed
+
+  .images
+    .image-fields
+      - f.object.images.build if f.object.images.empty?
+      = f.fields_for :images do |image_fields|
+        .row
+          - unless image_fields.object.file.blank?
+            .large-2.columns
+              = image_tag image_fields.object.file.thumb
+          .large-1.columns
+            = image_fields.label :file
+          .large-5.columns
+            = image_fields.file_field :file
+          .large-4.columns.text-right
+            = image_fields.link_to_remove 'Remove'
+
+    = f.link_to_add 'Add an Image', :images, data: { target: '.image-fields' }
+
+
+  %footer
+    .row
+      .large-6.columns
+        = link_to 'Cancel', admin_listings_path, class: 'button secondary'
+      .large-6.columns.text-right
+        = f.submit 'Save', class: 'button success'

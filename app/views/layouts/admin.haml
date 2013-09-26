@@ -22,9 +22,11 @@
 
   = render 'shared/admin_header'
 
-  #main-content
-    = render 'shared/flashes'
-    = yield
+  .row
+    .large-9.large-centered.columns
+      #main-content
+        = render 'shared/flashes'
+        = yield
 
   - if Rails.env.production?
     :javascript

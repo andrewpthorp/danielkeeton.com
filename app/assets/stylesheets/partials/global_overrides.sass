@@ -63,3 +63,28 @@ dl.sub-nav
 
 .fancybox-overlay
   background: rgba(0, 0, 0, 0.75)
+
+a.button.secondary
+  color: $color_white
+  &:hover
+    color: $color_white
+
+form.custom
+  .checkbox
+    +box-sizing(border-box)
+    border: 1px solid #ccc
+    border-radius: 2px
+    height: 22px
+    padding: 0px !important
+    width: 22px
+    &.disabled
+      background: #fff
+    &.checked
+      &:before
+        background: $color_dark_gray
+        margin: 0px !important
+        top: 3px !important
+        left: 3px !important
+        content: "" !important
+        width: 14px
+        height: 14px
