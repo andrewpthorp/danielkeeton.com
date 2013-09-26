@@ -39,7 +39,6 @@ at http://danielkeeton.com.
 * **friendly id** _(slugs-slugs-and-more-slugs)_
 * **redcarpet** _(markdown support)_
 * **kaminari** _(pagination)_
-* **activeadmin** _(admininistration)_
 * **geocoder** _(getting lat/lng of property addresses)_
 
 ## Copyright
