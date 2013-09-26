@@ -18,6 +18,22 @@ DanielkeetonCom::Application.routes.draw do
   match 'homeworth' => 'home#homeworth'
   match 'contact' => 'home#contact'
 
+  # Public: Admin routes.
+  namespace :admin do
+
+    # Public: Route /admin to /admin/listings.
+    root to: 'listings#index'
+
+    # Public: Admin routes for Listings.
+    resources :listings, except: [:show]
+
+    # Public: Admin routes for Posts.
+    resources :posts, except: [:show]
+
+    # Public: Admin routes for Testimonials.
+    resources :testimonials, except: [:show]
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
