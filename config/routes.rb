@@ -1,7 +1,10 @@
 DanielkeetonCom::Application.routes.draw do
 
   root to: 'home#index'
-  devise_for :admin_users
+
+  # Public: For more information on single user systems, visit the devise wiki
+  # on GitHub.
+  devise_for :admins, skip: :registrations
 
   resources :listings, only: [:show] do
     collection do
