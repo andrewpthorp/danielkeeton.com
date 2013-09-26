@@ -1,0 +1,29 @@
+.row
+  .large-12.columns.large-centered
+    %h2 Administration
+
+.row
+  .large-12.columns.large-centered
+    %section
+      = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'custom' }) do |f|
+
+        .row
+          .large-12.columns
+            = f.label :email
+            = f.email_field :email, autofocus: true
+
+        .row
+          .large-12.columns
+            = f.label :password
+            = f.password_field :password
+
+        .row
+          .large-12.columns
+            = f.label :remember_me do
+              #{f.check_box :remember_me} Remember Me
+
+        %footer
+          .row
+            .large-12.columns
+              = f.submit 'Sign In', class: 'right button'
+

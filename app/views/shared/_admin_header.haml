@@ -6,3 +6,4 @@
         %li= link_to 'Listings', admin_listings_path, class: @section == 'listings' ? 'active' : ''
         %li= link_to 'Posts', admin_posts_path, class: @section == 'posts' ? 'active' : ''
         %li= link_to 'Testimonials', admin_testimonials_path, class: @section == 'testimonials' ? 'active' : ''
+        %li= link_to 'Sign Out', destroy_admin_session_path, method: :delete
