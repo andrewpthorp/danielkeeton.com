@@ -8,30 +8,22 @@
     background: $color_green
     color: $white
 
-#global-header
-  background: $color_blue
+#global-header, #admin-header
+  +clearfix
   border-bottom: 3px solid $color_gray
   display: block
   width: 100%
-  img
-    max-width: 100px
-    position: relative
-    top: 9px
-    right: 20px
   h1
     color: $color_white
+    float: left
     font-family: 'Lobster Two', sans-serif
     font-size: 2.0em
     font-weight: normal
     line-height: 60px
     margin: 0px
     text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5)
-    span
-      color: $light_blue
-      display: inline-block
-      font-weight: bold
-      margin-left: -5px
-  ul#global-nav
+  ul#nav
+    float: left
     margin: 0px 0px 0px 25px
     position: relative
     top: 19px
@@ -48,6 +40,31 @@
           background: $color_light_gray
           color: $color_black
           text-shadow: none
+
+#admin-header
+  background: $color_dark_gray
+  border-bottom: 3px solid $color_blue
+  ul#nav
+    li
+      a
+        &:hover, &.active
+          background: $color_blue
+          color: $color_white
+          text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5)
+
+
+#global-header
+  img
+    max-width: 100px
+    position: relative
+    top: 9px
+    right: 20px
+  h1
+    span
+      color: $light_blue
+      display: inline-block
+      font-weight: bold
+      margin-left: -5px
 
 #mobile-nav
   list-style-type: none

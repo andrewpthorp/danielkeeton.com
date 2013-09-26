@@ -1,10 +1,10 @@
 %header#global-header
   .row.hide-for-small
     .large-10.columns.clearfix
-      %h1.left
+      %h1
         Daniel
         %span Keeton
-      %ul#global-nav.left
+      %ul#nav
         %li= link_to 'Home', root_path, class: @section == 'home' ? 'active' : ''
         %li= link_to 'Listings', listings_path, class: @section == 'listings' ? 'active' : ''
         %li= link_to 'Words', posts_path, class: @section == 'posts' ? 'active' : ''
