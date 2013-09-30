@@ -23,6 +23,7 @@ gem 'redcarpet'
 gem 'geocoder'
 gem 'nested_form'
 gem 'friendly_id'
+gem 'newrelic_rpm'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.5'
