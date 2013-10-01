@@ -24,6 +24,8 @@ gem 'geocoder'
 gem 'nested_form'
 gem 'friendly_id'
 gem 'newrelic_rpm'
+gem 'dalli'
+gem 'memcachier'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.5'
