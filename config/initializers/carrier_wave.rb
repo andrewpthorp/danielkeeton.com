@@ -7,7 +7,6 @@ if Rails.env.production?
       :aws_secret_access_key  => ENV["AWS_SECRET_KEY"]
     }
     config.fog_directory  = 'danielkeeton-production'
-    config.fog_public     = false
     config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}
   end
 elsif Rails.env.development?
