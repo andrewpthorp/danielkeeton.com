@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
 
+  caches_action :index
+
   def index
-    @featured_listing = Listing.featured.first
     @testimonial = Testimonial.order('RANDOM()').first
     @post = Post.published.order("created_at DESC").first
   end

@@ -14,12 +14,6 @@ describe HomeController do
       expect(assigns(:section)).to eq('home')
     end
 
-    it 'should assign @featured_listing' do
-      l = FactoryGirl.create(:featured_listing)
-      get :index
-      expect(assigns(:featured_listing)).to eq(l)
-    end
-
     it 'should assign @testimonial' do
       t = FactoryGirl.create(:testimonial)
       get :index

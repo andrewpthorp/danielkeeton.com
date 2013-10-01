@@ -69,6 +69,13 @@ describe Admin::PostsController do
         Post.any_instance.stub(:save).and_return(true)
       end
 
+      it 'should clear the cache' do
+        controller.should_receive(:expire_action).with(
+          controller: 'home', action: 'index'
+        )
+        post :create, post: {}
+      end
+
       it 'should set the flash appropriately' do
         post :create, post: {}
         expect(flash[:notice]).to match(/success/)

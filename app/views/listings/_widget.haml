@@ -1,28 +1,30 @@
-.widget
-  %header
-    = image_tag listing.primary_image.file.featured
+- cache(listing) do
 
-  %article
-    %h6.price= number_to_currency(listing.price, precision: 0)
-    %p.title= listing.title
-    %hr
-    = pretty_address(listing)
-    %hr
-    %dl.information
-      .row
-        - unless listing.bedrooms.blank?
-          %dt.small-4.columns Beds
-          %dd.small-2.columns= listing.bedrooms
-        - unless listing.bathrooms.blank?
-          %dt.small-4.columns Baths
-          %dd.small-2.columns= listing.bathrooms
-      .row
-        - unless listing.square_footage.blank?
-          %dt.small-2.columns Home
-          %dd.small-4.columns= "#{number_with_delimiter(listing.square_footage)} Sq. Ft."
-        - unless listing.lot_size.blank?
-          %dt.small-2.columns Lot
-          %dd.small-4.columns= "#{number_with_delimiter(listing.lot_size)} Sq. Ft."
+  .widget
+    %header
+      = image_tag listing.primary_image.file.featured
 
-  %footer
-    = link_to 'View Listing', listing
+    %article
+      %h6.price= number_to_currency(listing.price, precision: 0)
+      %p.title= listing.title
+      %hr
+      = pretty_address(listing)
+      %hr
+      %dl.information
+        .row
+          - unless listing.bedrooms.blank?
+            %dt.small-4.columns Beds
+            %dd.small-2.columns= listing.bedrooms
+          - unless listing.bathrooms.blank?
+            %dt.small-4.columns Baths
+            %dd.small-2.columns= listing.bathrooms
+        .row
+          - unless listing.square_footage.blank?
+            %dt.small-2.columns Home
+            %dd.small-4.columns= "#{number_with_delimiter(listing.square_footage)} Sq. Ft."
+          - unless listing.lot_size.blank?
+            %dt.small-2.columns Lot
+            %dd.small-4.columns= "#{number_with_delimiter(listing.lot_size)} Sq. Ft."
+
+    %footer
+      = link_to 'View Listing', listing

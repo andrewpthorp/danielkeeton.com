@@ -26,6 +26,7 @@ class Admin::PostsController < Admin::BaseController
     @post = Post.new(params[:post])
 
     if @post.save
+      expire_action controller: 'home', action: 'index'
       redirect_to admin_posts_path, notice: 'Post successfully created!'
     else
       flash.now[:error] = 'Oops! There was a problem creating the post.'
