@@ -23,8 +23,8 @@
             %dt.small-2.columns Home
             %dd.small-4.columns= "#{number_with_delimiter(listing.square_footage)} Sq. Ft."
           - unless listing.lot_size.blank?
-            %dt.small-2.columns Lot
-            %dd.small-4.columns= "#{number_with_delimiter(listing.lot_size)} Sq. Ft."
+            %dt.small-1.columns Lot
+            %dd.small-5.columns= "#{number_with_delimiter(listing.lot_size)} Sq. Ft."
 
     %footer
       = link_to 'View Listing', listing
