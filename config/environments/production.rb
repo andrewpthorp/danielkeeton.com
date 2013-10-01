@@ -20,6 +20,13 @@ DanielkeetonCom::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  # Cache between deploys
+  unless ENV['MEMCACHIER_SERVERS'].nil?
+    config.assets.cache_store = :dalli_store, ENV['MEMCACHIER_SERVERS'],
+                                { username: ENV['MEMCACHIER_USERNAME'],
+                                  password: ENV['MEMCACHIER_PASSWORD'] }
+  end
+
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
