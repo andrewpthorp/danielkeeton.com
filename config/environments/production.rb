@@ -21,11 +21,9 @@ DanielkeetonCom::Application.configure do
   config.assets.digest = true
 
   # Cache between deploys
-  unless ENV['MEMCACHIER_SERVERS'].nil?
-    config.assets.cache_store = :dalli_store, ENV['MEMCACHIER_SERVERS'],
-                                { username: ENV['MEMCACHIER_USERNAME'],
-                                  password: ENV['MEMCACHIER_PASSWORD'] }
-  end
+  config.assets.cache_store = :dalli_store, ENV['MEMCACHIER_SERVERS'],
+                              { username: ENV['MEMCACHIER_USERNAME'],
+                                password: ENV['MEMCACHIER_PASSWORD'] }
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
@@ -47,11 +45,9 @@ DanielkeetonCom::Application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   # Use a different cache store in production
-  unless ENV['MEMCACHIER_SERVERS'].nil?
-    config.cache_store = :dalli_store, ENV['MEMCACHIER_SERVERS'],
-                          { username: ENV['MEMCACHIER_USERNAME'],
-                            password: ENV['MEMCACHIER_PASSWORD'] }
-  end
+  config.cache_store = :dalli_store, ENV['MEMCACHIER_SERVERS'],
+                        { username: ENV['MEMCACHIER_USERNAME'],
+                          password: ENV['MEMCACHIER_PASSWORD'] }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
