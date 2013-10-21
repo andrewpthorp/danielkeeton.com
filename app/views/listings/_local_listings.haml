@@ -26,7 +26,7 @@
                 = text_field_tag 'bd', 1, id: 'QS-minRoomsField'
               .input
                 = label_tag 'QS-selectCityList', 'City'
-                = render partial: 'local_city_select'
+                = select_tag 'city[]', options_for_select(local_listing_regions.map { |region| [region[:name], region[:value]] })
               .input
                 = submit_tag 'Search', class: 'button width-100'
             .large-3.columns
