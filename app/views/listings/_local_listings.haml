@@ -4,12 +4,12 @@
       %header
         %h4 Search Local Listings
       #idx-search
-        = form_tag 'http://www.danielkeeton.idxco.com/idx/17186/results.php', class: 'custom' do
+        = form_tag 'http://www.danielkeeton.idxco.com/idx/17186/results.php', method: 'get', class: 'custom' do
           .row
             .large-3.columns
               .input
                 = label_tag 'QS-minPriceField', 'Min. Price'
-                = text_field_tag 'lp', 200000, id: 'QS-minPriceField'
+                = text_field_tag 'lp', 100000, id: 'QS-minPriceField'
               .input
                 = label_tag 'QS-maxPriceField', 'Max. Price'
                 = text_field_tag 'hp', 800000, id: 'QS-maxPriceField'
@@ -26,7 +26,7 @@
                 = text_field_tag 'bd', 1, id: 'QS-minRoomsField'
               .input
                 = label_tag 'QS-selectCityList', 'City'
-                = select_tag 'city[]', options_for_select(local_listing_regions.map { |region| [region[:name], region[:value]] })
+                = select_tag 'city[]', local_listing_options, id: 'QS-selectCityList'
               .input
                 = submit_tag 'Search', class: 'button width-100'
             .large-3.columns

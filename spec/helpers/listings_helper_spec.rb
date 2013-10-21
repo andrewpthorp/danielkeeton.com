@@ -97,4 +97,23 @@ describe ListingsHelper do
     end
   end
 
+  describe '#local_listing_options' do
+    let (:results) { helper.local_listing_options }
+
+    it 'should have an option for each region' do
+      expect(results).to(
+        have_selector("option[value='18400']", text: 'Goochland')
+      )
+    end
+
+    context 'when a region is in the session' do
+      it 'should set the selected value to that region' do
+        session[:region] = 'goochland'
+        expect(results).to(
+          have_selector("option[value='18400'][selected='selected']")
+        )
+      end
+    end
+  end
+
 end
