@@ -762,14 +762,16 @@ $orbit-caption-font-color: darken($color_blue, 5%);
 // Left/right nav styles
 
 // $orbit-nav-bg-old: rgb(0,0,0);
-// $orbit-nav-bg: rgba(0,0,0,0.6);
 $orbit-nav-bg-old: #fff;
+// $orbit-nav-bg: rgba(0,0,0,0.6);
 $orbit-nav-bg: rgba(255, 255, 255, 0.75);
 
 // Timer styles
 
 // $orbit-timer-bg-old: rgb(0,0,0);
+$orbit-timer-bg-old: rgb(255, 255, 255);
 // $orbit-timer-bg: rgba(0,0,0,0.6);
+$orbit-timer-bg: rgba(255, 255, 255, 1);
 
 // Bullet nav styles
 

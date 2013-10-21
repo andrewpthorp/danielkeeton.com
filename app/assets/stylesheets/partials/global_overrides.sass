@@ -18,8 +18,13 @@ ul, ol
   background: darken($color_gray, 5%)
   margin-bottom: $column-gutter
   min-height: 397px
+  @media only screen and (max-width: #{$small-screen})
+    min-height: 0px
 
 .orbit-container
+  .orbit-timer
+    span
+      display: none !important
   .orbit-next, .orbit-prev
     top: 45%
   .orbit-next

@@ -7,9 +7,9 @@
 
 $ ->
   $(document).foundation('orbit', {
-    slide_number: false,
     bullets: false,
-    timer: false
+    pause_on_hover: true,
+    resume_on_mouseout: true
   })
 
   $(document).foundation()
