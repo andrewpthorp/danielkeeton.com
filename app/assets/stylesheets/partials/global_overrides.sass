@@ -35,20 +35,29 @@ ul, ol
       span
         border-right-color: $color_light_blue !important
 
-dl.sub-nav.listings
-  background: darken($color_gray, 1%)
-  margin: 0px 0px 20px
-  padding: 15px
-  dt, dd, dd a
-    color: $color_dark_gray
-    margin-bottom: 0px
-  dd.active
-    a
-      color: $color_white
-      font-weight: bold
-  dt
-    font-style: italic
-    margin-left: 0px
+dl.sub-nav
+  &.regions
+    dd
+      &.active
+        a
+          font-weight: bold
+          background: $color_white
+          color: $color_blue
+
+  &.listings
+    background: darken($color_gray, 1%)
+    margin: 0px 0px 20px
+    padding: 15px
+    dt, dd, dd a
+      color: $color_dark_gray
+      margin-bottom: 0px
+    dd.active
+      a
+        color: $color_white
+        font-weight: bold
+    dt
+      font-style: italic
+      margin-left: 0px
 
 .gm-style
   img
