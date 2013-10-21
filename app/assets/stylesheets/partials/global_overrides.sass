@@ -73,12 +73,21 @@ dl.sub-nav
 .fancybox-overlay
   background: rgba(0, 0, 0, 0.75)
 
-a.button.secondary
-  color: $color_white
-  &:hover
+a.button
+  +transition(all 0.2s ease-in-out)
+  &.success
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5)
+    &:hover
+      color: darken($color_white, 10%)
+  &.secondary
     color: $color_white
+    &:hover
+      color: $color_white
 
 form.custom
+  input
+    &.success
+      text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5)
   .checkbox
     +box-sizing(border-box)
     border: 1px solid #ccc
