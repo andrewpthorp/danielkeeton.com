@@ -91,7 +91,7 @@ module ListingsHelper
   #
   # Returns an Array of Hashes.
   def local_listing_options
-    regions = Region.all.map { |r| [r.name, r.idx_value] }
+    regions = Region.order(:name).map { |r| [r.name, r.idx_value] }
 
     unless session[:region].blank?
       selected_region = regions.select { |r| r[0].downcase == session[:region] }
