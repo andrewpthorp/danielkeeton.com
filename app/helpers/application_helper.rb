@@ -10,10 +10,13 @@ module ApplicationHelper
     curr = session[:region] || 'all'
 
     items = [
-      content_tag(:dd, link_to('All Regions', params.merge(region: 'all')), class: curr == 'all' ? 'active' : ''),
-      content_tag(:dd, link_to('Richmond', params.merge(region: 'richmond')), class: curr == 'richmond' ? 'active' : ''),
-      content_tag(:dd, link_to('Goochland', params.merge(region: 'goochland')), class: curr == 'goochland' ? 'active' : ''),
+      content_tag(:dd, link_to('All Regions', params.merge(region: 'all')), class: curr == 'all' ? 'active' : '')
     ]
+
+    # Include all linkable Regions.
+    Region.linkable.each do |region|
+      items << content_tag(:dd, link_to(region.name, params.merge(region: region.slug)), class: curr == region.slug ? 'active' : '')
+    end
 
     content_tag :dl, class: 'sub-nav regions' do
       items.map do |item|

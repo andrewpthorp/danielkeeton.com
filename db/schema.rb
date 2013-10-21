@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130928140026) do
+ActiveRecord::Schema.define(:version => 20131021174336) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -88,6 +88,15 @@ ActiveRecord::Schema.define(:version => 20130928140026) do
   end
 
   add_index "posts", ["slug"], :name => "index_posts_on_slug", :unique => true
+
+  create_table "regions", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.integer  "idx_value"
+    t.boolean  "linkable"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "testimonials", :force => true do |t|
     t.text     "body"
