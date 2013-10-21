@@ -1,4 +1,6 @@
-module ApplicationHelper
+# Public: All helpers that are to be used for Regions are in here. Even though
+# all helpers are application-wide, it makes sense to put them here for clarity.
+module RegionsHelper
 
   # Public: Get the navigation for each region we want to build the site to
   # handle. Each region will just merge the correct region into whatever the

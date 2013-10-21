@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ApplicationHelper do
+describe RegionsHelper do
 
   describe '#regions_nav' do
     let (:results) { helper.regions_nav }
