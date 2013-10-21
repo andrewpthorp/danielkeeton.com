@@ -54,7 +54,7 @@ module ListingsHelper
       content_tag(:dd, link_to('Sold', status_listings_path('sold')), class: curr == 'sold' ? 'active' : '')
     ]
 
-    content_tag :dl, class: 'sub-nav' do
+    content_tag :dl, class: 'sub-nav listings' do
       items.map do |item|
         concat(item)
       end

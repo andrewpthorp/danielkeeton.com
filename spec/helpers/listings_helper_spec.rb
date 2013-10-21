@@ -20,7 +20,7 @@ describe ListingsHelper do
 
   describe '#listing_status_nav' do
     it 'should return a definition list' do
-      expect(helper.listing_status_nav('')).to have_selector('dl.sub-nav')
+      expect(helper.listing_status_nav('')).to have_selector('dl.sub-nav.listings')
     end
 
     it 'should have a title' do
