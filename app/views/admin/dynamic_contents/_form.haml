@@ -1,0 +1,20 @@
+= form_for [:admin, dynamic_content], html: { class: 'custom dynamic-contents-form' } do |f|
+  .row
+    .large-6.columns
+      = f.label :subject
+      = f.select :subject, DynamicContent::VALID_SUBJECTS.each.map { |val| [val.titleize, val] }
+    .large-6.columns
+      = f.label :region_id, 'Region (Select Blank for All Regions)'
+      = f.collection_select :region_id, Region.linkable, :id, :name, include_blank: true
+
+  .row
+    .large-12.columns
+      = f.label :content
+      = f.text_area :content
+
+  %footer
+    .row
+      .large-6.columns
+        = link_to 'Cancel', admin_dynamic_contents_path, class: 'button secondary'
+      .large-6.columns.text-right
+        = f.submit 'Save', class: 'button success'

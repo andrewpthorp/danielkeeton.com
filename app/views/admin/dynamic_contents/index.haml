@@ -1,0 +1,18 @@
+%h3
+  All Content
+  %span
+    = link_to 'New', new_admin_dynamic_content_path, class: 'button tiny'
+%section
+  %ul.admin-list
+    - @dynamic_contents.each do |content|
+      %li.row
+        .large-9.columns
+          = content.subject.titleize
+          for
+          - if content.region.nil?
+            All Regions
+          - else
+            = content.region.name
+        .large-3.columns
+          %ul.actions
+            %li= link_to 'Edit', edit_admin_dynamic_content_path(content)

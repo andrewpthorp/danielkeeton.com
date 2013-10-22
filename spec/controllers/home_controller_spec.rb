@@ -25,6 +25,12 @@ describe HomeController do
       get :index
       expect(assigns(:post)).to eq(p)
     end
+
+    it 'should assign @biography' do
+      c = FactoryGirl.create(:dynamic_content, subject: 'biography')
+      get :index
+      expect(assigns(:biography)).to eq(c)
+    end
   end
 
   describe 'POST homeworth' do

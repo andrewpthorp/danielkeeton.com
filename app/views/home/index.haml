@@ -5,23 +5,7 @@
     %section
       .header-image
         = image_tag 'keeton_family.jpg', alt: 'The Keetons'
-      %p
-        As a native to the Richmond Area, I have grown up loving this part of
-        the state. With our close proximity to the coast and the beautiful
-        Blue Ridge mountains, central Virginia has so much to offer.
-      %p
-        I have extensive knowledge of the area and I am passionate about
-        real estate. However, my ultimate goal is to surpass my clients
-        expectations of personal service as a Realtor and work as hard as I can
-        to make the best deal possible.
-      %p
-        If you're looking to buy or sell real estate in our area, I'd love to
-        have the opportunity to work with you. Feel free to call
-        %strong 804-921-7406,
-        send me an
-        = "#{link_to('email', 'mailto:danielspencerkeeton@gmail.com', class: 'underline')},".html_safe
-        or send me a
-        = link_to 'Facebook message.', 'https://www.facebook.com/pages/Daniel-Keeton-Real-Estate/157662247658325', class: 'underline', target: '_blank'
+      = markdown(@biography.content)
       %footer
         %p
           %span.strong Daniel Keeton,
