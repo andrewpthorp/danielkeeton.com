@@ -25,31 +25,55 @@ describe ApplicationController do
   end
 
   describe 'set_current_region' do
+    before do
+      FactoryGirl.create(:region, slug: 'goochland', linkable: true)
+      FactoryGirl.create(:region, slug: 'sussex', linkable: false)
+    end
+
     it 'should happen on every request' do
       controller.should_receive(:set_current_region)
       get :index
     end
 
-    context 'when passing a region in as a parameter' do
-      it 'should store the region in the session' do
-        get :index, region: 'richmond'
-        expect(session[:region]).to eq('richmond')
+    context 'when the subdomain is not www' do
+      context 'and it is a linkable region slug' do
+        it 'should set the region to the subdomain' do
+          @request.host = 'goochland.danielkeeton.com'
+          get :index
+          expect(session[:region]).to eq('goochland')
+        end
       end
 
-      context 'and the region is all' do
-        it 'should clear the region from the session' do
-          session[:region] = 'richmond'
-          get :index, region: 'all'
+      context 'and it is not a valid region slug' do
+        it 'should delete the region from the session' do
+          @request.host = 'foobar.danielkeeton.com'
+          get :index
+          expect(session[:region]).to be_nil
+        end
+      end
+
+      context 'and it is not a linkable region slug' do
+        it 'should delete the region from the session' do
+          @request.host = 'sussex.danielkeeton.com'
+          get :index
           expect(session[:region]).to be_nil
         end
       end
     end
 
-    context 'when not passing a region in as a parameter' do
-      it 'should not clear the region from the session' do
-        session[:region] = 'richmond'
+    context 'when the subdomain is www' do
+      it 'should delete the region from the session' do
+        @request.host = 'www.danielkeeton.com'
         get :index
-        expect(session[:region]).to eq('richmond')
+        expect(session[:region]).to be_nil
+      end
+    end
+
+    context 'when there is no subdomain' do
+      it 'should delete the region from the session' do
+        @request.host = 'danielkeeton.com'
+        get :index
+        expect(session[:region]).to be_nil
       end
     end
   end

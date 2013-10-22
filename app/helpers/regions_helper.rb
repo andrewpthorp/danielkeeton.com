@@ -12,12 +12,12 @@ module RegionsHelper
     curr = session[:region] || 'all'
 
     items = [
-      content_tag(:dd, link_to('All Regions', params.merge(region: 'all')), class: curr == 'all' ? 'active' : '')
+      content_tag(:dd, link_to('All Regions', root_url(subdomain: 'www')), class: curr == 'all' ? 'active' : '')
     ]
 
     # Include all linkable Regions.
     Region.linkable.each do |region|
-      items << content_tag(:dd, link_to(region.name, params.merge(region: region.slug)), class: curr == region.slug ? 'active' : '')
+      items << content_tag(:dd, link_to(region.name, root_url(subdomain: region.slug)), class: curr == region.slug ? 'active' : '')
     end
 
     content_tag :dl, class: 'sub-nav regions' do

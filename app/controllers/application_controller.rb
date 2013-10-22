@@ -21,8 +21,18 @@ class ApplicationController < ActionController::Base
   #
   # Returns nothing.
   def set_current_region
-    session.delete(:region) and return if params[:region] == 'all'
-    session[:region] = params[:region] unless params[:region].blank?
+    return if session[:region] == request.subdomain
+
+    if !request.subdomain.blank? && request.subdomain != 'www'
+      region = Region.where(slug: request.subdomain).first
+      if region && region.linkable?
+        session[:region] = request.subdomain
+      else
+        session.delete(:region)
+      end
+    else
+      session.delete(:region)
+    end
   end
 
   # Internal: Render an HTTP 404.
