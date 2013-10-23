@@ -6,30 +6,39 @@
       #idx-search
         = form_tag 'http://www.danielkeeton.idxco.com/idx/17186/results.php', method: 'get', class: 'custom' do
           .row
-            .large-3.columns
-              .input
-                = label_tag 'QS-minPriceField', 'Min. Price'
-                = text_field_tag 'lp', 100000, id: 'QS-minPriceField'
-              .input
-                = label_tag 'QS-maxPriceField', 'Max. Price'
-                = text_field_tag 'hp', 800000, id: 'QS-maxPriceField'
-            .large-3.columns
-              .input
-                = label_tag 'QS-minBathsField', 'Min. Bathrooms'
-                = text_field_tag 'ba', 0, id: 'QS-minBathsField'
-              .input
-                = label_tag 'QS-minSqftField', 'Min. Square Feet'
-                = text_field_tag 'sqFt', 0, id: 'QS-minSqftField'
-            .large-3.columns
-              .input
-                = label_tag 'QS-minRoomsField', 'Min. Bedrooms'
-                = text_field_tag 'bd', 1, id: 'QS-minRoomsField'
-              .input
-                = label_tag 'QS-selectCityList', 'City'
-                = select_tag 'city[]', local_listing_options, id: 'QS-selectCityList'
-              .input
-                = submit_tag 'Search', class: 'button width-100'
-            .large-3.columns
+            .large-9.columns
+              .row
+                .small-4.columns
+                  .input
+                    = label_tag 'QS-minPriceField', 'Min. Price'
+                    = text_field_tag 'lp', 100000, id: 'QS-minPriceField'
+                .small-4.columns
+                  .input
+                    = label_tag 'QS-minBathsField', 'Min. Baths'
+                    = text_field_tag 'ba', 0, id: 'QS-minBathsField'
+                .small-4.columns
+                  .input
+                    = label_tag 'QS-minRoomsField', 'Min. Beds'
+                    = text_field_tag 'bd', 1, id: 'QS-minRoomsField'
+              .row
+                .small-4.columns
+                  .input
+                    = label_tag 'QS-maxPriceField', 'Max. Price'
+                    = text_field_tag 'hp', 800000, id: 'QS-maxPriceField'
+                .small-4.columns
+                  .input
+                    = label_tag 'QS-minSqftField', 'Min. Sq. Ft.'
+                    = text_field_tag 'sqFt', 0, id: 'QS-minSqftField'
+                .small-4.columns
+                  .input
+                    = label_tag 'QS-selectCityList', 'City'
+                    = select_tag 'city[]', local_listing_options, id: 'QS-selectCityList'
+              .row
+                .large-4.columns
+                .large-4.small-12.columns
+                  .input
+                    = submit_tag 'Search', class: 'button width-100 margin-bottom-0'
+            .large-3.columns.hide-for-small
               .box
                 %p
                   Search our local MLS by filling out the form and clicking 'Search!'
@@ -37,7 +46,11 @@
                   Use the links below for more advanced search options.
       %footer
         .row
-          .large-3.columns.text-center= link_to 'Advanced Search', 'http://www.danielkeeton.idxco.com/idx/17186/advancedSearch.php', target: '_blank'
-          .large-3.columns.text-center= link_to 'Map Search', 'http://www.danielkeeton.idxco.com/idx/17186/mapSearch.php', target: '_blank'
-          .large-3.columns.text-center= link_to 'Address Search', 'http://www.danielkeeton.idxco.com/idx/17186/addressSearch.php', target: '_blank'
-          .large-3.columns.text-center= link_to 'Listing ID Search', 'http://www.danielkeeton.idxco.com/idx/17186/listingIDSearch.php', target: '_blank'
+          .large-3.small-6.columns
+            = link_to 'Advanced Search', 'http://www.danielkeeton.idxco.com/idx/17186/advancedSearch.php', target: '_blank'
+          .large-3.small-6.columns
+            = link_to 'Map Search', 'http://www.danielkeeton.idxco.com/idx/17186/mapSearch.php', target: '_blank'
+          .large-3.small-6.columns
+            = link_to 'Address Search', 'http://www.danielkeeton.idxco.com/idx/17186/addressSearch.php', target: '_blank'
+          .large-3.small-6.columns
+            = link_to 'Listing ID Search', 'http://www.danielkeeton.idxco.com/idx/17186/listingIDSearch.php', target: '_blank'
