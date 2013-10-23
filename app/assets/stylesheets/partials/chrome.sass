@@ -83,18 +83,20 @@
         padding-right: 0px
       &:last-child
         padding-left: 1px
-  li
+  li.action-item, li.nav-item
     margin-bottom: 0px
     a
-      background: $blue
-      color: $white
       display: block
       margin-bottom: 1px
       padding: 10px
       text-align: center
       width: 100%
-      &:hover, &.active
-        background: darken($blue, 5%)
+    &.nav-item
+      a
+        background: $blue
+        color: $white
+        &:hover, &.active
+          background: darken($blue, 5%)
 
 #main-content
   background: $off_white
@@ -105,11 +107,16 @@
   background: $blue
   padding: 20px 0px 18px
   width: 100%
+  dl
+    +clearfix
   dl, p, dd, dt
     margin-bottom: 0px
     overflow: visible
   p
     color: $off_white
+    text-align: right
+  .neumann-and-dunn
+    width: 75px
 
 @media only screen and (max-width: #{$small-screen})
   #global-header
@@ -117,3 +124,22 @@
       max-width: 75px
       top: -5px
       right: auto
+  #global-footer
+    dl
+      text-align: center
+
+      dt, dd
+        display: inline-block
+        float: none
+        &:first-child
+          margin-left: 0px
+    p
+      text-align: center
+      span
+        display: block
+        &.images
+          margin-top: 10px
+        &.dash
+          display: none
+    .large-6.columns:first-child
+      margin-bottom: 10px

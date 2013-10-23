@@ -3,15 +3,15 @@
     %ul#mobile-nav
       .row
         .small-6.columns
-          %li= link_to 'Home', root_path, class: @section == 'home' ? 'active' : ''
+          %li.nav-item= link_to 'Home', root_path, class: @section == 'home' ? 'active' : ''
         .small-6.columns
-          %li= link_to 'Listings', listings_path, class: @section == 'listings' ? 'active' : ''
+          %li.nav-item= link_to 'Listings', listings_path, class: @section == 'listings' ? 'active' : ''
       .row
         .small-6.columns
-          %li= link_to 'Words', posts_path, class: @section == 'posts' ? 'active' : ''
+          %li.nav-item= link_to 'Words', posts_path, class: @section == 'posts' ? 'active' : ''
         .small-6.columns
-          %li= link_to 'Contact', '#', data: { :"reveal-id" => "contact-modal" }
+          %li.nav-item= link_to 'Contact', '#', data: { :"reveal-id" => "contact-modal" }
 
       .row
         .small-12.columns
-          %li= link_to "What's My Home Worth?", '#', class: 'home-worth', data: { :"reveal-id" => "home-worth-modal" }
+          %li.action-item= link_to "What's My Home Worth?", '#', class: 'button success home-worth', data: { :"reveal-id" => "home-worth-modal" }

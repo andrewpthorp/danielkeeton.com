@@ -3,7 +3,11 @@
     .large-6.columns
       = regions_nav
     .large-6.columns
-      %p.text-right
-        Copyright &copy; 2013 - Daniel Keeton &mdash;
-        = image_tag "realtor_logo.png"
-        = image_tag "equal_housing.png"
+      %p
+        %span.copyright Copyright &copy; 2013 - Daniel Keeton
+        %span.dash &mdash;
+        %span.images
+          = image_tag 'neumann_and_dunn_logo_white.png', class: 'neumann-and-dunn'
+          &mdash;
+          = image_tag "realtor_logo.png"
+          = image_tag "equal_housing.png"
