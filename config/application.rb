@@ -50,5 +50,14 @@ module DanielkeetonCom
     config.to_prepare do
       Devise::SessionsController.layout 'minimal'
     end
+
+    # Change the way errors are displayed
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+      unless html_tag =~ /^<label/
+        "<div class='error'>#{html_tag}<small>#{instance.error_message.to_sentence}</small></div>".html_safe
+      else
+        "<div class='error'>#{html_tag}</div>".html_safe
+      end
+    end
   end
 end
