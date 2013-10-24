@@ -31,7 +31,7 @@ class Listing < ActiveRecord::Base
 
   # Internal: Validate presence and correct numericality of :bathrooms.
   validates :bathrooms, presence: true,
-                        numericality: { greater_than_or_equal_to: 0.5 }
+                        numericality: { greater_than_or_equal_to: 0 }
 
   # Internal: Validate presence and correct numericality of :bedrooms.
   validates :bedrooms, presence: true,

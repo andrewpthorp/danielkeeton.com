@@ -16,7 +16,7 @@ describe Listing do
     it { should validate_presence_of(:bedrooms) }
     it { should ensure_inclusion_of(:status).in_array(Listing::VALID_STATES) }
     it { should validate_numericality_of(:bathrooms) }
-    it { should_not allow_value(0).for(:bathrooms) }
+    it { should_not allow_value(-1).for(:bathrooms) }
     it { should validate_numericality_of(:bedrooms).only_integer }
     it { should_not allow_value(0).for(:bedrooms) }
     it { should validate_numericality_of(:year_built) }
