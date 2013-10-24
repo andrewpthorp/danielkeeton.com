@@ -6,6 +6,23 @@ describe Admin::ListingsController do
     sign_in_admin
   end
 
+  describe Admin::ListingsController::ListingParams do
+    let (:hash) { { listing: { title: 'A Title' } } }
+    let (:params) { ActionController::Parameters.new(hash) }
+    let (:blank_params) { ActionController::Parameters.new({}) }
+
+    it 'scrubs the parameters' do
+      listing_params = Admin::ListingsController::ListingParams.build(params)
+      expect(listing_params).to eq({'title' => 'A Title'})
+    end
+
+    it 'requires a listing' do
+      expect { Admin::ListingsController::ListingParams.build(blank_params) }.to(
+        raise_error(ActionController::ParameterMissing, /listing/)
+      )
+    end
+  end
+
   describe 'GET index' do
     it 'should assign @listings' do
       get :index
@@ -22,18 +39,18 @@ describe Admin::ListingsController do
 
   describe 'PUT update' do
     it 'should assign @listing' do
-      put :update, { id: @listing.id, listing: {} }
+      put :update, { id: @listing.id, listing: { title: 'A Title' } }
       expect(assigns(:listing)).to eq(@listing)
     end
 
     context 'when updating succeeds' do
       it 'should set the flash appropriately' do
-        put :update, { id: @listing.id, listing: {} }
+        put :update, { id: @listing.id, listing: { title: 'A Title' } }
         expect(flash[:notice]).to match(/success/)
       end
 
       it 'should redirect to the admin_listings_path' do
-        put :update, { id: @listing.id, listing: {} }
+        put :update, { id: @listing.id, listing: { title: 'A Title' } }
         expect(response).to redirect_to(admin_listings_path)
       end
     end
@@ -60,7 +77,7 @@ describe Admin::ListingsController do
 
   describe 'POST create' do
     it 'should assign @listing' do
-      post :create, listing: {}
+      post :create, listing: { title: 'A Title' }
       expect(assigns(:listing)).to be_a(Listing)
     end
 
@@ -70,24 +87,24 @@ describe Admin::ListingsController do
       end
 
       it 'should set the flash appropriately' do
-        post :create, listing: {}
+        post :create, listing: { title: 'A Title' }
         expect(flash[:notice]).to match(/success/)
       end
 
       it 'should redirect to the admin_listings_path' do
-        post :create, listing: {}
+        post :create, listing: { title: 'A Title' }
         expect(response).to redirect_to(admin_listings_path)
       end
     end
 
     context 'when creating fails' do
       it 'should set the flash appropriately' do
-        post :create, listing: {}
+        post :create, listing: { title: 'A Title' }
         expect(flash[:error]).to match(/problem creating/)
       end
 
       it 'should render the new template' do
-        post :create, listing: {}
+        post :create, listing: { title: 'A Title' }
         expect(response).to render_template(:new)
       end
     end

@@ -5,9 +5,6 @@ class DynamicContent < ActiveRecord::Base
   # Internal: Valid subjects for a DynamicContent.
   VALID_SUBJECTS = %w(biography)
 
-  # Internal: Allow mass-assignment.
-  attr_accessible :content, :subject, :region, :region_id
-
   # Internal: Each DynamicContent (optionally) belongs to a Region.
   belongs_to :region
 

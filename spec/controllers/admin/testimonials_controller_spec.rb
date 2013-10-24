@@ -6,6 +6,23 @@ describe Admin::TestimonialsController do
     sign_in_admin
   end
 
+  describe Admin::TestimonialsController::TestimonialParams do
+    let (:hash) { { testimonial: { name: 'A Name' } } }
+    let (:params) { ActionController::Parameters.new(hash) }
+    let (:blank_params) { ActionController::Parameters.new({}) }
+
+    it 'scrubs the parameters' do
+      testimonial_params = Admin::TestimonialsController::TestimonialParams.build(params)
+      expect(testimonial_params).to eq({'name' => 'A Name'})
+    end
+
+    it 'requires a testimonial' do
+      expect { Admin::TestimonialsController::TestimonialParams.build(blank_params) }.to(
+        raise_error(ActionController::ParameterMissing, /testimonial/)
+      )
+    end
+  end
+
   describe 'GET index' do
     it 'should assign @testimonials' do
       get :index
@@ -22,18 +39,18 @@ describe Admin::TestimonialsController do
 
   describe 'PUT update' do
     it 'should assign @testimonial' do
-      put :update, { id: @testimonial.id, testimonial: {} }
+      put :update, { id: @testimonial.id, testimonial: { name: 'A Name' } }
       expect(assigns(:testimonial)).to eq(@testimonial)
     end
 
     context 'when updating succeeds' do
       it 'should set the flash appropriately' do
-        put :update, { id: @testimonial.id, testimonial: {} }
+        put :update, { id: @testimonial.id, testimonial: { name: 'A Name' } }
         expect(flash[:notice]).to match(/success/)
       end
 
       it 'should redirect to the admin_testimonials_path' do
-        put :update, { id: @testimonial.id, testimonial: {} }
+        put :update, { id: @testimonial.id, testimonial: { name: 'A Name' } }
         expect(response).to redirect_to(admin_testimonials_path)
       end
     end
@@ -60,7 +77,7 @@ describe Admin::TestimonialsController do
 
   describe 'POST create' do
     it 'should assign @testimonial' do
-      post :create, testimonial: {}
+      post :create, testimonial: { name: 'A Name' }
       expect(assigns(:testimonial)).to be_a(Testimonial)
     end
 
@@ -70,24 +87,24 @@ describe Admin::TestimonialsController do
       end
 
       it 'should set the flash appropriately' do
-        post :create, testimonial: {}
+        post :create, testimonial: { name: 'A Name' }
         expect(flash[:notice]).to match(/success/)
       end
 
       it 'should redirect to the admin_testimonials_path' do
-        post :create, testimonial: {}
+        post :create, testimonial: { name: 'A Name' }
         expect(response).to redirect_to(admin_testimonials_path)
       end
     end
 
     context 'when creating fails' do
       it 'should set the flash appropriately' do
-        post :create, testimonial: {}
+        post :create, testimonial: { name: 'A Name' }
         expect(flash[:error]).to match(/problem creating/)
       end
 
       it 'should render the new template' do
-        post :create, testimonial: {}
+        post :create, testimonial: { name: 'A Name' }
         expect(response).to render_template(:new)
       end
     end

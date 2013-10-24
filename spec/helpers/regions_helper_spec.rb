@@ -13,7 +13,7 @@ describe RegionsHelper do
 
 
     before do
-      helper.stub!(:url_for).and_return('/')
+      helper.stub(:url_for).and_return('/')
     end
 
     it 'should return a definition list' do

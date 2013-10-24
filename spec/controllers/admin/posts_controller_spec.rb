@@ -6,6 +6,23 @@ describe Admin::PostsController do
     sign_in_admin
   end
 
+  describe Admin::PostsController::PostParams do
+    let (:hash) { { post: { title: 'A Title' } } }
+    let (:params) { ActionController::Parameters.new(hash) }
+    let (:blank_params) { ActionController::Parameters.new({}) }
+
+    it 'scrubs the parameters' do
+      post_params = Admin::PostsController::PostParams.build(params)
+      expect(post_params).to eq({'title' => 'A Title'})
+    end
+
+    it 'requires a post' do
+      expect { Admin::PostsController::PostParams.build(blank_params) }.to(
+        raise_error(ActionController::ParameterMissing, /post/)
+      )
+    end
+  end
+
   describe 'GET index' do
     it 'should assign @posts' do
       get :index
@@ -22,18 +39,18 @@ describe Admin::PostsController do
 
   describe 'PUT update' do
     it 'should assign @post' do
-      put :update, { id: @post.id, post: {} }
+      put :update, { id: @post.id, post: { title: 'A Title' } }
       expect(assigns(:post)).to eq(@post)
     end
 
     context 'when updating succeeds' do
       it 'should set the flash appropriately' do
-        put :update, { id: @post.id, post: {} }
+        put :update, { id: @post.id, post: { title: 'A Title' } }
         expect(flash[:notice]).to match(/success/)
       end
 
       it 'should redirect to the admin_posts_path' do
-        put :update, { id: @post.id, post: {} }
+        put :update, { id: @post.id, post: { title: 'A Title' } }
         expect(response).to redirect_to(admin_posts_path)
       end
     end
@@ -60,7 +77,7 @@ describe Admin::PostsController do
 
   describe 'POST create' do
     it 'should assign @post' do
-      post :create, post: {}
+      post :create, post: { title: 'A Title' }
       expect(assigns(:post)).to be_a(Post)
     end
 
@@ -70,24 +87,24 @@ describe Admin::PostsController do
       end
 
       it 'should set the flash appropriately' do
-        post :create, post: {}
+        post :create, post: { title: 'A Title' }
         expect(flash[:notice]).to match(/success/)
       end
 
       it 'should redirect to the admin_posts_path' do
-        post :create, post: {}
+        post :create, post: { title: 'A Title' }
         expect(response).to redirect_to(admin_posts_path)
       end
     end
 
     context 'when creating fails' do
       it 'should set the flash appropriately' do
-        post :create, post: {}
+        post :create, post: { title: 'A Title' }
         expect(flash[:error]).to match(/problem creating/)
       end
 
       it 'should render the new template' do
-        post :create, post: {}
+        post :create, post: { title: 'A Title' }
         expect(response).to render_template(:new)
       end
     end

@@ -15,8 +15,8 @@ DanielkeetonCom::Application.routes.draw do
 
   resources :posts, only: [:index, :show]
 
-  match 'homeworth' => 'home#homeworth'
-  match 'contact' => 'home#contact'
+  post 'homeworth' => 'home#homeworth'
+  post 'contact' => 'home#contact'
 
   # Public: Admin routes.
   namespace :admin do

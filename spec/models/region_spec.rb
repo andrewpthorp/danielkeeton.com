@@ -2,13 +2,6 @@ require 'spec_helper'
 
 describe Region do
 
-  describe '.mass-assignment' do
-    it { should allow_mass_assignment_of(:name) }
-    it { should allow_mass_assignment_of(:slug) }
-    it { should allow_mass_assignment_of(:idx_value) }
-    it { should allow_mass_assignment_of(:linkable) }
-  end
-
   describe '.validations' do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:slug) }

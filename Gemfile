@@ -1,8 +1,8 @@
 # A sample Gemfile
-source "https://rubygems.org"
-ruby '1.9.3'
+source 'https://rubygems.org'
+ruby '2.0.0'
 
-gem 'rails'
+gem 'rails', '4.0.0'
 gem 'carrierwave'
 gem 'devise'
 gem 'mail_view', '~> 1.0.3'
@@ -18,32 +18,30 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'sass'
 gem 'compass'
-gem 'compass-rails'
+gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'redcarpet'
 gem 'geocoder'
 gem 'nested_form'
-gem 'friendly_id'
+gem 'friendly_id', git: 'https://github.com/norman/friendly_id.git'
 gem 'newrelic_rpm'
 gem 'dalli'
 gem 'memcachier'
-
-group :assets do
-  gem 'sass-rails', '~> 3.2.5'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'sass-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier'
 
 group :development do
   gem 'guard'
   gem 'guard-livereload'
   gem 'guard-rspec'
-  gem 'quiet_assets'
-  gem 'better_errors'
-  gem 'binding_of_caller'
 end
 
 group :development, :test do
   gem 'rspec-rails'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
 
 group :test do

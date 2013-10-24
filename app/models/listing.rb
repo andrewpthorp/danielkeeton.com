@@ -5,17 +5,11 @@ class Listing < ActiveRecord::Base
   # Internal: Valid states for a Listing.
   VALID_STATES = %w(for_sale for_rent under_contract sold cancelled)
 
-  # Internal: Allow mass-assignment.
-  attr_accessible :title, :description, :status, :price, :featured, :link,
-                  :address_line_1, :address_line_2, :city, :state, :zip,
-                  :bedrooms, :bathrooms, :year_built, :square_footage,
-                  :lot_size, :images_attributes, :images
-
   # Internal: Extend the FriendlyId module to allow us to use friendly_id.
   extend FriendlyId
 
   # Internal: Slug the :title of Listings using FriendlyId.
-  friendly_id :title, use: :slugged
+  friendly_id :title, use: [:slugged, :finders]
 
   # Internal: Each Listing has many Images.
   has_many :images, dependent: :destroy
@@ -64,32 +58,32 @@ class Listing < ActiveRecord::Base
   # Public: Get all Listings where featured is set to true.
   #
   # Returns a Listing::FriendlyIdActiveRecordRelation.
-  scope :featured, where(featured: true)
+  scope :featured, -> { where(featured: true) }
 
   # Public: Get all Listings where status is set to 'for_sale.'
   #
   # Returns a Listing::FriendlyIdActiveRecordRelation.
-  scope :for_sale, where(status: 'for_sale')
+  scope :for_sale, -> { where(status: 'for_sale') }
 
   # Public: Get all Listings where status is set to 'for_rent.'
   #
   # Returns a Listing::FriendlyIdActiveRecordRelation.
-  scope :for_rent, where(status: 'for_rent')
+  scope :for_rent, -> { where(status: 'for_rent') }
 
   # Public: Get all Listings where status is set to 'under_contract.'
   #
   # Returns a Listing::FriendlyIdActiveRecordRelation.
-  scope :under_contract, where(status: 'under_contract')
+  scope :under_contract, -> { where(status: 'under_contract') }
 
   # Public: Get all Listings where status is set to 'sold.'
   #
   # Returns a Listing::FriendlyIdActiveRecordRelation.
-  scope :sold, where(status: 'sold')
+  scope :sold, -> { where(status: 'sold') }
 
   # Public: Get all Listings where status is set to 'cancelled.'
   #
   # Returns a Listing::FriendlyIdActiveRecordRelation.
-  scope :cancelled, where(status: 'cancelled')
+  scope :cancelled, -> { where(status: 'cancelled') }
 
   # Public: Get a formatted version of my address.
   #

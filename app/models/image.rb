@@ -4,9 +4,6 @@
 # Images.
 class Image < ActiveRecord::Base
 
-  # Internal: Allow mass-assignment.
-  attr_accessible :file, :primary
-
   # Internal: Each Image belongs to a Listing.
   belongs_to :listing
 
@@ -27,12 +24,12 @@ class Image < ActiveRecord::Base
   # listing_id - The :id of a Listing to get all Images for.
   #
   # Returns an ActiveRecord::Relation.
-  scope :for_listing, lambda { |listing_id| where(listing_id: listing_id) }
+  scope :for_listing, -> (listing_id) { where(listing_id: listing_id) }
 
   # Public: Get all Images with :primary set to true.
   #
   # Returns an ActiveRecord::Relation.
-  scope :primary, where(primary: true)
+  scope :primary, -> { where(primary: true) }
 
 protected
 

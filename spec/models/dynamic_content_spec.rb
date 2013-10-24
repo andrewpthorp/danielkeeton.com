@@ -2,13 +2,6 @@ require 'spec_helper'
 
 describe DynamicContent do
 
-  describe '.mass-assignment' do
-    it { should allow_mass_assignment_of(:content) }
-    it { should allow_mass_assignment_of(:subject) }
-    it { should allow_mass_assignment_of(:region) }
-    it { should allow_mass_assignment_of(:region_id) }
-  end
-
   describe '.associations' do
     it { should belong_to(:region) }
   end
