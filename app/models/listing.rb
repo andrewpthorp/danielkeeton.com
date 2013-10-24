@@ -35,7 +35,7 @@ class Listing < ActiveRecord::Base
 
   # Internal: Validate presence and correct numericality of :bedrooms.
   validates :bedrooms, presence: true,
-                        numericality: { only_integer: true, greater_than: 0 }
+                        numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   # Internal: Validate numericality of :year_built, allow it to be nil.
   validates :year_built, numericality: { greater_than_or_equal_to: 1800 },
