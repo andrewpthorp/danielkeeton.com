@@ -7,5 +7,4 @@
           - images.each do |image|
             %li
               = image_tag image.image
-              .orbit-caption
-                = image.content
+              = slider_caption(image)
