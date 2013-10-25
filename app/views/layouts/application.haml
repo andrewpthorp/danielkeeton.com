@@ -20,11 +20,11 @@
 
 %body
 
+  = render 'shared/flashes'
   = render 'shared/global_header'
 
   #main-content
     = render 'shared/mobile_navigation'
-    = render 'shared/flashes'
     = yield
 
   = render 'shared/global_footer'

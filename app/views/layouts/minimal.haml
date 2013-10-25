@@ -20,10 +20,11 @@
 
 %body.minimal
 
+  = render 'shared/flashes'
+
   .row
     .large-6.large-centered.columns
       #main-content
-        = render 'shared/flashes'
         = yield
 
   - if Rails.env.production?

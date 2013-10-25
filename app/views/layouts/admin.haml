@@ -20,12 +20,12 @@
 
 %body.admin
 
+  = render 'shared/flashes'
   = render 'shared/admin_header'
 
   .row
     .large-9.large-centered.columns
       #main-content
-        = render 'shared/flashes'
         = yield
 
   - if Rails.env.production?
