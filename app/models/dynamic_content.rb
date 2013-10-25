@@ -18,6 +18,9 @@ class DynamicContent < ActiveRecord::Base
   validates :subject, presence: true,
                       inclusion: { in: DynamicContent::VALID_SUBJECTS }
 
+  # Internal: The default scope should order by :subject, then :id.
+  default_scope { order(:subject, :id) }
+
   # Public: Return all DynamicContent with a given subject for a given region.
   #
   # subject     - The String subject to query for (ex: 'biography').

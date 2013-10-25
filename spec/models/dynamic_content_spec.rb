@@ -14,6 +14,14 @@ describe DynamicContent do
     it { should_not allow_value('cannon').for(:subject) }
   end
 
+  describe '.scopes' do
+    describe '.default_scope' do
+      it 'should order by subject, then id' do
+        expect(DynamicContent.all).to eq(DynamicContent.order(:subject, :id))
+      end
+    end
+  end
+
   describe '.methods' do
     describe '.content_for' do
       let! (:with_region) { FactoryGirl.create(:dynamic_content_with_region) }
