@@ -1,7 +1,7 @@
 - region_header = region.nil? ? 'Default Content' : "Content for #{region.name}"
 - region_id = region.nil? ? nil : region.id
 
-%h3
+%h4
   = region_header
   %span
     = link_to 'New', new_admin_dynamic_content_path(region_id: region_id), class: 'button tiny'
@@ -10,9 +10,7 @@
     - dynamic_contents.each do |content|
       %li.row
         .large-9.columns
-          %strong
-            = content.subject.titleize
-            &mdash;
+          %small.tag= content.subject.upcase
           = content.title
         .large-3.columns
           %ul.actions
