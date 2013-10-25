@@ -85,6 +85,12 @@ describe Listing do
   end
 
   describe '.scopes' do
+    describe '.default_scope' do
+      it 'should order by status, then id' do
+        expect(Listing.all).to eq(Listing.order(:status, :id))
+      end
+    end
+
     describe '.featured' do
       let (:hash) { Listing.featured.where_values_hash }
 

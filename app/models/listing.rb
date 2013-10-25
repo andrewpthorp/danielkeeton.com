@@ -55,6 +55,9 @@ class Listing < ActiveRecord::Base
   # Internal: After validating the Listing, geocode for latitude and longitude.
   after_validation :geocode
 
+  # Internal: The default scope should order by :status, then :id.
+  default_scope { order(:status, :id) }
+
   # Public: Get all Listings where featured is set to true.
   #
   # Returns a Listing::FriendlyIdActiveRecordRelation.

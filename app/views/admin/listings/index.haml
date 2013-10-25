@@ -7,7 +7,7 @@
     - @listings.each do |listing|
       %li.row
         .large-10.columns
-          %small.tag= listing.status.titleize.upcase
+          %small.tag{class: listing.status}= listing.status.titleize.upcase
           = truncate(listing.title, length: 75)
         .large-2.columns
           %ul.actions
