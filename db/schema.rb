@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131021233627) do
+ActiveRecord::Schema.define(version: 20131025173646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(version: 20131021233627) do
     t.integer  "region_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
+    t.string   "title"
+    t.text     "mobile_content"
   end
 
   add_index "dynamic_contents", ["region_id"], name: "index_dynamic_contents_on_region_id", using: :btree

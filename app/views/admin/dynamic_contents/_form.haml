@@ -1,5 +1,10 @@
 = form_for [:admin, dynamic_content], html: { class: 'custom dynamic-contents-form' } do |f|
   .row
+    .large-12.columns
+      = f.label :title, 'Title (Only for you, public does not see this)'
+      = f.text_field :title
+
+  .row
     .large-6.columns
       = f.label :subject
       = f.select :subject, DynamicContent::VALID_SUBJECTS.each.map { |val| [val.titleize, val] }
@@ -11,6 +16,18 @@
     .large-12.columns
       = f.label :content
       = f.text_area :content
+
+  .row
+    .large-12.columns
+      = f.label :mobile_content, 'Content for Mobile / Small Devices'
+      = f.text_field :mobile_content
+
+  .row
+    .large-12.columns
+      = f.label :image
+      = f.file_field :image
+      - unless f.object.image.blank?
+        = image_tag f.object.image
 
   %footer
     .row

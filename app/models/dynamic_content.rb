@@ -3,13 +3,16 @@
 class DynamicContent < ActiveRecord::Base
 
   # Internal: Valid subjects for a DynamicContent.
-  VALID_SUBJECTS = %w(biography)
+  VALID_SUBJECTS = %w(biography image)
 
   # Internal: Each DynamicContent (optionally) belongs to a Region.
   belongs_to :region
 
-  # Internal: Validate presence of :content.
-  validates :content, presence: true
+  # Internal: Use CarrierWave to mount the DynamicContentUploader on :image.
+  mount_uploader :image, DynamicContentUploader
+
+  # Internal: Validate presence of specified attributes.
+  validates :title, :content, presence: true
 
   # Internal: Validate presence and valid state of :subject.
   validates :subject, presence: true,

@@ -10,7 +10,10 @@
     - dynamic_contents.each do |content|
       %li.row
         .large-9.columns
-          = content.subject.titleize
+          %strong
+            = content.subject.titleize
+            &mdash;
+          = content.title
         .large-3.columns
           %ul.actions
             %li= link_to 'Edit', edit_admin_dynamic_content_path(content)

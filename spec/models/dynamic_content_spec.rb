@@ -7,6 +7,7 @@ describe DynamicContent do
   end
 
   describe '.validations' do
+    it { should validate_presence_of(:title) }
     it { should validate_presence_of(:content) }
     it { should validate_presence_of(:subject) }
     it { should allow_value('biography').for(:subject) }
