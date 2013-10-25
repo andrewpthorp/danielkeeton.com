@@ -2,8 +2,9 @@
   .row.hide-for-small
     .large-12.columns.clearfix
       %h1
-        Daniel
-        %span Keeton
+        = link_to root_path do
+          Daniel
+          %span Keeton
       %ul#nav
         %li= link_to 'Home', root_path, class: @section == 'home' ? 'active' : ''
         %li= link_to 'Listings', listings_path, class: @section == 'listings' ? 'active' : ''
