@@ -8,7 +8,7 @@
       %li.row
         .large-10.columns
           %small.tag= testimonial.name
-          = truncate(testimonial.body, length: 50)
+          = truncate(testimonial.body, length: 65)
         .large-2.columns
           %ul.actions
             %li= link_to '', edit_admin_testimonial_path(testimonial), class: 'icon-edit'

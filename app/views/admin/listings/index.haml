@@ -8,7 +8,7 @@
       %li.row
         .large-10.columns
           %small.tag= listing.status.titleize.upcase
-          = truncate(listing.title, length: 65)
+          = truncate(listing.title, length: 75)
         .large-2.columns
           %ul.actions
             %li= link_to '', edit_admin_listing_path(listing), class: 'icon-edit'

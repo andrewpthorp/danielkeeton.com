@@ -12,7 +12,7 @@
             %small.tag.green PUBLISHED
           - else
             %small.tag.light-blue DRAFT
-          = truncate(post.title, length: 65)
+          = truncate(post.title, length: 75)
         .large-2.columns
           %ul.actions
             %li= link_to '', edit_admin_post_path(post), class: 'icon-edit'
