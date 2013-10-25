@@ -15,7 +15,7 @@ class Admin::DynamicContentsController < Admin::BaseController
   end
 
   def index
-    @dynamic_contents = DynamicContent.all
+    @dynamic_contents = DynamicContent.all.group_by(&:region)
   end
 
   def edit
@@ -34,6 +34,7 @@ class Admin::DynamicContentsController < Admin::BaseController
 
   def new
     @dynamic_content = DynamicContent.new
+    @dynamic_content.region_id = params[:region_id] unless params[:region_id].blank?
   end
 
   def create

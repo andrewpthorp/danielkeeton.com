@@ -24,9 +24,13 @@ describe Admin::DynamicContentsController do
   end
 
   describe 'GET index' do
-    it 'should assign @dynamic_contents' do
+    it 'should assign @dynamic_contents grouped by region' do
+      regioned = FactoryGirl.create(:dynamic_content_with_region)
       get :index
-      expect(assigns(:dynamic_contents)).to eq([@dynamic_content])
+      expect(assigns(:dynamic_contents)).to eq({
+        nil => [@dynamic_content],
+        regioned.region => [regioned]
+      })
     end
   end
 
@@ -72,6 +76,14 @@ describe Admin::DynamicContentsController do
     it 'should assign @dynamic_content' do
       get :new
       expect(assigns(:dynamic_content)).to be_a_new(DynamicContent)
+    end
+
+    context 'when passing :region_id as a parameter' do
+      it 'should assign .region_id on @dynamic_content' do
+        region = FactoryGirl.create(:region)
+        get :new, region_id: region.id
+        expect(assigns(:dynamic_content).region).to eq(region)
+      end
     end
   end
 
