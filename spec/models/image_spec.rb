@@ -78,7 +78,7 @@ describe Image do
 
     describe '.for_listing' do
       it 'should return images for a given listing' do
-        expect(Image.for_listing(@listing.id).to_a).to eq(@listing.images.to_a)
+        expect(Image.for_listing(@listing.id)).to match_array(@listing.images)
       end
     end
 
