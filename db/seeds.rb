@@ -1,55 +1,40 @@
-if Rails.env.development? && ENV['INCLUDE_SAMPLE_DATA']
+if Rails.env.development?
   puts 'Destroying Testimonials'
   Testimonial.destroy_all
 
   puts 'Loading Testimonials (5)'
-  Testimonial.create(body: 'Daniel is one of the most honest individuals you will ever meet in a life time. He has a true heart for his customers and will strive to meet your every need.', name: 'D. Walz')
-  Testimonial.create(body: 'Hardworking and has your best interest at heart. Highly recommend using his services.', name: 'A. McKinley')
-  Testimonial.create(body: 'Daniel Keeton was a great realtor. He was helpful from beginning to end. Daniel was also available day or night for any questions I had. I would highly recommend him to anyone looking to buy a house.', name: 'L. Gibson')
-  Testimonial.create(body: "Daniel was the best realtor we've had. We had constant traffic coming through looking at our house. He kept us informed throughout the whole process. I highly recommend Daniel.", name: 'L. Birchfield')
-  Testimonial.create(body: 'I want to say how much I enjoyed having Daniel Keeton represent me during my first real estate investment purchase. When I started thinking how I wanted to invest my money, I realized rental property may give me the best return on my investment with monthly income. Daniel is very excited about real estate and knowledgeable!  Whenever I saw a property I wanted to see, he was immediately available to show it. Every little detail from choosing the right house to closing the deal, Daniel was on it and assisted me through all the steps I needed to take once the contract was signed. I am so happy with Daniel, that I want to recommend him to anyone looking for a young, energetic and intelligent agent!', name: 'W. R.')
+  5.times do
+    FactoryGirl.create(:testimonial)
+  end
 
   puts 'Destroying Listings'
   Listing.destroy_all
 
   puts 'Loading Listings (20)'
-  FactoryGirl.create(:featured_listing)
-  FactoryGirl.create(:listing)
-  FactoryGirl.create(:listing, status: 'for_rent')
-  FactoryGirl.create(:listing, status: 'sold')
-  FactoryGirl.create(:listing, status: 'sold')
-  FactoryGirl.create(:listing, status: 'under_contract')
-  FactoryGirl.create(:listing, status: 'for_sale')
-  FactoryGirl.create(:listing, status: 'for_sale')
-  FactoryGirl.create(:listing, status: 'for_rent')
-  FactoryGirl.create(:listing, status: 'for_rent')
-  FactoryGirl.create(:listing, status: 'sold')
-  FactoryGirl.create(:listing, status: 'sold')
-  FactoryGirl.create(:listing, status: 'for_sale')
-  FactoryGirl.create(:listing, status: 'for_sale')
-  FactoryGirl.create(:listing, status: 'for_sale')
-  FactoryGirl.create(:listing, status: 'for_sale')
-  FactoryGirl.create(:listing, status: 'for_sale')
-  FactoryGirl.create(:listing, status: 'for_rent')
-  FactoryGirl.create(:listing, status: 'for_rent')
-  FactoryGirl.create(:listing, status: 'for_sale')
-  FactoryGirl.create(:listing, status: 'under_contract')
+  20.times do
+    FactoryGirl.create(:listing, status: %w(for_rent for_sale sold under_contract).sample)
+  end
+  puts 'Featuring Listing (1)'
+  Listing.all.sample.update_column(:featured, true)
 
   puts 'Destroying Posts'
   Post.destroy_all
 
   puts 'Loading Posts (5)'
-  FactoryGirl.create(:post)
-  FactoryGirl.create(:post)
-  FactoryGirl.create(:published_post)
-  FactoryGirl.create(:published_post)
-  FactoryGirl.create(:published_post)
+  5.times do
+    FactoryGirl.create(:published_post)
+  end
+
+  puts 'Destroying Biographies'
+  DynamicContent.destroy_all
+  puts 'Creating Biographies (1)'
+  FactoryGirl.create(:dynamic_content)
 end
 
 
 puts 'Destroying Regions'
 Region.destroy_all
-puts 'Loading Regions'
+puts 'Loading Regions (240)'
 [
   ['Afton', '322'], ['Alberta', '484'], ['Amelia', '1058'], ['Amherst', '1096'], ['Ampthill', '1130'], ['Appomattox', '1402'], ['Ark', '1569'], ['Arvonia', '1736'],
   ['Ashland', '1810'], ['Aylett', '2233'], ['Barhamsville', '2568'], ['Basye', '2792'], ['Beaverdam', '3183'], ['Blackstone', '4305'], ['Bowling Green', '5161'],
@@ -85,13 +70,6 @@ puts 'Loading Regions'
   Region.create(name: region[0], idx_value: region[1], slug: region[0].downcase.split.join(''))
 end
 
-puts 'Linking Regions'
+puts 'Linking Regions (2)'
 Region.where(name: 'Richmond').first.update_attributes(linkable: true)
 Region.where(name: 'Goochland').first.update_attributes(linkable: true)
-
-puts 'Destroying Biographies'
-DynamicContent.destroy_all
-puts 'Creating Biography'
-DynamicContent.create(subject: 'biography', region: nil, content: Faker::Lorem.paragraphs(3).join("\n\n"))
-
-puts 'Done.'
