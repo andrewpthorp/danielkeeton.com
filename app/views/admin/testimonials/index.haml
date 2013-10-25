@@ -6,11 +6,10 @@
   %ul.admin-list
     - @testimonials.each do |testimonial|
       %li.row
-        .large-9.columns
-          %strong= testimonial.name
-          &mdash;
+        .large-10.columns
+          %small.tag= testimonial.name
           = truncate(testimonial.body, length: 50)
-        .large-3.columns
+        .large-2.columns
           %ul.actions
-            %li= link_to 'Edit', edit_admin_testimonial_path(testimonial)
-            %li= link_to 'Delete', admin_testimonial_path(testimonial), method: :delete, confirm: 'Are you sure?'
+            %li= link_to '', edit_admin_testimonial_path(testimonial), class: 'icon-edit'
+            %li= link_to '', admin_testimonial_path(testimonial), method: :delete, confirm: 'Are you sure?', class: 'icon-delete'

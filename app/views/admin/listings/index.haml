@@ -6,9 +6,10 @@
   %ul.admin-list
     - @listings.each do |listing|
       %li.row
-        .large-9.columns
+        .large-10.columns
+          %small.tag= listing.status.titleize.upcase
           = truncate(listing.title, length: 65)
-        .large-3.columns
+        .large-2.columns
           %ul.actions
-            %li= link_to 'Edit', edit_admin_listing_path(listing)
-            %li= link_to 'Delete', admin_listing_path(listing), method: :delete, confirm: 'Are you sure?'
+            %li= link_to '', edit_admin_listing_path(listing), class: 'icon-edit'
+            %li= link_to '', admin_listing_path(listing), method: :delete, confirm: 'Are you sure?', class: 'icon-delete'

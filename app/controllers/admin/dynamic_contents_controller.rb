@@ -47,4 +47,14 @@ class Admin::DynamicContentsController < Admin::BaseController
     end
   end
 
+  def destroy
+    if DynamicContent.find(params[:id]).destroy
+      flash[:notice] = 'Content successfully deleted!'
+    else
+      flash[:error] = 'Oops! There was a problem deleting the content.'
+    end
+
+    redirect_to admin_dynamic_contents_path
+  end
+
 end

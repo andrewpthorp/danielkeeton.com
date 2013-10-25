@@ -122,4 +122,27 @@ describe Admin::DynamicContentsController do
     end
   end
 
+  describe 'DELETE destroy' do
+    it 'should redirect to the admin_dynamic_contents_path' do
+      delete :destroy, id: @dynamic_content.id
+      expect(response).to redirect_to(admin_dynamic_contents_path)
+    end
+
+    context 'when destroy succeeds' do
+      it 'should set the flash appropriately' do
+        delete :destroy, id: @dynamic_content.id
+        expect(flash[:notice]).to match(/success/)
+      end
+    end
+
+    context 'when destroy fails' do
+      it 'should set the flash appropriately' do
+        DynamicContent.stub(:find).and_return(@dynamic_content)
+        @dynamic_content.stub(:destroy).and_return(false)
+        delete :destroy, id: @dynamic_content.id
+        expect(flash[:error]).to match(/problem deleting/)
+      end
+    end
+  end
+
 end
