@@ -1,2 +1,4 @@
 - flash.each do |key, val|
-  %p.flash{class: key}= val
+  %p.flash{class: key}
+    = val
+    = link_to '', '#', class: 'icon-close'

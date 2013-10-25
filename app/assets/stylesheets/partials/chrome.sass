@@ -2,12 +2,23 @@
   color: $white
   font-size: 0.85em
   margin-bottom: 0px
-  padding: 3px 10px
+  padding: 3px 5px
   text-align: right
+  a
+    font-size: 0.7em !important
+    margin-left: 5px
   &.error, &.alert
     background: $alert-color
+    a
+      color: lighten($alert-color, 25%) !important
+      &:hover
+        color: darken($alert-color, 5%) !important
   &.success, &.notice
     background: $success-color
+    a
+      color: lighten($success-color, 25%) !important
+      &:hover
+        color: darken($success-color, 5%) !important
 
 #global-header, #admin-header
   +clearfix
