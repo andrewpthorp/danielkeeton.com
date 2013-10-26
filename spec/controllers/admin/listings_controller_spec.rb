@@ -26,7 +26,7 @@ describe Admin::ListingsController do
   describe 'GET index' do
     it 'should assign @listings' do
       get :index
-      expect(assigns(:listings)).to eq([@listing])
+      expect(assigns(:listings)).to eq({@listing.status => [@listing]})
     end
   end
 
@@ -72,6 +72,13 @@ describe Admin::ListingsController do
     it 'should assign @listing' do
       get :new
       expect(assigns(:listing)).to be_a_new(Listing)
+    end
+
+    context 'when passing a status' do
+      it 'should set the status on the listing' do
+        get :new, status: 'under_contract'
+        expect(assigns(:listing).status).to eq('under_contract')
+      end
     end
   end
 

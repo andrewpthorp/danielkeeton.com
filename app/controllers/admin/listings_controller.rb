@@ -15,7 +15,7 @@ class Admin::ListingsController < Admin::BaseController
   end
 
   def index
-    @listings = Listing.all
+    @listings = Listing.all.group_by(&:status)
   end
 
   def edit
@@ -34,6 +34,7 @@ class Admin::ListingsController < Admin::BaseController
 
   def new
     @listing = Listing.new
+    @listing.status = params[:status] unless params[:status].blank?
   end
 
   def create

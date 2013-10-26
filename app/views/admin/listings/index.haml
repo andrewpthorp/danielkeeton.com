@@ -1,15 +1,2 @@
-%h4
-  All Listings
-  %span
-    = link_to 'New', new_admin_listing_path, class: 'button tiny'
-%section
-  %ul.admin-list
-    - @listings.each do |listing|
-      %li.row
-        .large-10.columns
-          %small.tag{class: listing.status}= listing.status.titleize.upcase
-          = truncate(listing.title, length: 75)
-        .large-2.columns
-          %ul.actions
-            %li= link_to '', edit_admin_listing_path(listing), class: 'icon-edit'
-            %li= link_to '', admin_listing_path(listing), method: :delete, confirm: 'Are you sure?', class: 'icon-delete'
+- @listings.each do |status, listings|
+  = render 'listings', status: status, listings: listings
