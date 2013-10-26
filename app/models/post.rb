@@ -10,6 +10,9 @@ class Post < ActiveRecord::Base
   # Internal: Validate presence pf specific attributes.
   validates :title, :body, presence: true
 
+  # Internal: The default scope should order by created_at DESC.
+  default_scope { order('created_at DESC') }
+
   # Public: Get all Posts that are published.
   #
   # Returns a Post::FriendlyIdActiveRecordRelation.

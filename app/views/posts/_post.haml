@@ -5,7 +5,7 @@
     %h4= @post.title
 
   - if preview
-    = markdown(truncate(@post.body, length: 350))
+    = truncate_html(markdown(@post.body), length: 500)
     %footer.full-link
       = link_to 'View entire article', @post
 

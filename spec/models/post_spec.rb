@@ -8,6 +8,12 @@ describe Post do
   end
 
   describe '.scopes' do
+    describe '.default_scope' do
+      it 'should order by status, then id' do
+        expect(Post.all).to eq(Post.order('created_at DESC'))
+      end
+    end
+
     describe '.published' do
       let (:hash) { Post.published.where_values_hash }
 
