@@ -18,4 +18,9 @@ class Post < ActiveRecord::Base
   # Returns a Post::FriendlyIdActiveRecordRelation.
   scope :published, -> { where(published: true) }
 
+  # Public: Get all Posts that are not published.
+  #
+  # Returns a Post::FriendlyIdActiveRecordRelation.
+  scope :drafted, -> { where(published: false) }
+
 end

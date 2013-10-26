@@ -13,4 +13,17 @@ module PostsHelper
       .render(text).html_safe
   end
 
+  # Public: Get the status tag to use for a Post.
+  #
+  # post - The Post to render a status tag for.
+  #
+  # Returns an ActiveSupport::SafeBuffer.
+  def post_status_tag(post)
+    if post.published?
+      content_tag(:small, 'PUBLISHED', class: 'tag green')
+    else
+      content_tag(:small, 'DRAFT', class: 'tag light-blue')
+    end
+  end
+
 end

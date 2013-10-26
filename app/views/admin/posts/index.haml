@@ -1,19 +1,5 @@
-%h4
-  All Posts
-  %span
-    = link_to 'New', new_admin_post_path, class: 'button tiny'
-%section
-  %ul.admin-list
-    - @posts.each do |post|
-      %li.row
-        .large-10.columns
-          -# TODO: Helperize this!
-          - if post.published?
-            %small.tag.green PUBLISHED
-          - else
-            %small.tag.light-blue DRAFT
-          = truncate(post.title, length: 75)
-        .large-2.columns
-          %ul.actions
-            %li= link_to '', edit_admin_post_path(post), class: 'icon-edit'
-            %li= link_to '', admin_post_path(post), method: :delete, confirm: 'Are you sure?', class: 'icon-delete'
+- if @drafts.any?
+  = render 'posts', posts: @drafts, posts_header: 'Drafts', include_new: false
+
+- if @published.any?
+  = render 'posts', posts: @published, posts_header: 'Published Posts'

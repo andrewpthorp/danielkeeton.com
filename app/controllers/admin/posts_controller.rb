@@ -15,7 +15,8 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def index
-    @posts = Post.all
+    @published = Post.published
+    @drafts = Post.drafted
   end
 
   def edit

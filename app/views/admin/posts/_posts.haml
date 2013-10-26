@@ -1,0 +1,20 @@
+- posts_header ||= 'Published Posts'
+- include_new = true if include_new.nil?
+
+%h4
+  = posts_header
+  - if include_new
+    %span
+      = link_to 'New', new_admin_post_path, class: 'button tiny'
+
+%section
+  %ul.admin-list
+    - posts.each do |post|
+      %li.row
+        .large-10.columns
+          = post_status_tag(post)
+          = truncate(post.title, length: 75)
+        .large-2.columns
+          %ul.actions
+            %li= link_to '', edit_admin_post_path(post), class: 'icon-edit'
+            %li= link_to '', admin_post_path(post), method: :delete, confirm: 'Are you sure?', class: 'icon-delete'

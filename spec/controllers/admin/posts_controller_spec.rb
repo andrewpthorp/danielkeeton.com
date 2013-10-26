@@ -24,9 +24,18 @@ describe Admin::PostsController do
   end
 
   describe 'GET index' do
-    it 'should assign @posts' do
+    before do
+      @published = FactoryGirl.create(:published_post)
+    end
+
+    it 'should assign @published' do
       get :index
-      expect(assigns(:posts)).to eq([@post])
+      expect(assigns(:published)).to eq([@published])
+    end
+
+    it 'should assign @drafts' do
+      get :index
+      expect(assigns(:drafts)).to eq([@post])
     end
   end
 

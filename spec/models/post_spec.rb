@@ -15,10 +15,14 @@ describe Post do
     end
 
     describe '.published' do
-      let (:hash) { Post.published.where_values_hash }
+      it 'should return published posts' do
+        expect(Post.published).to eq(Post.where(published: true))
+      end
+    end
 
-      it 'should have the right conditions' do
-        expect(hash).to eq('published' => true)
+    describe '.drafted' do
+      it 'should return unpublished posts' do
+        expect(Post.drafted).to eq(Post.where(published: false))
       end
     end
   end
