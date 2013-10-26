@@ -13,8 +13,46 @@ describe ListingsHelper do
   end
 
   describe '#pretty_address' do
-    it 'should be tested' do
-      pending 'need to refactor'
+    let (:listing) { FactoryGirl.create(:listing) }
+    let (:results) { pretty_address(listing) }
+
+    it 'should return a div' do
+      expect(results).to have_selector('div.address')
+    end
+
+    it 'should include address_line_1' do
+      expect(results).to have_selector('p', text: listing.address_line_1)
+    end
+
+    it 'should include the city' do
+      expect(results).to have_selector('span', text: listing.city)
+    end
+
+    it 'should include the state' do
+      expect(results).to have_selector('span', text: listing.state)
+    end
+
+    it 'should include the zip' do
+      expect(results).to have_selector('span', text: listing.zip)
+    end
+
+    it 'should default the class on all p tags to margin-bottom-5' do
+      expect(results).to have_selector('p.margin-bottom-5', count: 2)
+    end
+
+    context 'when address_line_2 is not nil' do
+      it 'should include address_line_2' do
+        listing.address_line_2 = 'Suite 200'
+        expect(results).to have_selector('p', text: listing.address_line_2)
+      end
+    end
+
+    context 'when passing p_class into opts' do
+      let (:results) { pretty_address(listing, p_class: 'foo') }
+
+      it 'should use that p_class' do
+        expect(results).to have_selector('p.foo', count: 2)
+      end
     end
   end
 
