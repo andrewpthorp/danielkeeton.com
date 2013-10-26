@@ -1,22 +1,25 @@
 .feature-image
+  +box-shadow(0px 0px 0px 3px rgba(0, 0, 0, 0.1))
+  border-radius: 3px
   margin-bottom: $column-gutter
   position: relative
   img
-    +box-shadow(0px 0px 0px 3px $color_white)
+    border-radius: 3px
     position: relative
     z-index: 1
   .content
-    background: #fff
-    background: rgba(255, 255, 255, 0.75)
+    background: $color_dark_gray
+    background: rgba(0, 0, 0, 0.5)
+    border-radius: 0px 0px 3px 3px
     bottom: -1px
     left: 0px
-    padding: 8px 10px 10px
+    padding: 8px 10px
     position: absolute
     width: 100%
     z-index: 2
     h1, h2, h3, h4, h5, h6, p
       margin: 0px
-      color: darken($color_blue, 5%)
+      color: $color_white
       font-size: 0.75em
       text-align: left
 

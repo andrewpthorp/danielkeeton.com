@@ -20,32 +20,22 @@ ul, ol
 
 // ORBIT
 .slideshow-wrapper
-  +box-shadow(0px 0px 0px 3px $color_white)
+  +box-shadow(0px 0px 0px 3px rgba(0, 0, 0, 0.1))
   +box-sizing(border-box)
   background: darken($color_gray, 5%)
+  border-radius: 3px
   margin-bottom: $column-gutter
   min-height: 397px
   @media only screen and (max-width: #{$small-screen})
     min-height: 0px
 
 .orbit-container
+  border-radius: 3px
   .orbit-timer
     span
       display: none !important
   .orbit-next, .orbit-prev
     top: 45%
-  .orbit-next
-    span
-      border-left-color: $color_blue !important
-    &:hover
-      span
-        border-left-color: $color_light_blue !important
-  .orbit-prev
-    span
-      border-right-color: $color_blue !important
-    &:hover
-      span
-        border-right-color: $color_light_blue !important
 
 dl.sub-nav
   &.regions
