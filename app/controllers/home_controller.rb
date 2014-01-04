@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
 
+  # TODO: Do something better with this.
+  skip_before_filter :verify_authenticity_token, only: [:homeworth, :contact]
+
   def index
     @testimonial = Testimonial.order('RANDOM()').first
     @post = Post.published.order("created_at DESC").first
