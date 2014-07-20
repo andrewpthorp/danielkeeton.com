@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131025173646) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20140720194957) do
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -31,8 +28,8 @@ ActiveRecord::Schema.define(version: 20131025173646) do
     t.datetime "updated_at"
   end
 
-  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
-  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
+  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
   create_table "dynamic_contents", force: true do |t|
     t.string   "subject"
@@ -45,7 +42,7 @@ ActiveRecord::Schema.define(version: 20131025173646) do
     t.text     "mobile_content"
   end
 
-  add_index "dynamic_contents", ["region_id"], name: "index_dynamic_contents_on_region_id", using: :btree
+  add_index "dynamic_contents", ["region_id"], name: "index_dynamic_contents_on_region_id"
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -54,9 +51,9 @@ ActiveRecord::Schema.define(version: 20131025173646) do
     t.datetime "created_at"
   end
 
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", unique: true, using: :btree
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", unique: true
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "images", force: true do |t|
     t.string   "file"
@@ -66,8 +63,23 @@ ActiveRecord::Schema.define(version: 20131025173646) do
     t.datetime "updated_at"
   end
 
-  add_index "images", ["listing_id"], name: "index_images_on_listing_id", using: :btree
-  add_index "images", ["primary"], name: "index_images_on_primary", using: :btree
+  add_index "images", ["listing_id"], name: "index_images_on_listing_id"
+  add_index "images", ["primary"], name: "index_images_on_primary"
+
+  create_table "inquiries", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.text     "comments"
+    t.string   "address"
+    t.string   "square_footage"
+    t.string   "bathrooms"
+    t.string   "bedrooms"
+    t.text     "updates"
+    t.string   "inquiry_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "listings", force: true do |t|
     t.string   "title"
@@ -93,7 +105,7 @@ ActiveRecord::Schema.define(version: 20131025173646) do
     t.string   "slug"
   end
 
-  add_index "listings", ["slug"], name: "index_listings_on_slug", unique: true, using: :btree
+  add_index "listings", ["slug"], name: "index_listings_on_slug", unique: true
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -104,7 +116,7 @@ ActiveRecord::Schema.define(version: 20131025173646) do
     t.string   "slug"
   end
 
-  add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true, using: :btree
+  add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true
 
   create_table "regions", force: true do |t|
     t.string   "name"

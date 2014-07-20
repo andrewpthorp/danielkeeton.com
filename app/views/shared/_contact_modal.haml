@@ -13,25 +13,31 @@
 
       %hr.full-bleed
 
-      %form.custom{action: '/contact', method: 'POST', data: { abide: true }}
+      = form_for (@inquiry = Inquiry.new), html: { data: { abide: true }} do |f|
+        = f.hidden_field :inquiry_type, value: 'contact'
         .row
           .large-4.columns
-            = label_tag :name, 'Name'
-            = text_field_tag :name, '', required: true
+            = f.label :name, 'Name'
+            = f.text_field :name, required: true
           .large-4.columns
-            = label_tag :email, 'Email'
-            = text_field_tag :email, '', required: true
+            = f.label :email, 'Email'
+            = f.text_field :email, required: true
           .large-4.columns
-            = label_tag :phone, 'Phone'
-            = text_field_tag :phone, '', required: true
+            = f.label :phone, 'Phone'
+            = f.text_field :phone, required: true
 
         .row
           .large-12.columns
-            = label_tag :comments, 'Comments'
-            = text_area_tag :comments, '', required: true, class: 'margin-bottom-0'
+            = f.label :comments, 'Comments'
+            = f.text_area :comments, required: true, class: 'margin-bottom-0'
             %small.error
 
         %footer
           .row
-            .large-12.columns.clearfix
-              = submit_tag 'Send!', class: 'button success right margin-bottom-0'
+            .large-8.columns
+              = f.label :humanizer_answer, @inquiry.humanizer_question
+              = f.text_field :humanizer_answer
+              = f.hidden_field :humanizer_question_id
+
+            .large-4.columns.clearfix
+              = f.submit 'Send!', class: 'button success right margin-bottom-0'

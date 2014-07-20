@@ -14,9 +14,7 @@ DanielkeetonCom::Application.routes.draw do
   end
 
   resources :posts, only: [:index, :show]
-
-  post 'homeworth' => 'home#homeworth'
-  post 'contact' => 'home#contact'
+  resources :inquiries, only: [:create]
 
   # Public: Admin routes.
   namespace :admin do

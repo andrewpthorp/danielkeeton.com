@@ -30,11 +30,13 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier'
 gem 'truncate_html'
+gem 'humanizer'
 
 group :development do
   gem 'guard'
   gem 'guard-livereload'
   gem 'guard-rspec'
+  gem 'sqlite3'
 end
 
 group :development, :test do

@@ -9,40 +9,46 @@
 
       %hr.full-bleed
 
-      %form.custom{action: '/homeworth', method: 'POST', data: { abide: true }}
+      = form_for (@inquiry = Inquiry.new), html: { data: { abide: true }} do |f|
+        = f.hidden_field :inquiry_type, value: 'homeworth'
         .row
           .large-4.columns
-            = label_tag :name, 'Name'
-            = text_field_tag :name, '', required: true
+            = f.label :name, 'Name'
+            = f.text_field :name, required: true
           .large-4.columns
-            = label_tag :email, 'Email'
-            = text_field_tag :email, '', required: true
+            = f.label :email, 'Email'
+            = f.text_field :email, required: true
           .large-4.columns
-            = label_tag :phone, 'Phone'
-            = text_field_tag :phone, '', required: true
+            = f.label :phone, 'Phone'
+            = f.text_field :phone, required: true
 
         .row
           .large-12.columns
-            = label_tag :address, 'Home Address'
-            = text_field_tag :address, '', required: true
+            = f.label :address, 'Home Address'
+            = f.text_field :address, required: true
 
         .row
           .large-4.columns
-            = label_tag :square_feet, 'Square Footage'
-            = text_field_tag :square_feet, '', required: true
+            = f.label :square_footage, 'Square Footage'
+            = f.text_field :square_footage, required: true
           .large-4.columns
-            = label_tag :bathrooms, '# Bathrooms'
-            = text_field_tag :bathrooms, '', required: true
+            = f.label :bathrooms, '# Bathrooms'
+            = f.text_field :bathrooms, required: true
           .large-4.columns
-            = label_tag :bedrooms, '# Bedrooms'
-            = text_field_tag :bedrooms, '', required: true
+            = f.label :bedrooms, '# Bedrooms'
+            = f.text_field :bedrooms, required: true
 
         .row
           .large-12.columns
-            = label_tag :updates, 'Updates'
-            = text_area_tag :updates, '', class: 'margin-bottom-0'
+            = f.label :updates, 'Updates'
+            = f.text_area :updates, class: 'margin-bottom-0'
 
         %footer
           .row
-            .large-12.columns.clearfix
-              = submit_tag 'Get a Quote!', class: 'button success right margin-bottom-0'
+            .large-8.columns
+              = f.label :humanizer_answer, @inquiry.humanizer_question
+              = f.text_field :humanizer_answer
+              = f.hidden_field :humanizer_question_id
+
+            .large-4.columns.clearfix
+              = f.submit 'Get a Quote!', class: 'button success right margin-bottom-0'
