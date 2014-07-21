@@ -2,15 +2,13 @@
 
 FactoryGirl.define do
   factory :inquiry do
-    name "MyString"
-    email "MyString"
-    phone "MyString"
-    comments "MyText"
-    address "MyString"
-    square_footage "MyString"
-    bathrooms "MyString"
-    bedrooms "MyString"
-    updates "MyText"
+    name { Faker::Name.name }
+    email { Faker::Internet.email }
+    phone { Faker::PhoneNumber.phone_number }
     inquiry_type "homeworth"
+
+    # Pass humanizer by default
+    humanizer_question_id 0
+    humanizer_answer "four"
   end
 end
