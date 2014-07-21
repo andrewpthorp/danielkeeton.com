@@ -26,7 +26,7 @@ describe InquiriesController do
       end
 
       it 'should set the flash' do
-        post :inquiries, { inquiry: { inquiry_type: 'homeworth' } }
+        post :create, { inquiry: { inquiry_type: 'homeworth' } }
         expect(flash[:success]).to match(/received your message/)
       end
     end
@@ -37,13 +37,13 @@ describe InquiriesController do
       end
 
       it 'should set the flash' do
-        post :inquiries, { inquiry: { inquiry_type: 'homeworth' } }
+        post :create, { inquiry: { inquiry_type: 'homeworth' } }
         expect(flash[:error]).to match(/error sending your message/)
       end
     end
 
     it 'should redirect to the root' do
-      post :inquiries, { inquiry: { inquiry_type: 'homeworth' } }
+      post :create, { inquiry: { inquiry_type: 'homeworth' } }
       expect(response).to redirect_to(root_path)
     end
   end

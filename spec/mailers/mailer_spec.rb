@@ -4,7 +4,7 @@ describe Mailer do
 
   describe '.home_worth_email' do
     before do
-      @mail = Mailer.home_worth_email({name: 'Andrew'})
+      @mail = Mailer.home_worth_email({'name' => 'Andrew'})
     end
 
     it 'should render the subject' do
@@ -26,7 +26,7 @@ describe Mailer do
 
   describe '.contact_email' do
     before do
-      @mail = Mailer.contact_email({name: 'Daniel'})
+      @mail = Mailer.contact_email({'name' => 'Daniel'})
     end
 
     it 'should render the subject' do
