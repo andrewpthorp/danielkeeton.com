@@ -5,10 +5,10 @@
         .small-6.columns
           %li.nav-item= link_to 'Home', root_path, class: @section == 'home' ? 'active' : ''
         .small-6.columns
-          %li.nav-item= link_to 'Listings', listings_path, class: @section == 'listings' ? 'active' : ''
+          %li.nav-item= link_to 'Search MLS', listings_path, class: @section == 'listings' ? 'active' : ''
       .row
         .small-6.columns
-          %li.nav-item= link_to 'Words', posts_path, class: @section == 'posts' ? 'active' : ''
+          %li.nav-item= link_to 'Blog', posts_path, class: @section == 'posts' ? 'active' : ''
         .small-6.columns
           %li.nav-item= link_to 'Contact', '#', data: { :"reveal-id" => "contact-modal" }
 

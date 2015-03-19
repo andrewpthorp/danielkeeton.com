@@ -7,8 +7,8 @@
           %span Keeton
       %ul#nav
         %li= link_to 'Home', root_path, class: @section == 'home' ? 'active' : ''
-        %li= link_to 'Listings', listings_path, class: @section == 'listings' ? 'active' : ''
-        %li= link_to 'Words', posts_path, class: @section == 'posts' ? 'active' : ''
+        %li= link_to 'Search MLS', listings_path, class: @section == 'listings' ? 'active' : ''
+        %li= link_to 'Blog', posts_path, class: @section == 'posts' ? 'active' : ''
         %li= link_to 'Contact', '#', data: { :"reveal-id" => "contact-modal" }
       = link_to "What's my home worth?", '#', class: 'button success home-worth right', data: { :"reveal-id" => "home-worth-modal" }
   .row.show-for-small.hide-for-medium-up
