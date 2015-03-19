@@ -8,6 +8,6 @@ class Page < ActiveRecord::Base
   friendly_id :title, use: [:slugged, :finders]
 
   # Internal: Validate presence pf specific attributes.
-  validates :title, :body
+  validates :title, :body, presence: true
 
 end
