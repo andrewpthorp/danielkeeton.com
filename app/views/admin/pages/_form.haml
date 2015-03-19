@@ -1,0 +1,17 @@
+= form_for [:admin, page], html: { class: 'custom page-form' } do |f|
+  .row
+    .large-12.columns
+      = f.label :title
+      = f.text_field :title
+
+  .row
+    .large-12.columns
+      = f.label :body
+      = f.text_area :body
+
+  %footer
+    .row
+      .large-6.columns
+        = link_to 'Cancel', admin_pages_path, class: 'button secondary'
+      .large-6.columns.text-right
+        = f.submit 'Save', class: 'button success'
