@@ -29,6 +29,9 @@ DanielkeetonCom::Application.routes.draw do
     # Public: Admin routes for Posts.
     resources :posts, except: [:show]
 
+    # Public: Admin routes for Pages.
+    resources :pages, except: [:show]
+
     # Public: Admin routes for Testimonials.
     resources :testimonials, except: [:show]
 
