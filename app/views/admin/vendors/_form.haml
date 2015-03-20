@@ -1,0 +1,19 @@
+= form_for [:admin, vendor], html: { class: 'custom vendors-form' } do |f|
+  .row
+    .large-12.columns
+      = f.label :label, 'Label'
+      = f.text_field :label
+
+  .row
+    .large-12.columns
+      = f.label :image
+      = f.file_field :image
+      - unless f.object.image.blank?
+        = image_tag f.object.image
+
+  %footer
+    .row
+      .large-6.columns
+        = link_to 'Cancel', admin_vendors_path, class: 'button secondary'
+      .large-6.columns.text-right
+        = f.submit 'Save', class: 'button success'

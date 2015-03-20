@@ -1,0 +1,19 @@
+- vendors_header ||= 'Vendors'
+- include_new = true if include_new.nil?
+
+%h4
+  = vendors_header
+  - if include_new
+    %span
+      = link_to 'New', new_admin_vendor_path, class: 'button tiny'
+
+%section
+  %ul.admin-list
+    - vendors.each do |vendor|
+      %li.row
+        .large-10.columns
+          = vendor.label
+        .large-2.columns
+          %ul.actions
+            %li= link_to '', edit_admin_vendor_path(vendor), class: 'icon-edit'
+            %li= link_to '', admin_vendor_path(vendor), method: :delete, confirm: 'Are you sure?', class: 'icon-delete'
