@@ -38,10 +38,8 @@ class VendorUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :scale => [nil, 300]
+    process :resize_to_limit => [nil, 300]
   end
-
-  # process :resize_to_limit => [nil, 300]
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
