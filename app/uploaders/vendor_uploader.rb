@@ -31,8 +31,6 @@ class VendorUploader < CarrierWave::Uploader::Base
   # Process files as they are uploaded:
   # process :scale => [200, 300]
 
-  process :scale => [300, 300]
-
   #
   # def scale(width, height)
   #   # do something
@@ -42,6 +40,8 @@ class VendorUploader < CarrierWave::Uploader::Base
   # version :thumb do
   #   process :scale => [50, 50]
   # end
+
+  process :resize_to_fit => [300, 300]
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
