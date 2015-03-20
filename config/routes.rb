@@ -36,6 +36,9 @@ DanielkeetonCom::Application.routes.draw do
     # Public: Admin routes for Testimonials.
     resources :testimonials, except: [:show]
 
+    # Public: Admin routes for Vendors.
+    resources :vendors, except: [:show]
+
     # Public: Admin routes for DynamicContents.
     resources :dynamic_contents, except: [:show]
   end
