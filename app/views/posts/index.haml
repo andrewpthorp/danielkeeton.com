@@ -1,33 +1,23 @@
 .row
-  .large-7.columns.margin-bottom-30
-    .feature-image
-      = link_to image_tag('richmond/va-beach.jpg'), 'http://www.visitvirginiabeach.com/',
-                target: '_blank'
-      .content.bottom
-        %p
-          %strong Virginia Beach -
-          A gorgeous beach, only a short drive from Richmond!
+  .feature-image
+    = link_to image_tag('richmond/va-beach.jpg'), 'http://www.visitvirginiabeach.com/',
+              target: '_blank'
+    .content.bottom
+      %p
+        %strong Virginia Beach -
+        A gorgeous beach, only a short drive from Richmond!
 
-    %section
-      %header
-        %h4 My Blog
-      - if @posts.any?
-        %ul#post-list
-          - @posts.each do |post|
-            %li.row
-              .large-8.columns
-                = link_to post.title, post
-              .large-4.columns.text-right
-                %span.mute.italic= post.created_at.to_formatted_s(:calendar_date)
-            %hr
-      - else
-        %h3.text-center No Blog Entries Yet!
-
-  .large-5.columns
-    %section
-      %header
-        %h4 Testimonials
-
-      %ul.testimonials
-        - @testimonials.each do |testimonial|
-          = render 'testimonials/testimonial', testimonial: testimonial
+  %section
+    %header
+      %h4 My Blog
+    - if @posts.any?
+      %ul#post-list
+        - @posts.each do |post|
+          %li.row
+            .large-8.columns
+              = link_to post.title, post
+            .large-4.columns.text-right
+              %span.mute.italic= post.created_at.to_formatted_s(:calendar_date)
+          %hr
+    - else
+      %h3.text-center No Blog Entries Yet!
