@@ -1,0 +1,7 @@
+.row
+  %section.no-padding
+    %header
+      %h4 Preferred Vendors
+    .padding-left-15.padding-right-15.padding-top-15.padding-bottom-15
+      - @vendors.each do |vendor|
+        = render 'vendor', vendor: vendor
