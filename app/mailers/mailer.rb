@@ -6,6 +6,11 @@ class Mailer < ActionMailer::Base
     mail(to: "danielspencerkeeton@gmail.com", subject: "Website - What's My Home Worth")
   end
 
+  def selling_email(hash)
+    @data = hash
+    mail(to: "thaissa.mendes@gmail.com", subject: "Website - Selling")
+  end
+
   def contact_email(hash)
     @data = hash
     mail(to: "danielspencerkeeton@gmail.com", subject: "Website - Contact Form")

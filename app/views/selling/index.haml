@@ -1,0 +1,31 @@
+.row.margin-bottom-30
+  %section#page
+    %header
+      %h4= @page.title
+
+    = markdown(@page.body)
+
+    %hr.full-bleed
+
+    = form_for (@inquiry = Inquiry.new), html: { data: { abide: true }} do |f|
+      = f.hidden_field :inquiry_type, value: 'selling'
+      .row
+        .large-4.columns
+          = f.label :name, 'Name'
+          = f.text_field :name, required: true
+        .large-4.columns
+          = f.label :email, 'Email'
+          = f.text_field :email, required: true
+        .large-4.columns
+          = f.label :phone, 'Phone'
+          = f.text_field :phone, required: true
+
+      %footer
+        .row
+          .large-8.columns
+            = f.label :humanizer_answer, @inquiry.humanizer_question
+            = f.text_field :humanizer_answer
+            = f.hidden_field :humanizer_question_id
+
+          .large-4.columns.clearfix
+            = f.submit 'Submit Form', class: 'button success right margin-bottom-0'

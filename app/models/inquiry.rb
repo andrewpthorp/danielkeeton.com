@@ -21,6 +21,8 @@ private
   def send_email
     if self.inquiry_type == 'homeworth'
       Mailer.home_worth_email(self.attributes).deliver
+    elsif self.inquiry_type == 'selling'
+      Mailer.selling_email(self.attributes).deliver
     else
       Mailer.contact_email(self.attributes).deliver
     end

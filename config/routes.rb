@@ -18,6 +18,7 @@ DanielkeetonCom::Application.routes.draw do
   resources :pages, only: [:show]
   resources :testimonials, only: [:index]
   resources :vendors, only: [:index]
+  resources :selling, only: [:index]
 
   # Public: Admin routes.
   namespace :admin do
