@@ -8,4 +8,5 @@
         %li= link_to 'Testimonials', admin_testimonials_path, class: @section == 'testimonials' ? 'active' : ''
         %li= link_to 'Content', admin_dynamic_contents_path, class: @section == 'dynamic_contents' ? 'active' : ''
         %li= link_to 'Pages', admin_pages_path, class: @section == 'pages' ? 'active' : ''
+        %li= link_to 'Vendors', admin_vendors_path, class: @section == 'vendors' ? 'active' : ''
         %li= link_to 'Sign Out', destroy_admin_session_path, method: :delete
