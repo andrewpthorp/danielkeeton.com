@@ -17,6 +17,12 @@
     <p>
       Phone: <%= @data['phone'] %>
     </p>
+
+    <% if @data['comments'] %>
+      <p>
+        Comments: <%= @data['comments'] %>
+      </p>
+    <% end %>
   </body>
 </html>
 

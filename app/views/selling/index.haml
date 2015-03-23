@@ -19,6 +19,9 @@
         .large-4.columns
           = f.label :phone, 'Phone'
           = f.text_field :phone, required: true
+        .large-4.columns
+          = f.label :comments, 'Comments'
+          = f.textarea_field :comments
 
       %footer
         .row
@@ -27,5 +30,4 @@
             = f.text_field :humanizer_answer
             = f.hidden_field :humanizer_question_id
 
-          .large-4.columns.clearfix
-            = f.submit 'Submit Form', class: 'button success right margin-bottom-0'
+          = f.submit 'Submit Form', class: 'button success left margin-bottom-0 margin-top-2'
