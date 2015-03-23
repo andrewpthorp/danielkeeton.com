@@ -11,6 +11,7 @@
           %li.nav-item= link_to 'Blog', posts_path, class: @section == 'posts' ? 'active' : ''
         .small-6.columns
           %li.nav-item= link_to 'Testimonials', testimonials_path, class: @section == 'testimonials' ? 'active' : ''
+      .row
         .small-6.columns
           %li.nav-item= link_to 'Contact', '#', data: { :"reveal-id" => "contact-modal" }
 
