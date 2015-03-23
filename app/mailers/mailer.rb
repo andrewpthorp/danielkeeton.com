@@ -8,7 +8,7 @@ class Mailer < ActionMailer::Base
 
   def selling_email(hash)
     @data = hash
-    mail(to: "thaissa.mendes@gmail.com", subject: "Website - Selling")
+    mail(to: "danielspencerkeeton@gmail.com", subject: "Website - Selling")
   end
 
   def contact_email(hash)
