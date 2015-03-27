@@ -19,7 +19,7 @@ class Admin::PagesController < Admin::BaseController
   end
 
   def edit
-    @post = Page.find(params[:id])
+    @page = Page.find(params[:id])
   end
 
   def update
