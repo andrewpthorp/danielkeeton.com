@@ -1,8 +1,8 @@
 %li
   %blockquote.margin-bottom-10
     - if vendor.link
-      = link_to image_tag(vendor.image.thumb), vendor.link
-      %p.title= raw link_to(vendor.label, vendor.link)
+      = link_to image_tag(vendor.image.thumb), vendor.link,  :target => '_blank' 
+      %p.title= raw link_to(vendor.label, vendor.link,  :target => '_blank')
 
     - else
       = image_tag(vendor.image.thumb)
