@@ -2,7 +2,7 @@
   %blockquote.margin-bottom-10
     - if vendor.link
       = link_to image_tag(vendor.image.thumb), vendor.link
-      %p.title= link_to raw vendor.label, vendor.link
+      %p.title= raw link_to(vendor.label, vendor.link)
 
     - else
       = image_tag(vendor.image.thumb)
