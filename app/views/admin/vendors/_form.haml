@@ -6,6 +6,11 @@
 
   .row
     .large-12.columns
+      = f.label :link, 'Link'
+      = f.text_field :link
+
+  .row
+    .large-12.columns
       = f.label :image
       = f.file_field :image
       - unless f.object.image.blank?
