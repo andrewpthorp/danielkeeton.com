@@ -11,6 +11,19 @@
         %li= link_to 'Blog', posts_path, class: @section == 'posts' ? 'active' : ''
         %li= link_to 'Testimonials', testimonials_path, class: @section == 'testimonials' ? 'active' : ''
         %li= link_to 'Contact', '#', data: { :"reveal-id" => "contact-modal" }
+      %ul#nav.hidden
+        %li= link_to 'Home', root_path, class: @section == 'home' ? 'active' : ''
+        %li= link_to 'Search MLS', listings_path, class: @section == 'listings' ? 'active' : ''
+        %li= link_to 'Testimonials', testimonials_path, class: @section == 'testimonials' ? 'active' : ''
+        %li= link_to 'Help', selling_path, class: @section == 'selling' ? 'active' : ''
+          %ul#subnav
+            %li= link_to 'Selling', selling_path, class: @section == 'selling' ? 'active' : ''
+            %li= link_to 'Community', pages_path(:id => 'community'), class: @section == 'pages' ? 'active' : ''
+            %li= link_to 'Vendors', vendors_path, class: @section == 'vendors' ? 'active' : ''
+        %li= link_to 'About', pages_path(:id => 'about-me'), class: @section == 'pages' ? 'active' : ''
+          %li= link_to 'About Me', pages_path(:id => 'about-me'), class: @section == 'pages' ? 'active' : ''
+          %li= link_to 'Blog', posts_path, class: @section == 'posts' ? 'active' : ''
+        %li= link_to 'Contact', '#', data: { :"reveal-id" => "contact-modal" }
       = link_to "What's my home worth?", '#', class: 'button success home-worth right', data: { :"reveal-id" => "home-worth-modal" }
   .row.show-for-small.hide-for-medium-up
     .large-4.columns.large-centered
