@@ -20,10 +20,10 @@
         .small-6.columns.hidden
           %li.nav-item= link_to 'Selling', selling_index_path, class: @section == 'selling' ? 'active' : ''
         .small-6.columns.hidden
-          %li.nav-item= link_to 'Community', page_path(:id => 'community-resource'), class: @section == 'pages' ? 'active' : ''
+          %li.nav-item= link_to 'Community', page_path(:id => 'community-resource'), class: @section == 'pages-community-resource' ? 'active' : ''
       .row
         .small-12.columns.hidden
-          %li.nav-item= link_to 'About', page_path(:id => 'about-me'), class: @section == 'pages' ? 'active' : ''
+          %li.nav-item= link_to 'About', page_path(:id => 'about-me'), class: @section == 'pages-about-me' ? 'active' : ''
 
       .row
         .small-12.columns

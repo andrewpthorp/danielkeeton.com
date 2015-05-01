@@ -14,6 +14,9 @@ class ApplicationController < ActionController::Base
   # Returns nothing.
   def set_current_section
     @section = params[:controller]
+
+    if @section == 'page'
+      @section += '-' + params[:id]
   end
 
   # Internal: Set region in the session to what is in the params hash. If the
