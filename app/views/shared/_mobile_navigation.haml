@@ -14,6 +14,16 @@
       .row
         .small-6.columns
           %li.nav-item= link_to 'Contact', '#', data: { :"reveal-id" => "contact-modal" }
+        .small-6.columns.hidden
+          %li.nav-item= link_to 'Vendors', vendors_path, class: @section == 'vendors' ? 'active' : ''
+      .row
+        .small-6.columns.hidden
+          %li.nav-item= link_to 'Selling', selling_index_path, class: @section == 'selling' ? 'active' : ''
+        .small-6.columns.hidden
+          %li.nav-item= link_to 'Community', pag_path(:id => 'community-resource'), class: @section == 'pages' ? 'active' : ''
+      .row
+        .small-6.columns.hidden
+          %li.nav-item= link_to 'About', pag_path(:id => 'about-me'), class: @section == 'pages' ? 'active' : ''
 
       .row
         .small-12.columns

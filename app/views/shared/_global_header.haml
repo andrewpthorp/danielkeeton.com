@@ -18,7 +18,7 @@
         %li= link_to 'Help', selling_index_path, class: @section == 'selling' ? 'active' : ''
         %ul#subnav
           %li= link_to 'Selling', selling_index_path, class: @section == 'selling' ? 'active' : ''
-          %li= link_to 'Community', page_path(:id => 'community'), class: @section == 'pages' ? 'active' : ''
+          %li= link_to 'Community', page_path(:id => 'community-resource'), class: @section == 'pages' ? 'active' : ''
           %li= link_to 'Vendors', vendors_path, class: @section == 'vendors' ? 'active' : ''
         %li= link_to 'About', page_path(:id => 'about-me'), class: @section == 'pages' ? 'active' : ''
         %ul#subnav
