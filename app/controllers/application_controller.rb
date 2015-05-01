@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
 
     if @section == 'page'
       @section += '-' + params[:id]
+    end
   end
 
   # Internal: Set region in the session to what is in the params hash. If the
