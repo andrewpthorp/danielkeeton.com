@@ -31,3 +31,7 @@
       %h1.text-center
         Daniel
         %span Keeton
+:javascript
+  jQuery(document).ready(function($){
+    $('#subnav li.active').parent('#subnav').addClass('active');
+  });
