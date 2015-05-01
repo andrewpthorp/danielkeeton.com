@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   def set_current_section
     @section = params[:controller]
 
-    if @section == 'page'
+    if @section == 'pages'
       @section += '-' + params[:id]
     end
   end
