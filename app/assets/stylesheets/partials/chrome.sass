@@ -47,6 +47,19 @@
     li
       float: left
       margin-right: 5px
+
+      &.has-subnav
+        position: relative
+        &:hover
+          ul.subnav
+            display: block
+
+        ul.subnav
+          display: none
+          width: 110px
+          position: absolute
+          bottom: 0
+          left: 0
       a
         +transition(all 0.1s ease-in-out)
         border-radius: 3px
