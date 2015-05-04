@@ -5,13 +5,13 @@
         = link_to root_path do
           Daniel
           %span Keeton
-      %ul#nav
+      -#%ul#nav
         %li= link_to 'Home', root_path, class: @section == 'home' ? 'active' : ''
         %li= link_to 'Search MLS', listings_path, class: @section == 'listings' ? 'active' : ''
         %li= link_to 'Blog', posts_path, class: @section == 'posts' ? 'active' : ''
         %li= link_to 'Testimonials', testimonials_path, class: @section == 'testimonials' ? 'active' : ''
         %li= link_to 'Contact', '#', data: { :"reveal-id" => "contact-modal" }
-      %ul#nav.hidden
+      %ul#nav
         %li= link_to 'Home', root_path, class: @section == 'home' ? 'active' : ''
         %li= link_to 'Search MLS', listings_path, class: @section == 'listings' ? 'active' : ''
         %li= link_to 'Testimonials', testimonials_path, class: @section == 'testimonials' ? 'active' : ''
