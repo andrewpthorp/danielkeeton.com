@@ -48,6 +48,17 @@
       float: left
       margin-right: 5px
 
+      a
+        +transition(all 0.1s ease-in-out)
+        border-radius: 3px
+        color: $color_white
+        padding: 5px 8px
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5)
+        &:hover, &.active
+          background: $color_light_gray
+          color: $color_black
+          text-shadow: none
+
       &.has-subnav
         position: relative
         &:hover
@@ -60,16 +71,16 @@
           position: absolute
           bottom: 0
           left: 0
-      a
-        +transition(all 0.1s ease-in-out)
-        border-radius: 3px
-        color: $color_white
-        padding: 5px 8px
-        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5)
-        &:hover, &.active
-          background: $color_light_gray
-          color: $color_black
-          text-shadow: none
+          background-color: $color_white
+
+          li
+            display: block
+            margin: 0 10px
+            a
+              color: $color_black
+              &:hover, &:active
+                background-color: $color_light_gray
+
   ul#nav.hidden
     display: none
   .home-worth
