@@ -15,15 +15,17 @@
         %li= link_to 'Home', root_path, class: @section == 'home' ? 'active' : ''
         %li= link_to 'Search MLS', listings_path, class: @section == 'listings' ? 'active' : ''
         %li= link_to 'Testimonials', testimonials_path, class: @section == 'testimonials' ? 'active' : ''
-        %li= link_to 'Help', selling_index_path, class: @section == 'selling' ? 'active' : ''
-        %ul#subnav
-          %li= link_to 'Selling', selling_index_path, class: @section == 'selling' ? 'active' : ''
-          %li= link_to 'Community', page_path(:id => 'community-resource'), class: @section == 'pages-community-resource' ? 'active' : ''
-          %li= link_to 'Vendors', vendors_path, class: @section == 'vendors' ? 'active' : ''
-        %li= link_to 'About', page_path(:id => 'about-me'), class: @section == 'pages-about-me' ? 'active' : ''
-        %ul#subnav
-          %li= link_to 'About Me', page_path(:id => 'about-me'), class: @section == 'pages-about-me' ? 'active' : ''
-          %li= link_to 'Blog', posts_path, class: @section == 'posts' ? 'active' : ''
+        %li.has-subnav
+          link_to 'Help', selling_index_path, class: @section == 'selling' ? 'active' : ''
+          %ul#subnav
+            %li= link_to 'Selling', selling_index_path, class: @section == 'selling' ? 'active' : ''
+            %li= link_to 'Community', page_path(:id => 'community-resource'), class: @section == 'pages-community-resource' ? 'active' : ''
+            %li= link_to 'Vendors', vendors_path, class: @section == 'vendors' ? 'active' : ''
+        %li.has-subnav
+          link_to 'About', page_path(:id => 'about-me'), class: @section == 'pages-about-me' ? 'active' : ''
+          %ul#subnav
+            %li= link_to 'About Me', page_path(:id => 'about-me'), class: @section == 'pages-about-me' ? 'active' : ''
+            %li= link_to 'Blog', posts_path, class: @section == 'posts' ? 'active' : ''
         %li= link_to 'Contact', '#', data: { :"reveal-id" => "contact-modal" }
       = link_to "What's my home worth?", '#', class: 'button success home-worth right', data: { :"reveal-id" => "home-worth-modal" }
   .row.show-for-small.hide-for-medium-up
