@@ -65,6 +65,7 @@
           a
             background: $color_light_gray
             color: $color_black
+            text-shadon: none
 
           ul.subnav
             display: block
@@ -88,10 +89,12 @@
               display: block
               width: 105px
               color: $color_black
-              text-shadow: none
+              text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5)
+
               &:hover, &:active
                 background: $color_blue
                 color: $color_white
+                text-shadow: none
 
   ul#nav.hidden
     display: none
