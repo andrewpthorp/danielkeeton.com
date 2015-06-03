@@ -13,7 +13,7 @@
         %li= link_to 'Contact', '#', data: { :"reveal-id" => "contact-modal" }
       %ul#nav
         %li= link_to 'Home', root_path, class: @section == 'home' ? 'active' : ''
-        %li= link_to 'Search MLS', listings_path, class: @section == 'listings' ? 'active' : ''
+        %li= link_to 'Search Properties', listings_path, class: @section == 'listings' ? 'active' : ''
         %li= link_to 'Testimonials', testimonials_path, class: @section == 'testimonials' ? 'active' : ''
         %li.has-subnav
           = link_to 'Help', selling_index_path, class: @section == 'selling' ? 'active' : ''
