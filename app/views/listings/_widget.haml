@@ -2,7 +2,8 @@
 
   .widget
     %header
-      = image_tag listing.primary_image.file.featured
+      - unless listing.primary_image.blank?
+        = image_tag listing.primary_image.file.featured
 
     %article
       %h6.price= number_to_currency(listing.price, precision: 0)
