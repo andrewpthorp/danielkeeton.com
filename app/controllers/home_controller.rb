@@ -7,4 +7,7 @@ class HomeController < ApplicationController
     @images = DynamicContent.content_for('image', session[:region])
   end
 
+  def homeworth
+  end
+
 end

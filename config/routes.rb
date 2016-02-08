@@ -13,6 +13,8 @@ DanielkeetonCom::Application.routes.draw do
     end
   end
 
+  get '/homeworth', to: 'home#homeworth'
+
   resources :posts, only: [:index, :show]
   resources :inquiries, only: [:create]
   resources :pages, only: [:show]
